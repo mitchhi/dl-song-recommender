@@ -7,3 +7,7 @@ baseline_embedding:
   topk: 10
   log_every: 200
 
+tag_embedding:
+  pmi_threshold: 1.5
+  min_co_occurence: 5
+  n_clusters: 20
