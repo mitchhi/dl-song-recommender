@@ -17,3 +17,7 @@ torch
 soundfile
 scipy
 opencv-python
+iterative-stratification
+gensim
+plotly
+umap-learn
