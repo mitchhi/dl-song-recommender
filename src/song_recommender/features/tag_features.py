@@ -12,7 +12,6 @@ def get_tag_clusters(tag_list, tag_cluster_map):
         if t in tag_cluster_map
     ]
 
-
 def dominant_cluster(clusters):
     if not clusters:
         return None
@@ -25,8 +24,16 @@ def add_tag_cluster_features(df, valid_tags, tag_cluster_map):
         lambda tags: clean_tags(tags, valid_tags)
     )
 
+    df['tag_set'] = df['clean_tags'].apply(
+        lambda tags: set(tags) if tags else set()
+    )
+
     df['tag_clusters'] = df['clean_tags'].apply(
         lambda tags: get_tag_clusters(tags, tag_cluster_map)
+    )
+
+    df['cluster_set'] = df['tag_clusters'].apply(
+        lambda clusters: set(clusters) if clusters else set()
     )
 
     df['dominant_cluster'] = df['tag_clusters'].apply(dominant_cluster)
