@@ -1,0 +1,27 @@
+{
+  "saved_at": "2026-03-13T16:46:35",
+  "experiment_name": "05_Resnet18_contrastive_tags_infonce",
+  "reference_note": "Fused song embedding trained so audio similarity matches frozen notebook 2 tag-set similarity, with light audio view regularization.",
+  "run_label": "05_Resnet18_contrastive_tags_infonce",
+  "checkpoint_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\05_Resnet18_contrastive_tags_infonce\\checkpoint.pt",
+  "embeddings_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\05_Resnet18_contrastive_tags_infonce\\embeddings.npz",
+  "test_split_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\test.parquet",
+  "num_saved_tracks": 1690,
+  "metrics": [
+    {
+      "metric": "artist_hit@10",
+      "value": 0.1408284023668639,
+      "queries": 1690
+    },
+    {
+      "metric": "tag_overlap_hit@10",
+      "value": 0.9487790351399643,
+      "queries": 1679
+    },
+    {
+      "metric": "semantic_teacher_coverage",
+      "value": 0.993491124260355,
+      "queries": 1690
+    }
+  ]
+}

@@ -1,27 +1,27 @@
 {
-  "saved_at": "2026-03-13T04:47:17",
+  "saved_at": "2026-03-13T16:53:35",
   "experiment_name": "04_Resnet18_contrastive_tags",
   "reference_note": "Fused song embedding trained so audio similarity matches frozen notebook 2 tag-set similarity, with light audio view regularization.",
   "run_label": "04_Resnet18_contrastive_tags",
   "checkpoint_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\04_Resnet18_contrastive_tags\\checkpoint.pt",
   "embeddings_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\04_Resnet18_contrastive_tags\\embeddings.npz",
-  "test_split_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\test.parquet",
-  "num_saved_tracks": 1690,
+  "val_split_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\val.parquet",
+  "num_saved_tracks": 1447,
   "metrics": [
     {
       "metric": "artist_hit@10",
-      "value": 0.12662721893491125,
-      "queries": 1690
+      "value": 0.11817553559087768,
+      "queries": 1447
     },
     {
       "metric": "tag_overlap_hit@10",
-      "value": 0.9517569982132221,
-      "queries": 1679
+      "value": 0.9436717663421419,
+      "queries": 1438
     },
     {
       "metric": "semantic_teacher_coverage",
-      "value": 0.993491124260355,
-      "queries": 1690
+      "value": 0.9937802349689012,
+      "queries": 1447
     }
   ]
 }
