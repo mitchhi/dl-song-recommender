@@ -1,0 +1,2056 @@
+{
+  "queries": [
+    {
+      "query": {
+        "spotify_id": "7p4vHnYXkxlzvfePJVpcTr",
+        "name": "Feels Like Summer",
+        "artist": "Childish Gambino",
+        "year": 2018,
+        "preview_url": "https://p.scdn.co/mp3-preview/047c2dc49290e69888f7a20e26aecf619be2aebd?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0V7VYZiDt2kNO4WAhXXyxU",
+              "name": "When the War Came",
+              "artist": "The Decemberists",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/3f30a6447a5a774235b7d478c5e31f1bb0f20f0b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1mqRT3LFIm4EEgfehauyOS",
+              "name": "Stay Gold",
+              "artist": "First Aid Kit",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/83fe5b087d837ec38931004312d236691bae4ef6?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0twXiR143VtDIRZnI6aRsc",
+              "name": "Ice Monster",
+              "artist": "Minus the Bear",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/44a5a20d81f7c13dc19e884edd23759fe7838274?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0P7tXi7EwT0V2KBNKPEcJG",
+              "name": "I Can't Stop This Feeling I've Got",
+              "artist": "Razorlight",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/a2debca630fc6a0fb6ade90b9356d60b4de0d1e1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "04sO2Rg7eeIY9VZ3eZgCLN",
+              "name": "Cosmic Love",
+              "artist": "Florence + the Machine",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/3e555b81bf84a436b1fd4d1ccf52798edee6bd70?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "1HI2DCMcSu1DaRm1cu3RNK",
+              "name": "Dear Miami",
+              "artist": "R\u00f3is\u00edn Murphy",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/fa4f94a3a8df912efc6e326486c9014550449b3f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3ETayXmEtFFE0GxOu7qY4Y",
+              "name": "Osaka Loop Line",
+              "artist": "Discovery",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/fc9fbc833cba52ecc59dbe3b5ab3b03f3f8caef2?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "02kYMUkMMTDHZNkwxRXZox",
+              "name": "Sevastopol",
+              "artist": "Moby",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/28c7cc5b0a67b27327d078f52e1834c18d1ad70d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1ObW9F3SZMtAYSiQxMKrl4",
+              "name": "Inner City Pressure",
+              "artist": "Flight of the Conchords",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/0d1dd53d453f658f243b5e28e3429b28508d4f58?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "11Ibjx2iN27rKUqrS2zzPU",
+              "name": "Lessons",
+              "artist": "SOHN",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/e0190f622380459511158a698303bae8e4a46142?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0ETFpgbWQCiTJl4Vk1575l",
+              "name": "Didjital Vibrations",
+              "artist": "Jamiroquai",
+              "year": 1996,
+              "preview_url": "https://p.scdn.co/mp3-preview/5cda3e4b291cf2eb00ee772afd7eccdf481524b4?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0mtmwpmclXfi8MBslv6v6T",
+              "name": "Axel F",
+              "artist": "Harold Faltermeyer",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/a5b13168629df61f01409e1f4e754f063916a33c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2EuQBSblnuy06YntsvpjJ2",
+              "name": "Lovefingers",
+              "artist": "Silver Apples",
+              "year": 1968,
+              "preview_url": "https://p.scdn.co/mp3-preview/b123a43e0b23d502039686bbfea1b521617c5d1b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "468KjHoGuiJkS4lsb68JWd",
+              "name": "Mien",
+              "artist": "MillionYoung",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/7ffdb9c73e79d111879ecccfb9030cc021a0e011?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bFdKUYc7s01sGKlfW22Bc",
+              "name": "Grand Canyon",
+              "artist": "Tracey Thorn",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/9d398038a87882def2599430a0dab9654fb9a6d3?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "21fzpzrIsCzZZf3tVkgFI3",
+              "name": "Therapy",
+              "artist": "Moderat",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/ab8e5e3a64502bf41ce1444285b99c2297caa7f9?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2EuQBSblnuy06YntsvpjJ2",
+              "name": "Lovefingers",
+              "artist": "Silver Apples",
+              "year": 1968,
+              "preview_url": "https://p.scdn.co/mp3-preview/b123a43e0b23d502039686bbfea1b521617c5d1b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0YYlyFthcjCfwB3pC3lXJ8",
+              "name": "Cameras",
+              "artist": "Matt & Kim",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/d1128fd0d2ca11be3832d3a5f42e0fd76b2ea20c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1WW6ibAK4hS2m1etYMxRZc",
+              "name": "Not Too Bad",
+              "artist": "Skalpel",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/7211fda9540b6a02957af515ac3b8505fd4621fc?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Y8nVuIY0Aac9kOyKkKAHA",
+              "name": "Hongkongaton",
+              "artist": "Gorillaz",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/2ae11de1d2aa0156be86d65cdf89997d263ec35b?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "2Qkqr57m8U3b800Whaj9NL",
+        "name": "Oscillate Wildly",
+        "artist": "The Smiths",
+        "year": 1987,
+        "preview_url": "https://p.scdn.co/mp3-preview/172ac9cd3e3c387465760506299a3b3ec8949164?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0T85bNcy7r5Ageea4UDswd",
+              "name": "The Inborn Lifeless",
+              "artist": "In Flames",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/30ad7eece319697c5c8560f9ca9702cb83803d09?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "28SFr795pMT17y5CErh8I4",
+              "name": "Sin City",
+              "artist": "AC/DC",
+              "year": 1974,
+              "preview_url": "https://p.scdn.co/mp3-preview/adae1cc1dd20851426542d0731e6d85966eb4c4d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1qBsHfac9afUrxCfyuTBVw",
+              "name": "One Belief",
+              "artist": "All That Remains",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/5453b7b1256d6da5c337ec9ca18cb90c00d138ea?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0zBhwGJYRnjGRF4nRD5dos",
+              "name": "I Know You Are But What Am I?",
+              "artist": "Mogwai",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/2cf4cb7e863a1e550c2926925dc84647c2da4eda?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0aq80z6yzD8W82E2KPKYjN",
+              "name": "Pitch Black Progress",
+              "artist": "Scar Symmetry",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/8ec941fd0d741ce88982fde22b7c2f98e13f6838?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0q39jBJZFQoyLa410PH9ZX",
+              "name": "Apart",
+              "artist": "The Cure",
+              "year": 1992,
+              "preview_url": "https://p.scdn.co/mp3-preview/00352598c7f270e905529974e61200822eed855e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1b0D839vryQy1uikSyJRnr",
+              "name": "How Beautiful You Are",
+              "artist": "The Cure",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/16c79f27985fb2a040cbbdcd3a119e0fe6f3906c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "04bjBHr2BV945lbUTrtLvR",
+              "name": "The Cutter",
+              "artist": "Echo & the Bunnymen",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/89a5b3b2207636ed1290fa92bff6b81c09adaaff?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1FObl1y6MFDuAaqN8TiMis",
+              "name": "Terror Couple Kill Colonel",
+              "artist": "Bauhaus",
+              "year": 1986,
+              "preview_url": "https://p.scdn.co/mp3-preview/7c1a6e75bacadebc05db964ec78cdcf6b08c1b88?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0NX9bRl4d6SHR0hWIIie5N",
+              "name": "So In Love",
+              "artist": "Orchestral Manoeuvres in the Dark",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/22386343de0f27024a5efbe48d674e7af8642b69?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0Du760YYL04wH7WchIeaOF",
+              "name": "Junk Bond Trader",
+              "artist": "Elliott Smith",
+              "year": 2000,
+              "preview_url": "https://p.scdn.co/mp3-preview/295c200d93b12ecb5a3619ad453d8e9746c2d135?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1zqFc9MSJQhFmhCe7xyT5D",
+              "name": "Taking Chances",
+              "artist": "Sharon Van Etten",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/e7e72286a58b267d276d596c005a865bc99ad023?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0wiFI3y9oW9rtU7x9JTqH1",
+              "name": "Paint a Vulgar Picture",
+              "artist": "The Smiths",
+              "year": 1987,
+              "preview_url": "https://p.scdn.co/mp3-preview/5ee329488eb5e6df7d5a2a34c81a1cbb65a529e3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0R7wyVHD96jcX4BboDpAP4",
+              "name": "It Ain't Enough",
+              "artist": "Oh Laura",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/fa28241f128068745ec339f8abad97ada2102329?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1h1S9UXPwutvXLKaa79d2W",
+              "name": "Om Nashi Me",
+              "artist": "Edward Sharpe & The Magnetic Zeros",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/bd94699090f843df06ae084358cfee61a0a45a53?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0XnlTry9duRTHtlJuDfFmW",
+              "name": "Finality",
+              "artist": "Woods of Ypres",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/db9cf24cbd71d68bb4fe9ed6bd64abfc9e78bc2a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "06zPGyzHDx29nOYnmZ95vI",
+              "name": "Day Nineteen: Disclosure",
+              "artist": "Ayreon",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/d13698082e57255b0a1b913f1cb725dc698c8348?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0zLlmRMIX9ULrx6okrtmoA",
+              "name": "Great Indoors",
+              "artist": "John Mayer",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/81caabefec60244cf13a96f89110957cd4134268?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2bMsGZFWEOVFFtATUgLx1q",
+              "name": "Starting Now",
+              "artist": "Ingrid Michaelson",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/6e4cfa34fcbc0a1656c2b76caea908487df0c7c3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Du760YYL04wH7WchIeaOF",
+              "name": "Junk Bond Trader",
+              "artist": "Elliott Smith",
+              "year": 2000,
+              "preview_url": "https://p.scdn.co/mp3-preview/295c200d93b12ecb5a3619ad453d8e9746c2d135?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "0dk90HgW9WPrArNabLOqjH",
+        "name": "Superman (It's Not Easy)",
+        "artist": "Five for Fighting",
+        "year": 2000,
+        "preview_url": "https://p.scdn.co/mp3-preview/88216b6070ca174d68332d3fbe41291034e815e9?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "2JAJSmHGv9UlaFPNcu4a0R",
+              "name": "Manic Star",
+              "artist": "Conjure One",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/8c926761fd3bee5b1d3c7389801c857d1c83678d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0BfcEHpbpAvvZok7OnIHEN",
+              "name": "Every Morning",
+              "artist": "Sugar Ray",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/a6a38c3b3361c56319ff3ba9dcf6a557dda046d8?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "43VWB4TOhab9KpnjSErJZs",
+              "name": "I Did It",
+              "artist": "Dave Matthews Band",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/9e31595a134d26fa29b9841d92fab5c57cdee646?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "4K2KgAsQlbKIC2fl99M5EM",
+              "name": "Shape Shifter",
+              "artist": "Local Natives",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/a4ea0378e2ce25d1f377b79bb947e22645a379f0?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bwNcEPKstNUS5i8dG1uSq",
+              "name": "Sour Patch Kids",
+              "artist": "Asher Roth",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/19af8d8e7959a09a9e925e27c3919b889bc61d4c?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0FVR35wAcZmfoKiPh9JFBo",
+              "name": "Not Tonight",
+              "artist": "Tegan and Sara",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/110d26f8b7a9df3a28afea710d16fc0b433b621b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "13wWKN82EOZze70szgY48s",
+              "name": "Si te vas",
+              "artist": "Shakira",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/54633474ff7aafb1f1474acce8ad58d94665a202?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1qKvlbeYFfiSDjBfO9MQr7",
+              "name": "Into the Ocean",
+              "artist": "Blue October",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/4106caa83a5cd5cd17a79e394e1072d096531a52?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1zfOYBCAsP1I70cyzH79QY",
+              "name": "Perfectly Lonely",
+              "artist": "John Mayer",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/f7581ce3ea87a288dc92f625c818bc7d1eeb4c0b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0JRAkHwR7UoZOV0wDtZBn2",
+              "name": "Toumast",
+              "artist": "Tinariwen",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/367690c3e8f66cad8f4b3f561a7ec7289e0da2e5?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0FVR35wAcZmfoKiPh9JFBo",
+              "name": "Not Tonight",
+              "artist": "Tegan and Sara",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/110d26f8b7a9df3a28afea710d16fc0b433b621b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0ruLleYylMlbKZFCQ00PHH",
+              "name": "As Lovers Go",
+              "artist": "Dashboard Confessional",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/f256b02c4e5b65fb231b6d190b37abda46c56f49?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0LccE9JfGeSx1w8t3dWPRQ",
+              "name": "I Do",
+              "artist": "Colbie Caillat",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/4dae6eb792080254ea8e6f054a59d4251eb6298d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0HOaK6s5LfadFsYKRi5whH",
+              "name": "Walking In Memphis",
+              "artist": "Marc Cohn",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/dfca660c74d6459a663d3ab173814a3f043669be?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1HvWIlTHmn6CmYOO9UCCRM",
+              "name": "Whatever Happened To Corey Haim?",
+              "artist": "The Thrills",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/6be79c903ac147796abcb4a9e073d3c31b58e744?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0cDbVbHEUM419vxXxigLtS",
+              "name": "Shine Ya Light",
+              "artist": "Rita Ora",
+              "year": 2018,
+              "preview_url": "https://p.scdn.co/mp3-preview/71ccd2413035ba74135d13d26cd51aacce859e27?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0wuLm98dMgCHF6g5SpKY71",
+              "name": "Jealous Again",
+              "artist": "The Black Crowes",
+              "year": 1990,
+              "preview_url": "https://p.scdn.co/mp3-preview/d0105350ce391549e018f63821de91398103ff3c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0KIqveNECDLejJT0yC5VFM",
+              "name": "The Ring Song",
+              "artist": "The Bravery",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/ccfbb72d3cb73a5bb305c711d36a2bb136b98a5c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "04zwFOzdIM7B9GCiiu5bem",
+              "name": "Loud and Clear",
+              "artist": "The Cranberries",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/1eb0a865f0d7fe5a0635296df7ab63ce3d255cd5?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "52NHBO0koRGdEzdgS3K6EA",
+              "name": "The Boy Looked at Johnny",
+              "artist": "The Libertines",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/48f75ee9f214d4bb4cce88b7a0f69304a35f8bf0?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "3omCT6IN9w4wsCqhpglNVG",
+        "name": "Bad Reputation",
+        "artist": "Joan Jett and the Blackhearts",
+        "year": 2013,
+        "preview_url": "https://p.scdn.co/mp3-preview/4daf9f3b4b23355b1612dd538653ebfcd00cf7e5?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0kkvGHFs7oTdfItBF4n1hW",
+              "name": "No Sleep Tonight",
+              "artist": "Enter Shikari",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/b552c6b7516e67ddfaad0ab8727e652b9b6b6834?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "04Yrx7XZtREzGhHvSiJqNd",
+              "name": "Love Gun",
+              "artist": "Kiss",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/22ce1bec68cda544f85ae21484333f5a170153ab?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0YypjZsj3s785gXwtDrn28",
+              "name": "Land Of Confusion",
+              "artist": "In Flames",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/72fcaf5e7d7f4a2f73cc901bb07ef1fa4343b26b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0i62I5HJlzIVu2FALBmBPx",
+              "name": "I Blame Myself",
+              "artist": "Sky Ferreira",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/6cb4f6557058ba222c8aa28d53eeb3870619b4f4?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0dXROD1x8bHVIdr7iSSMeN",
+              "name": "Miranda That Ghost Just Isn't Holy Anymore",
+              "artist": "The Mars Volta",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/7656c3c40d2f9773850c7196fb37cd25018c5d52?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0C0FfLK485PVWj34DpOtz5",
+              "name": "The Eton Rifles",
+              "artist": "The Jam",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/057bae3aa53d6c29143808705256ebec229103f8?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0faSI1pyeOzncDzYJMisFB",
+              "name": "I'm Not Down",
+              "artist": "The Clash",
+              "year": 1979,
+              "preview_url": "https://p.scdn.co/mp3-preview/37ecadc29c285d40d3793bb1f50c1fdcc04b8183?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0eDGCrrsQgNHmaT6SIancw",
+              "name": "Tommy Gun",
+              "artist": "The Clash",
+              "year": 1977,
+              "preview_url": "https://p.scdn.co/mp3-preview/c34f47937fda88de46e6f1ae71d41864d731f46a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0dfxxnOTHEosDjOP3Hcg0G",
+              "name": "Deny",
+              "artist": "The Clash",
+              "year": 1977,
+              "preview_url": "https://p.scdn.co/mp3-preview/96e257577687df0cf77cde29c43fd2a430e92586?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "093kSNWFDTOWDBUenxy5J1",
+              "name": "Clash City Rockers",
+              "artist": "The Clash",
+              "year": 1993,
+              "preview_url": "https://p.scdn.co/mp3-preview/2be70639dcf459e557fbf0a27f74cfdf954b7d41?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "09GivWywOX0j10RKsfLQea",
+              "name": "Rockin' All Over the World",
+              "artist": "Status Quo",
+              "year": 2000,
+              "preview_url": "https://p.scdn.co/mp3-preview/3fee24fbd79299f7dccac650e02095503a09f201?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0cYiovtKcYfRELcGSFy6f8",
+              "name": "Goin' Through the Motions",
+              "artist": "Blue \u00d6yster Cult",
+              "year": 1995,
+              "preview_url": "https://p.scdn.co/mp3-preview/f8baac69415cc920a9aae141c5168f7ce990aa72?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bkWzBVsodF9CGnHghw4cL",
+              "name": "Amazing Journey",
+              "artist": "The Who",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/3a44fb66a0fa445719e14196b41b9a1da53ec0f5?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "12w7q5JN7tf22TzQtQiiBN",
+              "name": "Bullet the Blue Sky",
+              "artist": "U2",
+              "year": 1987,
+              "preview_url": "https://p.scdn.co/mp3-preview/7e369184189ca19b666a49d459deace2465433e3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "09JIQfEOrkWRmpTqT8fdqf",
+              "name": "The Real Me",
+              "artist": "The Who",
+              "year": 1973,
+              "preview_url": "https://p.scdn.co/mp3-preview/a9ff13b825c6d45e5413215c975fc3dcbba24f7b?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0ilene4OGlAvoNQfhAQjwm",
+              "name": "Fireball",
+              "artist": "Deep Purple",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/1c781e45978526f6b3cf40e6b953520f74169709?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "051G2MEcv8gvNreUj1QH0Z",
+              "name": "Back Street Kids",
+              "artist": "Black Sabbath",
+              "year": 1976,
+              "preview_url": "https://p.scdn.co/mp3-preview/0b931718ca29657cb582713651246863c0fa5eab?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0eAiAQRIvnQef6pUS5sgmu",
+              "name": "That's Youth",
+              "artist": "Anti-Flag",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/890957b0f54dbe6433b0b946361c3ad115556ebc?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0QeI79sp1vS8L3JgpEO7mD",
+              "name": "Let's Go Crazy",
+              "artist": "Prince",
+              "year": 1984,
+              "preview_url": "https://p.scdn.co/mp3-preview/85dd430202f409d4e960e9169cfdddd38fe46ade?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0ckqWJCIs7GPS9yDYJygiy",
+              "name": "Gone, Gone, Gone",
+              "artist": "Phillip Phillips",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/455908cd32a8c91e2bb40f0166b717089a1af6c1?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "1qaZx6y94LiMy2KdhHxRTy",
+        "name": "Nuthin' But a \"G\" Thang",
+        "artist": "Dr. Dre",
+        "year": 2005,
+        "preview_url": "https://p.scdn.co/mp3-preview/8a663febb3b18d2d61d1c53066e8c1741f4a3d48?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "06NfzRcjMmcxUkZ65r5T9g",
+              "name": "Bad Influence",
+              "artist": "P!nk",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/c8cb770ddf7af19a225e1c8d7020136fe6a0b774?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3PE2uYZ34mDlBsvpzwp1qd",
+              "name": "Safe Haven",
+              "artist": "Big D And The Kids Table",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/a89829e477c7f3df2f5d6de053d7aadfae782e12?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2EtPb0zzvhRj3Mq1qicOpo",
+              "name": "The Fly",
+              "artist": "U2",
+              "year": 1991,
+              "preview_url": "https://p.scdn.co/mp3-preview/ad15f52cc8fc96abc808e385d405592de6e6c699?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0UNOVz9ZD4PdNgUjhZgMWy",
+              "name": "-1",
+              "artist": "Mudvayne",
+              "year": 2000,
+              "preview_url": "https://p.scdn.co/mp3-preview/5d7e970a05f6e51b6435eb18febbd9115c65127e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1czaCgWLWgqp0eRIZ0BcXh",
+              "name": "Everywhere I Go",
+              "artist": "Hollywood Undead",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/9a9a99028d2ef43a7679e2c8dc22f1c1ad9ca924?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0hiaiy1uDjIGk6D2oUCXQ5",
+              "name": "Rich Off Cocaine",
+              "artist": "Rick Ross",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/508758854082938fcae070820bb06c095136c885?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0shK5iZQppbHPQYiy60xs9",
+              "name": "Rosa Parks",
+              "artist": "OutKast",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/4840e1d9108135ad3efbf7ff04f459dac942f9ff?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0VJEiQ3ZYKtGmk8nIjFtWL",
+              "name": "Brooklyn Zoo",
+              "artist": "Ol' Dirty Bastard",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/f2485e6907d446c1725620ff11d23bdabc5df2c1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "4NGS3j6JmOx6VUaXt6VQbj",
+              "name": "Ackrite",
+              "artist": "Dr. Dre",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/567e94b47cfe9ba61169657b4ef0433f1318b744?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0iLQD1crSKM5yZAvu4wuax",
+              "name": "One Call Away",
+              "artist": "Chingy",
+              "year": 2017,
+              "preview_url": "https://p.scdn.co/mp3-preview/52ede6b5fbf8432cd3087ff597c1013ebc825e57?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0VxmkF1dUhzCtTsFP48iex",
+              "name": "We Don't Care",
+              "artist": "Kanye West",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/8d78acb3a81b926edc555828e2fe0f6eb1a7aa4c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0hiaiy1uDjIGk6D2oUCXQ5",
+              "name": "Rich Off Cocaine",
+              "artist": "Rick Ross",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/508758854082938fcae070820bb06c095136c885?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0irPXWvddPJWyXVOFv2Iyw",
+              "name": "December 4th",
+              "artist": "Jay-Z",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/5920c55d00fb7ade65e1f4860b7feff8d2698725?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0D8Npw3PzW1srmITkELL3s",
+              "name": "Forgot About Dre",
+              "artist": "Dr. Dre",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/3dc8e32ac13cbe0ceabd4d479a0d592b01f83cb9?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "06FdkTh7dZzGIcSOHtXSq6",
+              "name": "Crazy In Love",
+              "artist": "Eminem",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/4cc6ccc6497b15236a49e7c1ac2d8e75d822cd9e?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0Ed7MeXx64f6OcIuoTRCg1",
+              "name": "Xxplosive",
+              "artist": "Dr. Dre",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/dbf123a6ab90b1d721697f07dc819b04992fa71e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "6BOh92QF6cAvNjH9SRYJxL",
+              "name": "Formation",
+              "artist": "Beyonc\u00e9",
+              "year": 2016,
+              "preview_url": "https://p.scdn.co/mp3-preview/d3511dfefd3ea9cc3aeced50fdea8d6aa2695ea8?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0DjKLcBGpzwWuOeIEWZHDQ",
+              "name": "Party Like A Rock Star",
+              "artist": "Shop Boyz",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/66f912a6759d5374e70dccc8e061d86d766350fa?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Gvv08mDN5xmpDbtOAW4NC",
+              "name": "U Don't Know",
+              "artist": "Jay-Z",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/5d8277ed495924b3670c6707c2d49eb46343d32c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0wKKnrOF3lvDY54aMClFc6",
+              "name": "Here I Am",
+              "artist": "Nicki Minaj",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/4a79b71282251602a1e28275d30f22f7b7204152?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "1AzvoRNvENhfB8w4CNPVIw",
+        "name": "Sweet Dream",
+        "artist": "Jethro Tull",
+        "year": 2011,
+        "preview_url": "https://p.scdn.co/mp3-preview/ca0e5890c644172d77421048b31f74c7044fdc5a?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0221qb1EIizZ1Zb9zhNcZ5",
+              "name": "Volunteers",
+              "artist": "Jefferson Airplane",
+              "year": 1969,
+              "preview_url": "https://p.scdn.co/mp3-preview/1ccaf62007c81f2479260a37044ff6d97ca62cc7?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0CXQAn3SmzaMmJqrQfvbDP",
+              "name": "The Story In Your Eyes",
+              "artist": "The Moody Blues",
+              "year": 1974,
+              "preview_url": "https://p.scdn.co/mp3-preview/75884b4cc9fbdef7ca36eb1304e255479b4e76d2?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "4GJJRT28SDLi392hLYvpKj",
+              "name": "Hope in the Air",
+              "artist": "Laura Marling",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/ff010db5b4dfe3f4019b978e9bffb2699ab6bf3f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0DKDmdT1BgkPj2PTPKPSha",
+              "name": "Strange Magic",
+              "artist": "Electric Light Orchestra",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/4626208a2d260a2dde0f6fa965e2b2558761212c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "093Kdm4Q3gZJPG8lVcvNrn",
+              "name": "The Death Of Me",
+              "artist": "City and Colour",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/2427467be0e4c960d700e3eb3fa3853abe60c4e9?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "1F6heKAbtUZmqONepCtiAm",
+              "name": "Wintertime Love",
+              "artist": "The Doors",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/5754fa96ba4aec440bdcefa0d257989a6f30cee0?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0ewptAPyyXosYnYqPjZm4d",
+              "name": "Richard Cory",
+              "artist": "Simon & Garfunkel",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/f36166546d7e82477b72da188980bc32815cbc0d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "000mFaHFqvtU9bYShUFMlk",
+              "name": "Mellow Yellow",
+              "artist": "Donovan",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/37d68f6c534d02577f9926ebe733596b2c177b8d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0y2Lc5EzYJyptgB2rNlGic",
+              "name": "Heart of Stone",
+              "artist": "The Rolling Stones",
+              "year": 1975,
+              "preview_url": "https://p.scdn.co/mp3-preview/111589a3a99aeae978c0678244771d4e4b8b70cd?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "03F7TzcQoQjg8Jk7aTS1mY",
+              "name": "Metamorfose Ambulante",
+              "artist": "Raul Seixas",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/84774128b5a18e61b7b4ba6af326288007cb78e5?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0zAaVzDbPRqxz5MEq3Zk3f",
+              "name": "Sugar Magnolia",
+              "artist": "Grateful Dead",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/d4d412ac91a6ca3fe07403b4a6ade93395523313?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00g6pUZb2hWE9crHW92ujk",
+              "name": "Rebel Rouser",
+              "artist": "Duane Eddy",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/e561ec941cdbfd2520b9e3e226701bf7c9ebfb8f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1cuMP9Ol4RyMcDTcgvUWjR",
+              "name": "Woodstock",
+              "artist": "Crosby, Stills, Nash & Young",
+              "year": 1974,
+              "preview_url": "https://p.scdn.co/mp3-preview/c7aea105046262082281ac3a7a8de6ca0909235c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Y8bsouzg0nNaIxmYEbUU7",
+              "name": "Things Have Changed",
+              "artist": "Bob Dylan",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/7ca30552d22f5651e6896407b9175ff98fe2efd3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1kVtzAigtEiytfXkPR5ARL",
+              "name": "Somebody's Baby",
+              "artist": "Jackson Browne",
+              "year": 1982,
+              "preview_url": "https://p.scdn.co/mp3-preview/564add27449b775b8d9d5cce895cc066f6e55a75?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0zzXWojCNCTq2kNTbK3cod",
+              "name": "Me Cago en el Amor",
+              "artist": "Tonino Carotone",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/63b154ca9598d474d28d7092a9124f0f20fdef61?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00g6pUZb2hWE9crHW92ujk",
+              "name": "Rebel Rouser",
+              "artist": "Duane Eddy",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/e561ec941cdbfd2520b9e3e226701bf7c9ebfb8f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00fPCBNv0QzaPRWrCjgCcM",
+              "name": "Little Deuce Coupe",
+              "artist": "The Beach Boys",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/b06a1c36f34646f07d31e9d571d853b3ec86f859?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1RBXnRMFIZRWeq4FjAQqLE",
+              "name": "Up On Cripple Creek",
+              "artist": "The Band",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/2b286472a5cbdfce7727619c5b20d3dce7c40082?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "02BBWJOjL5uJu9J4cpb0bD",
+              "name": "Sexual Healing",
+              "artist": "Marvin Gaye",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/2688ebb604b4efacd0d6e12bf378a8eaa56138a8?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "3g97GeElmvxB0tFaREyHbm",
+        "name": "Point to Point",
+        "artist": "Animals as Leaders",
+        "year": 2009,
+        "preview_url": "https://p.scdn.co/mp3-preview/9de0cd78c3166c3e19e9cc3de2e1ddb855183a9b?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "1HshCpDEhgAnQDXxzBAyrY",
+              "name": "Death Becomes Him",
+              "artist": "Whitechapel",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/a1061fb13137ee37e102519a67be119d353d90e5?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0izHw1gWtYkuicNUHd2Z94",
+              "name": "The New World",
+              "artist": "In Flames",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/50713e1099d04d2dc422a83ac874972893cdca1a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0iRb9QCi3UioohEiOGELTA",
+              "name": "Stop Coming to My House",
+              "artist": "Mogwai",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/1e211eace81ff8b28b3d1ba08c014c91ac109a38?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3v6ua4MwSNNBuAPXyc2LSB",
+              "name": "The World Is Yours",
+              "artist": "Arch Enemy",
+              "year": 2017,
+              "preview_url": "https://p.scdn.co/mp3-preview/f8bef3ca1ebf7c7b72cb61e6a35053f801fa66d9?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1N6C6VjlyUy3qihj98CzVh",
+              "name": "Folk Death 95",
+              "artist": "Mogwai",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/052a1d5d34998c5ce90d919b63e7091164d69a2b?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0vB4pHzanZWUMprHnlsafz",
+              "name": "Goon Squad",
+              "artist": "Deftones",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/ee0fe6fe9784660bc0ee8e1e03a1236f921113de?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "5rkucFfs0gMVUmsgcnBjtw",
+              "name": "Savory",
+              "artist": "Deftones",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/627022ed4689050964df9c49c1f365d4ca5a5d32?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "13E3tiEBMMW9MNqy0H2U6Q",
+              "name": "Burrito",
+              "artist": "Seether",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/e59fbb7736f1ca123aeaf09b21cdd7a763e040b0?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1K91wl6WzfSx8H5TOgF4Nb",
+              "name": "Unknown Soldier",
+              "artist": "Breaking Benjamin",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/fe833601186ce9118ba8a2e55a5aaedc9731a93c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "09Z5XLFJec3ZcXd6iCnU3W",
+              "name": "Youth Against Fascism",
+              "artist": "Sonic Youth",
+              "year": 1992,
+              "preview_url": "https://p.scdn.co/mp3-preview/58947e150bc9fbe749449b225ba8411472749533?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0PJtGJBMJEMe0ipid4xkoR",
+              "name": "Dangerous Game",
+              "artist": "3 Doors Down",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/60e208c75aa79a9b1ab3687c4c5102c978e592d3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "7DIbnAYSSUOPWNAFkb8Q8i",
+              "name": "Shut the Door",
+              "artist": "Fugazi",
+              "year": 1990,
+              "preview_url": "https://p.scdn.co/mp3-preview/19663179406cd02ca3e3aa36b65c6b21c0f52769?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1rHYWwSO6bN6eO5KJGEdnR",
+              "name": "Excellent Choice",
+              "artist": "The Horrors",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/19d7a30bf8e52bbbb5a89f5d1ee41879431c9996?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1gLeVrPRyOJzcyVwFZoPdC",
+              "name": "Amoeba",
+              "artist": "Adolescents",
+              "year": 1997,
+              "preview_url": "https://p.scdn.co/mp3-preview/2526d30a6103eca941c2b94e52a333c5eba497e2?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "089EHpvcaDJeRxMkCol2oB",
+              "name": "Jumpers",
+              "artist": "Sleater-Kinney",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/6b318f75b1fee5478a1c20743070fe22a849ea4d?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0GeFvvicGXzeX89t8DdG3W",
+              "name": "Together as One",
+              "artist": "Death",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/2ad1b01eb589464ca591aaa92c3acf897975bd98?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "45P98TO1cMwkRce78Hwn7c",
+              "name": "Another Dimension",
+              "artist": "Liquid Tension Experiment",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/4cfb4988442d7dd09ecf627f2e897263f6dbef89?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "5zGmNgtsvggBQZYYRM7cwf",
+              "name": "Thorn",
+              "artist": "Blind Guardian",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/9594d22f8f4c9eca67dc5d216807eb058013659f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2g0QJAucKohLGcZ1XwtgfU",
+              "name": "Blackmail The Universe",
+              "artist": "Megadeth",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/119c1c53dd9d35082d1c32c6b04256e73417a40e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "4vmpS6ccPFxr0cYN4DYNFt",
+              "name": "Aleph",
+              "artist": "Baroness",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/77b77775a2b48105e19cc552b545d79a8dbf5f14?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "05lxXTWeG9ZZqEcHbJ0PW1",
+        "name": "Beth",
+        "artist": "Kiss",
+        "year": 2002,
+        "preview_url": "https://p.scdn.co/mp3-preview/58ae60c48da0bbbe93b6aee7b9b9e10b5f62c47c?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "2w4nEj2NbU9EwYiEtFDPJx",
+              "name": "Half Life",
+              "artist": "Imogen Heap",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/65f43592619f36ad639d49065006e9d946fda1cb?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0dURIJgfxIeOPJbk1rA7vh",
+              "name": "Het regent zonnestralen",
+              "artist": "Acda en de Munnik",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/8b3eeaaf185536e710d38c336813e296a587302f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0m3djJoseCEsK7KaZ7O955",
+              "name": "Sanctus",
+              "artist": "Wolfgang Amadeus Mozart",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/35fe893546bdf66987a6da534233bb916fa6c627?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0lUHU0t8t5gGOpOgrFKB9C",
+              "name": "30 Century Man",
+              "artist": "Scott Walker",
+              "year": 1969,
+              "preview_url": "https://p.scdn.co/mp3-preview/6705264003ebc35cd5bf5b716dda80c90f55ee3d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0AjN7I2SqVTtjUEq4e1jSa",
+              "name": "The Permanent Rain",
+              "artist": "The Dangerous Summer",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/37cacc13ee2f30a1431437a70da6f987645a5e23?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0BQgvaGYvOcdzxrbInlQEL",
+              "name": "New York State Of Mind",
+              "artist": "Billy Joel",
+              "year": 2015,
+              "preview_url": "https://p.scdn.co/mp3-preview/5cc7041a9e2aca40c9a0eff637b600b6e5f73ea4?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "090INEZmImtuSC0wK1eHv6",
+              "name": "A Different Corner",
+              "artist": "George Michael",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/e036fba0099983ec23d3cd33c276af8092e418c0?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0KxRKuhXaBmbfVfBgFPs5o",
+              "name": "Surf's Up",
+              "artist": "Brian Wilson",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/e57a72621bcbd3cffd9c11d35e84a54b89a4a68c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0299Kj5FSAT4cS8vw8yp9r",
+              "name": "Blue Eyes Crying in the Rain",
+              "artist": "Willie Nelson",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/e9633aa56649021e40b685d1f1012977bd3c5631?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bm4Cr9q10Kk9evnS8lMlI",
+              "name": "Epilepsy Is Dancing",
+              "artist": "Antony and the Johnsons",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/6d1060c02140273de2542fd99ca51a1f6bcb4b03?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "03UwQnj2L42n1xfBH5XbUr",
+              "name": "Will You Love Me Tomorrow?",
+              "artist": "Carole King",
+              "year": 1971,
+              "preview_url": "https://p.scdn.co/mp3-preview/9d4611bf6c739fbcf66cb479068b62644f334278?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "05nCSQqhA6VP4nv672SKhg",
+              "name": "No Sense",
+              "artist": "Cat Power",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/cbab8c710842ed19332eebfe78b67fa202ee7353?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "03s21IQnj5v3w4Cgq5PtKw",
+              "name": "More Than Anyone",
+              "artist": "Gavin DeGraw",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/c152e0280887321a8858f770047e48301afb926c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01pyf33H8fOIW0V99v8CTH",
+              "name": "Going To A Town",
+              "artist": "Rufus Wainwright",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/d6914cca7ac9c51e34a5e6b106a6095592eb4b47?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "07r4B29KvmpZBvU8mBpjXc",
+              "name": "From Afar",
+              "artist": "Vance Joy",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/82517981641ca15da3870676c56227d2c122828e?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "1wNcLnjK06rL3fakZml0oG",
+              "name": "Man Is the Baby",
+              "artist": "Antony and the Johnsons",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/34db8122a9f3adf4e05a8c136d728edaebd97ecf?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0AKR67FZIx29SpnwKfd5xn",
+              "name": "Still...You Turn Me On",
+              "artist": "Emerson, Lake & Palmer",
+              "year": 1973,
+              "preview_url": "https://p.scdn.co/mp3-preview/77c6d877d36c895748cec3f5f5c27190fbfe82c1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0dlAPHc8SGe91nsPTLfjDe",
+              "name": "Curs in the Weeds",
+              "artist": "Horse Feathers",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/1c1bc4af7d8e42e58921f9f8efb01b64ea15e4f9?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "05b6SX5DjBpvd5rYIxmwOz",
+              "name": "To Whom It May Concern",
+              "artist": "The Civil Wars",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/38df4cc8bfbc1f9c2d246b901e89e90b316978b7?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "77TAmXdYFPJKl4dRePhhvz",
+              "name": "The Carnival Is Over",
+              "artist": "Dead Can Dance",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/0781e28f2d34cc75a202e88ec9122c87ae3b2cbe?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "0JVCIwkfHBWEkAysG1XsVw",
+        "name": "Punch and Judy",
+        "artist": "Elliott Smith",
+        "year": 1997,
+        "preview_url": "https://p.scdn.co/mp3-preview/0149f6eb0b5e77ec62e76e993a393d5decefac49?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0rNUGUBibZ5yB3VAbjYEzN",
+              "name": "The Crawl",
+              "artist": "Placebo",
+              "year": 1998,
+              "preview_url": "https://p.scdn.co/mp3-preview/fb3c5ec2320f5bb2e606fa5cc3c6db12b11a003f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "04qrH2zmxy0NLPb5et3I30",
+              "name": "Good Luck Charm",
+              "artist": "Elvis Presley",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/a4cb05b4526629a9837e7142dd7145cc596289c5?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "02ZbIWdtDLEDS8I59q6vhk",
+              "name": "Steppin' Out",
+              "artist": "Joe Jackson",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/4533e39798b09142dbf94afb4700d7764feb75e2?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "5E30LdtzQTGqRvNd7l6kG5",
+              "name": "Daddy Issues",
+              "artist": "The Neighbourhood",
+              "year": 2015,
+              "preview_url": "https://p.scdn.co/mp3-preview/087accb64df2f5e6bd13e00aa47a9ef84afbdea1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0B6mIIDuB5fquxcRCHJrwg",
+              "name": "Map Of Your Head",
+              "artist": "Muse",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/a87b39d95e9fc745c98ec687f3c1c988a74250ff?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0M2n8HHhB8kavCjAswTEq5",
+              "name": "Fools",
+              "artist": "The Temper Trap",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/e99883b8987f20eddb4a532e0312209d0666269a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0lf5rjxVkFoHCKXGEcxzII",
+              "name": "Now, Now",
+              "artist": "St. Vincent",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/58a5e63d59bf1a8c10a236e50a80022cb751203b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2qxDVthzyNA2rbGuOCaNBK",
+              "name": "Never Run Away",
+              "artist": "Kurt Vile",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/5218219dcde762d065bbd403f51e95bb9f317367?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0boz2COxgC376hg1Drao5V",
+              "name": "Lost In The Light",
+              "artist": "Bahamas",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/f1c67951fd1f0127b4e7b48be353d40d9cc53ef1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bKmhH3ytaonWjBYHXVSmJ",
+              "name": "We Won't Need Legs to Stand",
+              "artist": "Sufjan Stevens",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/c5162f0e81c33851e55a786ca1614df362032c48?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "2E44DBM9ZsLrJZ8a3aDPN3",
+              "name": "Leaving Blues",
+              "artist": "Bombay Bicycle Club",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/12fa8428f108b8c4a86793bc27a0d09df41be63b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0hyigxb1p7PCaRzuUKJqSa",
+              "name": "Measuring Cups",
+              "artist": "Andrew Bird",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/39a46d3fde1aea1c502ebb87a9ecae8fd87d9774?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1yVd01i9uYMcTpcquC6n0L",
+              "name": "Do You Know Me",
+              "artist": "John Mayer",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/96605db4fb997423ca218c8c15a9336a7efa534a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "02pbsQX3y6LPHqubfssNoP",
+              "name": "Secret Garden",
+              "artist": "Bruce Springsteen",
+              "year": 1996,
+              "preview_url": "https://p.scdn.co/mp3-preview/639a691c2f3aadf3e93df995dbfd964617cb0a24?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0gXrsjK7Gma5nEHYyMKznP",
+              "name": "The Devil's Tears",
+              "artist": "Angus & Julia Stone",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/920a8db857b6adcfaad49b7c56d7bebe6a5bb0f6?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "2E44DBM9ZsLrJZ8a3aDPN3",
+              "name": "Leaving Blues",
+              "artist": "Bombay Bicycle Club",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/12fa8428f108b8c4a86793bc27a0d09df41be63b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Ht1S9jl47xXeuAwDmTjNJ",
+              "name": "King's Crossing",
+              "artist": "Elliott Smith",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/3530d0a0f73201d53a05aeb08ae51e1983fb5f51?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "33mgh5V3qu50nnJAXQqfau",
+              "name": "What You Thought You Need",
+              "artist": "Jack Johnson",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/daa7c7a3fa6fe339f867d6d1b09a8c6b0aa214f0?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "08NFFw0QINmB6oMkRJ7kx7",
+              "name": "Harbour",
+              "artist": "Moby",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/6eaae1426501d834df4763d16bf46ab1aa29073d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "73lRtIFVTBNPqCJBL73hwo",
+              "name": "Melancholy Mood",
+              "artist": "Ziggy Marley",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/201a97fb5bd79d320e36dc9fdd42a9b836b44373?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "4NsPgRYUdHu2Q5JRNgXYU5",
+        "name": "Sweden",
+        "artist": "C418",
+        "year": 2011,
+        "preview_url": "https://p.scdn.co/mp3-preview/e21829ba6510ce1d574fc02df57bbf724bfe9af2?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "2fMTW4EpYmqg0Y8xocrfVp",
+              "name": "Der Tod Wuotans",
+              "artist": "Burzum",
+              "year": 1999,
+              "preview_url": "https://p.scdn.co/mp3-preview/86dcdbd7d6a6280fdf0d1d1617d96bbedcf00adc?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01YgoskUPYPkVv7veSf5Nm",
+              "name": "Nuvole Bianche",
+              "artist": "Ludovico Einaudi",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/2bb817f4525143930eb4fe06771447f2da8fb0ba?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bkDTVUhpdG8q2j45MxSj4",
+              "name": "Andare",
+              "artist": "Ludovico Einaudi",
+              "year": 2018,
+              "preview_url": "https://p.scdn.co/mp3-preview/ab8e9f18a7b52677824edbf912f7107bc6153f19?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2A3AdmveQLvaAtSUw8d78o",
+              "name": "La Linea Scura",
+              "artist": "Ludovico Einaudi",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/36eedfa3b506dc718833d8ca37ced4f88a191023?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "35fKXUJk1yDn3LVr6MbSHm",
+              "name": "Mother's Journey",
+              "artist": "Yann Tiersen",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/5edbb8fbf971cd91b3e42bf5656f008ad1e66562?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "00u5Z5O9wSVi54YzHgjRbL",
+              "name": "Una Mattina",
+              "artist": "Ludovico Einaudi",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/c5997731905a0db6874d276e9126f0b5b8c35d82?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1a2paDLqRK6YXpGICVS9Em",
+              "name": "Vladimir's Blues",
+              "artist": "Max Richter",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/ef6292c4107afa6cc527d96dcb5426b68f0c6b29?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "032PRXG5E47aJrqoMuyikg",
+              "name": "Rachel's Song",
+              "artist": "Vangelis",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/35448fc70a834df749a3f0b03fc350a0c8c610bf?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1EtDirwsItquhCrqtC3pOn",
+              "name": "Miss Clare Remembers",
+              "artist": "Enya",
+              "year": 1988,
+              "preview_url": "https://p.scdn.co/mp3-preview/10ce0314860a6770862754f3c9362333d12a62ad?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1Hc9rfFRsUE8nyKDnyXg7f",
+              "name": "American Beauty",
+              "artist": "Thomas Newman",
+              "year": 2000,
+              "preview_url": "https://p.scdn.co/mp3-preview/f5f905b2b37e78d024b1a2ead54b0c136cee4c5b?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "1EtDirwsItquhCrqtC3pOn",
+              "name": "Miss Clare Remembers",
+              "artist": "Enya",
+              "year": 1988,
+              "preview_url": "https://p.scdn.co/mp3-preview/10ce0314860a6770862754f3c9362333d12a62ad?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "03MuKUoB9LXeN6RsV4yQbt",
+              "name": "Nefeli",
+              "artist": "Ludovico Einaudi",
+              "year": 2015,
+              "preview_url": "https://p.scdn.co/mp3-preview/ed8b9c53463c6a0b56d8e4a1be188c1aa398f877?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0p68QvK1ynLk4MCSVgjfqe",
+              "name": "One Man's Dream",
+              "artist": "Yanni",
+              "year": 1993,
+              "preview_url": "https://p.scdn.co/mp3-preview/7e038af20cc786032bdb9aaf87845764320acc6a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0BdPae4NnHVphZdBF0uk88",
+              "name": "Oltremare",
+              "artist": "Ludovico Einaudi",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/91736b4bd0690a7e6b28f4d05cbed25f4a150870?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01ssPoW30nAGqu2BE5ibar",
+              "name": "Moonlight Sonata",
+              "artist": "Ludwig van Beethoven",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/4cebfccfa07fe78250dc19a35ce94feb5f7c269a?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0tjF7AUgVLJaXR1rBJfeDR",
+              "name": "Radar Maker",
+              "artist": "Mogwai",
+              "year": 1997,
+              "preview_url": "https://p.scdn.co/mp3-preview/374337753e9b9024bed15d1cfea1a2763b210e28?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "6UgLaqe1sMLXHfQb2yFE0K",
+              "name": "Allegretto",
+              "artist": "Ludwig van Beethoven",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/48f83cf249e17afc819c57354b0f42feb016e849?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1a2paDLqRK6YXpGICVS9Em",
+              "name": "Vladimir's Blues",
+              "artist": "Max Richter",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/ef6292c4107afa6cc527d96dcb5426b68f0c6b29?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00kz2RloLAZ5DfWDQ0gAms",
+              "name": "Together We Will Live Forever",
+              "artist": "Clint Mansell",
+              "year": 2015,
+              "preview_url": "https://p.scdn.co/mp3-preview/e6410c8ebcb9c4e98a1adec6e99f9b7c8161419e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01PGrTxR4TcdZPrrujTVGG",
+              "name": "Pavane pour une infante d\u00e9funte",
+              "artist": "Maurice Ravel",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/510f850cbab801e735c0cf1b80484d329c75ee80?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "650eiAftcdoorcciUfl61h",
+        "name": "Room for the Life",
+        "artist": "Kate Bush",
+        "year": 1978,
+        "preview_url": "https://p.scdn.co/mp3-preview/048f86810e146cfe7802e2fc1d068a01a35e8f35?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "0VRfvcFo1RsutQjZihNqpF",
+              "name": "Chain Of Minerva",
+              "artist": "Therion",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/32d2e6fa281d894214cc68561f6cd8069bca8eaf?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0BXvxzc3ekyI9wnU0V9bRK",
+              "name": "Fall on Me",
+              "artist": "R.E.M.",
+              "year": 1991,
+              "preview_url": "https://p.scdn.co/mp3-preview/85e91587cbe8fc40ccef4608ce529f52fdaff2c1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "2kdzuAISSkMGZn9i9Bygdb",
+              "name": "Motorway to Roswell",
+              "artist": "Pixies",
+              "year": 1991,
+              "preview_url": "https://p.scdn.co/mp3-preview/c61dafcb36fe7ba698eecc4bfab6693671143718?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0yL4xksEOzftDddTmW4xQb",
+              "name": "Living To Die",
+              "artist": "Hypocrisy",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/f4105dfee0fe27a1d8538dbc77af57662409fe32?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0lKCEdwLxF9wqElEaooV9m",
+              "name": "Her Alone",
+              "artist": "Amorphis",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/143a0b897de6ee554811f0c6a5d695ca7651f3f6?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0a5hCQUNwy4zFFM4WHgQ2a",
+              "name": "Puerto Rico",
+              "artist": "Vaya Con Dios",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/24046867d8831a38d53c1286dda2622fb7830636?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00HMs2PLYVzM6kWpq0r0E5",
+              "name": "Ah Ndiya",
+              "artist": "Oumou Sangare",
+              "year": 1990,
+              "preview_url": "https://p.scdn.co/mp3-preview/dd0cf089e15eec5e04c7bc67f03c321d4e5aa0c1?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01XT9gIiIW589DEJ9ev0Yy",
+              "name": "Always On My Mind",
+              "artist": "Elvis Presley",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/352a3bdd17d9f0ed6bf3636d8fdacad2548398f4?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1RIIoz2CciRDDq3op0QcWw",
+              "name": "Jesus Gonna Be Here",
+              "artist": "Tom Waits",
+              "year": 1992,
+              "preview_url": "https://p.scdn.co/mp3-preview/d72abc4fdb04a7846faca0d3daa989272c8d0836?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3rpRBCylc9jg4SLaMAlZaH",
+              "name": "The Prettiest Star",
+              "artist": "David Bowie",
+              "year": 2005,
+              "preview_url": "https://p.scdn.co/mp3-preview/9e995d4846b049c1b64ce4efb4ee302db98224d1?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "05U8By69ltxgpyYlCOPKqJ",
+              "name": "Your Precious Love",
+              "artist": "Marvin Gaye",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/bf2e10d8ab01d869a66f1fea6c08e6049f1841c3?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01EclwcQq6oe8elvHCmPff",
+              "name": "After the Love Has Gone",
+              "artist": "Earth, Wind & Fire",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/42277823dd8ad856b49027f989df4c3f03f1e94b?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0aK5CeoLPxjTyfeHAzUA62",
+              "name": "Why Don't You Write Me",
+              "artist": "Simon & Garfunkel",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/6d48a928c226f196a4b85cd2a857924861587df9?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0jLe9S1pH3cxeGPnbq7kCk",
+              "name": "Woman To Woman",
+              "artist": "Joe Cocker",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/f472feb19490364fa5cbb6f8b8e5801bcd06fd7e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00izwpK81qD7CjCnV0Q16Q",
+              "name": "Bring It on Home to Me",
+              "artist": "Sam Cooke",
+              "year": 2013,
+              "preview_url": "https://p.scdn.co/mp3-preview/7eda5d88020ebb0ac44e77e23467e72409b14a7f?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "1PtXEYrahu8Vg2rhpJBoqt",
+              "name": "Moving",
+              "artist": "Kate Bush",
+              "year": 1978,
+              "preview_url": "https://p.scdn.co/mp3-preview/a74e50e3910456d26b99afa448895e54de819a0c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0AnWZlQFR5BVWzh8PE9ERb",
+              "name": "Half the World Away",
+              "artist": "Oasis",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/4c47b558e0229e2dacdacf915a529db49802b380?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3Is2HcRNZFrRxTvORBu6bU",
+              "name": "Love, Love, Love",
+              "artist": "Donny Hathaway",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/dc20f344079d264bacfc92928f7b382518f1d644?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "00EXMVG1q3vksxpGRcOsZp",
+              "name": "Sweet Talkin' Woman",
+              "artist": "Electric Light Orchestra",
+              "year": 1997,
+              "preview_url": "https://p.scdn.co/mp3-preview/bc0dbc99b1caec19ab3828a80cb0b1aab72a652e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0tAu4mUSm9xCno0kT3rvXl",
+              "name": "Suite: Judy Blue Eyes",
+              "artist": "Crosby, Stills & Nash",
+              "year": 1969,
+              "preview_url": "https://p.scdn.co/mp3-preview/30ba15226c66cf93d7026dfd3971736b2d3bc6cc?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": {
+        "spotify_id": "03yQp1w8OBXq7KBXhzg0tB",
+        "name": "On the Sly",
+        "artist": "Metric",
+        "year": 2007,
+        "preview_url": "https://p.scdn.co/mp3-preview/e6ee1930178f67d6d788eb6582da3e50a3969e97?cid=774b29d4f13844c495f206cafdad9c86"
+      },
+      "playlists": [
+        {
+          "model": "baseline",
+          "tracks": [
+            {
+              "spotify_id": "42Gsz7kUeyeGNccItQByPH",
+              "name": "Suomi Finland",
+              "artist": "Jaga Jazzist",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/6bef6b327c5bf8f2232ae5cb3662bbf0fb50fddf?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "47D774OTQbbGPU6fTMTgya",
+              "name": "Blank Pages",
+              "artist": "The Album Leaf",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/d23bb090d08b9bac1cc69553030eb1fd5e168295?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0KFAAPX3Bx4XMaavJVki2t",
+              "name": "Runaway Boys",
+              "artist": "Stray Cats",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/c1255a9f53eb31032f71e38b12cd6b1e1fd9a644?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1UkMAtLU8NxsddE7j4zXGO",
+              "name": "Flavor Of The Weak",
+              "artist": "American Hi-Fi",
+              "year": 2001,
+              "preview_url": "https://p.scdn.co/mp3-preview/9f048fc60a0e0138a569ca2efee23a803a433734?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "1wlvLwSy8jXzCUsWFJf8wc",
+              "name": "Tonto",
+              "artist": "Battles",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/d8f4aea095eb9e42e3549ae2955616c87a7838b0?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet04",
+          "tracks": [
+            {
+              "spotify_id": "0q39jBJZFQoyLa410PH9ZX",
+              "name": "Apart",
+              "artist": "The Cure",
+              "year": 1992,
+              "preview_url": "https://p.scdn.co/mp3-preview/00352598c7f270e905529974e61200822eed855e?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0qAH3O1siYiOj1UP5fLImY",
+              "name": "I Don't Like It Like This",
+              "artist": "The Radio Dept.",
+              "year": 2006,
+              "preview_url": "https://p.scdn.co/mp3-preview/ea71b731fad83ae67c4045ce49c3454500525c80?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0mi0dgLHs5egIAjWjgsjeU",
+              "name": "Skies Over Cairo",
+              "artist": "Django Django",
+              "year": 2012,
+              "preview_url": "https://p.scdn.co/mp3-preview/dd07f67a48290f54d45bbfe9d7d92720e2628466?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0cOpN0euIWwPcGxbHfHrf8",
+              "name": "Quiet Life",
+              "artist": "Japan",
+              "year": 1981,
+              "preview_url": "https://p.scdn.co/mp3-preview/9d3a4917faa62808b98649d0e9af2a0942a5562f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0Fi3G2NzvTecSGQM4kaSHO",
+              "name": "Tightrope",
+              "artist": "Yeasayer",
+              "year": 2014,
+              "preview_url": "https://p.scdn.co/mp3-preview/b071b21b95f51297da0f467c3845207a51f5a017?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet06",
+          "tracks": [
+            {
+              "spotify_id": "0squTbmoUvIWyNpLgkp9UK",
+              "name": "Every Night My Teeth Are Falling Out",
+              "artist": "The Antlers",
+              "year": 2011,
+              "preview_url": "https://p.scdn.co/mp3-preview/76ed543a30942f1769d99d09c458a98447738267?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0lb4Xyu5UJ1hX3c0ehxR5N",
+              "name": "Cutdown",
+              "artist": "Matt & Kim",
+              "year": 2009,
+              "preview_url": "https://p.scdn.co/mp3-preview/b653a86a250ab7b7b7b898a277d3829e8fce073d?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "08m22w9cbtckoI2QNMuiOR",
+              "name": "Dream Baby Dream",
+              "artist": "Suicide",
+              "year": 2007,
+              "preview_url": "https://p.scdn.co/mp3-preview/ca04e7b53a3e4f1050f934a682785a1db4e30ee5?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0bNbHfl7nQJz0PAfMfd6X8",
+              "name": "Explode",
+              "artist": "Nelly Furtado",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/49cef602bf8fe6130c526f29daa28b1449ec4d6f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0nHhS46iH5NqzntlLjOXcK",
+              "name": "Sentimental X's",
+              "artist": "Broken Social Scene",
+              "year": 2010,
+              "preview_url": "https://p.scdn.co/mp3-preview/23e2a07f905c97a40c5b8fad215b5c00fd1f8447?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        },
+        {
+          "model": "resnet07",
+          "tracks": [
+            {
+              "spotify_id": "0CkSF2TAqIu8TJaVwwAOnT",
+              "name": "If You Only Knew",
+              "artist": "Shinedown",
+              "year": 2008,
+              "preview_url": "https://p.scdn.co/mp3-preview/7afd90b344a9256d763dbaa27fddf22c66561e4f?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "01zzQaYXcDRdkhsk1XMObl",
+              "name": "Remembrance",
+              "artist": "God Is An Astronaut",
+              "year": 2002,
+              "preview_url": "https://p.scdn.co/mp3-preview/5b7ed6c11a22b72da6a8b18cb9ae9300946be00c?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0dijkgbMZNIPVgC9eMl82S",
+              "name": "Clear Day",
+              "artist": "Ulrich Schnauss",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/4d90f506f75f65f66518bc35c3c724d06358fc49?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "0SbXT31hjihEBvLIhI8z8X",
+              "name": "Backyards",
+              "artist": "Broken Social Scene",
+              "year": 2004,
+              "preview_url": "https://p.scdn.co/mp3-preview/19230d12168628e424cc8849b50be686d02b020a?cid=774b29d4f13844c495f206cafdad9c86"
+            },
+            {
+              "spotify_id": "3P5E4WfetaTVMbSRzoFfsv",
+              "name": "Slow Jam",
+              "artist": "Four Tet",
+              "year": 2003,
+              "preview_url": "https://p.scdn.co/mp3-preview/b10e4839d36bca158ef494e7c7874bd3f2d48591?cid=774b29d4f13844c495f206cafdad9c86"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

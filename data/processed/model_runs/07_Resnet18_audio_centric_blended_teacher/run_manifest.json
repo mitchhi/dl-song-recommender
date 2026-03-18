@@ -1,0 +1,27 @@
+{
+  "saved_at": "2026-03-16T20:06:59",
+  "experiment_name": "07_Resnet18_audio_centric_blended_teacher",
+  "reference_note": "Final late-fusion song embedding trained against a 50/50 blend of frozen PNG-based audio similarity and the tag-set teacher carried over from notebooks 4-6, with same-song paired-view regularization.",
+  "run_label": "07_Resnet18_audio_centric_blended_teacher",
+  "checkpoint_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\07_Resnet18_audio_centric_blended_teacher\\checkpoint.pt",
+  "embeddings_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\model_runs\\07_Resnet18_audio_centric_blended_teacher\\embeddings.npz",
+  "validation_split_path": "C:\\Users\\Juan\\Documents\\GitHub\\dl-song-recommender\\data\\processed\\val.parquet",
+  "num_saved_tracks": 1447,
+  "metrics": [
+    {
+      "metric": "artist_hit@10",
+      "value": 0.12301313061506565,
+      "queries": 1447
+    },
+    {
+      "metric": "tag_overlap_hit@10",
+      "value": 0.9367176634214186,
+      "queries": 1438
+    },
+    {
+      "metric": "semantic_teacher_coverage",
+      "value": 0.9937802349689012,
+      "queries": 1447
+    }
+  ]
+}
