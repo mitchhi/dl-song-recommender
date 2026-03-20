@@ -45,7 +45,7 @@ At a high level, the architecture is:
 - Training signal: tag-based semantic teacher, later extended with contrastive and blended objectives
 - Output: fixed-length song embeddings used for nearest-neighbor retrieval
 
-
+For a fuller description of the shared encoder, loss function, and notebook 4-7 progression, see [Model Architecture](docs/model_architecture.md).
 
 ## Experimental Progression 
 
