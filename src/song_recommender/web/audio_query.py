@@ -7,8 +7,6 @@ from pathlib import Path
 import tempfile
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib")
-import matplotlib
-import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import soundfile as sf
@@ -197,6 +195,10 @@ def _load_encoder(spec: ModelSpec) -> LateFusionResnetEncoder:
 
 
 def _render_spectrogram_image(spec: np.ndarray, config: dict[str, object], image_size: int) -> np.ndarray:
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as exc:
+        raise FileNotFoundError("Matplotlib is not installed on this server. Uploaded-audio recommendations are unavailable.") from exc
     image_cfg = config["image_output"]
     flipped = np.flipud(np.clip(spec, 0.0, 1.0).astype(np.float32, copy=False))
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as handle:
