@@ -117,6 +117,8 @@
         margin-bottom: 28px;
       }
       .hero-copy {
+        position: relative;
+        z-index: 1;
         min-width: 0;
         animation: fade-up 420ms ease both;
       }
@@ -149,6 +151,8 @@
         transform: translateY(-1px);
       }
       .hero-actions {
+        position: relative;
+        z-index: 1;
         display: inline-flex;
         align-items: center;
         gap: 10px;
@@ -241,6 +245,8 @@
         color: var(--text);
       }
       .layout {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
         gap: 24px;
@@ -680,8 +686,45 @@
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         padding: 16px;
-        background: linear-gradient(180deg, rgba(13, 20, 29, 0.74), rgba(11, 17, 25, 0.68));
+        background:
+          radial-gradient(circle at top right, rgba(107, 182, 255, 0.08), transparent 28%),
+          linear-gradient(180deg, rgba(15, 23, 35, 0.86), rgba(10, 16, 24, 0.78));
         margin-top: 12px;
+        border-color: rgba(107, 182, 255, 0.16);
+      }
+      .map-card .collapse-head {
+        border-style: solid;
+        border-color: rgba(107, 182, 255, 0.18);
+        background:
+          linear-gradient(180deg, rgba(107, 182, 255, 0.08), rgba(107, 182, 255, 0.03)),
+          rgba(11, 17, 25, 0.82);
+        padding: 14px 16px;
+      }
+      .map-card .collapse-head::before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(131, 230, 180, 0.92) 0 16%, transparent 18%),
+          radial-gradient(circle at 70% 38%, rgba(107, 182, 255, 0.92) 0 15%, transparent 17%),
+          radial-gradient(circle at 52% 72%, rgba(107, 182, 255, 0.84) 0 13%, transparent 15%),
+          linear-gradient(135deg, rgba(107, 182, 255, 0.16), rgba(131, 230, 180, 0.08));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .map-card .collapse-title-wrap {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+      }
+      .map-card .collapse-title {
+        color: #dce9f8;
+      }
+      .map-card .collapse-subtitle {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.45;
       }
       .map-card details[open] summary,
       .viz-card details[open] summary {
@@ -739,6 +782,27 @@
         margin-top: 10px;
         color: var(--muted);
         font-size: 0.82rem;
+      }
+      .map-stats {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .map-stat {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(107, 182, 255, 0.14);
+        background: rgba(107, 182, 255, 0.07);
+        color: #d4e6fb;
+        font-size: 0.76rem;
+      }
+      .map-stat strong {
+        color: var(--text);
+        font-size: 0.8rem;
       }
       .map-legend {
         margin-top: 10px;
@@ -849,6 +913,48 @@
         background: rgba(13, 17, 23, 0.5);
         margin-top: 12px;
       }
+      .artist-card {
+        background:
+          radial-gradient(circle at top right, rgba(131, 230, 180, 0.07), transparent 28%),
+          linear-gradient(180deg, rgba(14, 21, 31, 0.84), rgba(11, 16, 24, 0.76));
+        border-color: rgba(131, 230, 180, 0.14);
+      }
+      .artist-card .collapse-head {
+        position: relative;
+        border-style: solid;
+        border-color: rgba(131, 230, 180, 0.16);
+        background:
+          linear-gradient(180deg, rgba(131, 230, 180, 0.07), rgba(131, 230, 180, 0.02)),
+          rgba(11, 17, 25, 0.82);
+        padding: 14px 16px;
+      }
+      .artist-card .collapse-head::before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at 34% 34%, rgba(131, 230, 180, 0.92) 0 12%, transparent 14%),
+          radial-gradient(circle at 68% 40%, rgba(107, 182, 255, 0.88) 0 11%, transparent 13%),
+          radial-gradient(circle at 50% 70%, rgba(131, 230, 180, 0.82) 0 10%, transparent 12%),
+          linear-gradient(135deg, rgba(131, 230, 180, 0.18), rgba(107, 182, 255, 0.12)),
+          rgba(12, 18, 27, 0.88);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .artist-card .collapse-title-wrap {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+      }
+      .artist-card .collapse-title {
+        color: #dcf5ea;
+      }
+      .artist-card .collapse-subtitle {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.45;
+      }
       .viz-title {
         margin-bottom: 10px;
         font-size: 0.92rem;
@@ -860,17 +966,39 @@
         display: grid;
         gap: 8px;
       }
+      .artist-stats {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .artist-stat {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(131, 230, 180, 0.14);
+        background: rgba(131, 230, 180, 0.07);
+        color: #dff8ec;
+        font-size: 0.76rem;
+      }
+      .artist-stat strong {
+        color: var(--text);
+        font-size: 0.8rem;
+      }
       .artist-song {
         padding: 10px 12px;
         border-radius: 12px;
         border: 1px solid var(--line);
-        background: rgba(13, 17, 23, 0.45);
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.74), rgba(11, 17, 25, 0.66));
         cursor: pointer;
-        transition: border-color 120ms ease, background 120ms ease;
+        transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
       }
       .artist-song:hover {
-        border-color: rgba(88, 166, 255, 0.45);
-        background: rgba(22, 27, 34, 0.82);
+        border-color: rgba(131, 230, 180, 0.3);
+        background: linear-gradient(180deg, rgba(18, 25, 35, 0.86), rgba(13, 19, 27, 0.76));
+        transform: translateY(-1px);
       }
       .artist-summary {
         margin-bottom: 10px;
@@ -1207,6 +1335,12 @@
         }
         .card-topline {
           align-items: flex-start;
+          flex-direction: column;
+        }
+        .map-stats {
+          flex-direction: column;
+        }
+        .artist-stats {
           flex-direction: column;
         }
         .action-button {
@@ -1674,14 +1808,21 @@
           return "";
         }
         return `
-          <div class="viz-card">
+          <div class="viz-card artist-card">
             <details id="artist-profile-details" ${isArtistProfileOpen ? "open" : ""}>
               <summary>
                 <div class="collapse-head">
-                  <span class="collapse-title">Artist Profile</span>
+                  <div class="collapse-title-wrap">
+                    <span class="collapse-title">Artist Profile</span>
+                    <span class="collapse-subtitle">Jump across other songs by the same artist without losing your current query.</span>
+                  </div>
                   <span class="collapse-hint">Click to open</span>
                 </div>
               </summary>
+              <div class="artist-stats">
+                <span class="artist-stat"><strong>${payload.count}</strong> related songs</span>
+                <span class="artist-stat"><strong>${escapeHtml(payload.artist)}</strong> artist focus</span>
+              </div>
               <div class="artist-summary">${escapeHtml(payload.artist)} has ${payload.count} other song${payload.count === 1 ? "" : "s"} in this database.</div>
               <div class="artist-list">
                 ${payload.tracks.map((track) => `
@@ -1798,7 +1939,10 @@
             <details id="neighborhood-details" ${isNeighborhoodOpen || currentMapPopupId ? "open" : ""}>
               <summary>
                 <div class="collapse-head">
-                  <span class="collapse-title">Local Song Space</span>
+                  <div class="collapse-title-wrap">
+                    <span class="collapse-title">Local Song Space</span>
+                    <span class="collapse-subtitle">See the query track as a local neighborhood instead of a plain ranked list.</span>
+                  </div>
                   <span class="collapse-hint">Click to open and drag the map</span>
                 </div>
               </summary>
@@ -1830,6 +1974,10 @@
                 ${popupPoint ? `
                   ${renderNeighborhoodPopup(popupPoint)}
                 ` : ""}
+              </div>
+              <div class="map-stats">
+                <span class="map-stat"><strong>${points.length - 1}</strong> nearby songs</span>
+                <span class="map-stat"><strong>${visibleLabels.length}</strong> labeled on the map</span>
               </div>
               <div class="map-legend">
                 <span class="map-legend-item"><span class="map-legend-dot query"></span>Query song</span>
