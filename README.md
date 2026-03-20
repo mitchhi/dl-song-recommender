@@ -5,12 +5,11 @@ To install repo src: inside the repo root on terminal,
 
 # Deep Learning Song Recommender
 
-A content-based music recommendation system that learns song similarity from audio, using listener tags as semantic supervision and spectrogram-based deep learning models to retrieve related songs.
+## Summary
+This project builds a content-based music recommender that learns song similarity directly from audio. Using full-mix and stem spectrograms, we trained a late-fusion ResNet18 to generate song embeddings shaped by genre-tag supervision and contrastive learning. The final model powers a web app where users can explore songs and receive recommendations based on learned audio similarity.
 
 **App Website:** https://dl-song-recommender.onrender.com
 
-## Summary 
-This project builds a content-based music recommender that learns song similarity directly from audio. Using full-mix and stem spectrograms, we trained a late-fusion ResNet18 to generate song embeddings shaped by genre-tag supervision and contrastive learning. The final model powers a web app where users can explore songs and receive recommendations based on learned audio similarity.
 
 ## Why This Matters (Too wordy. Needed?)
 
