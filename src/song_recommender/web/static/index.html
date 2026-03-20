@@ -2073,11 +2073,21 @@
         return String(value ?? "").trim().toLowerCase();
       }
 
+      function selectorForElement(element) {
+        if (!element || !element.id) return null;
+        if (window.CSS && typeof window.CSS.escape === "function") {
+          return `#${window.CSS.escape(element.id)}`;
+        }
+        return `#${element.id.replace(/([^a-zA-Z0-9_-])/g, "\\$1")}`;
+      }
+
       async function preserveScrollAround(element, work) {
         const topBefore = element ? element.getBoundingClientRect().top : null;
+        const selector = selectorForElement(element);
         await work();
-        if (element && topBefore !== null) {
-          const topAfter = element.getBoundingClientRect().top;
+        const anchor = selector ? document.querySelector(selector) : element;
+        if (anchor && topBefore !== null) {
+          const topAfter = anchor.getBoundingClientRect().top;
           window.scrollBy(0, topAfter - topBefore);
         }
       }
