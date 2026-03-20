@@ -65,6 +65,18 @@
           opacity: 0.6;
         }
       }
+      .motion-enter {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fade-up 360ms ease forwards;
+        animation-delay: calc(var(--stagger, 0) * 48ms);
+      }
+      .motion-enter-soft {
+        opacity: 0;
+        transform: translateY(6px);
+        animation: fade-up 300ms ease forwards;
+        animation-delay: calc(var(--stagger, 0) * 36ms);
+      }
       .hero-badge {
         display: inline-flex;
         align-items: center;
@@ -321,6 +333,9 @@
         background: rgba(10, 16, 24, 0.88);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
       }
+      input[type="file"] {
+        display: none;
+      }
       select:focus,
       input:focus,
       button:focus-visible,
@@ -401,6 +416,140 @@
         margin-top: 8px;
         font-size: 0.76rem;
       }
+      .upload-module {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(107, 182, 255, 0.14);
+        background:
+          radial-gradient(circle at top right, rgba(107, 182, 255, 0.08), transparent 34%),
+          linear-gradient(180deg, rgba(13, 20, 30, 0.8), rgba(10, 16, 24, 0.72));
+      }
+      .upload-module.drag-over {
+        border-color: rgba(131, 230, 180, 0.34);
+        background:
+          radial-gradient(circle at top right, rgba(131, 230, 180, 0.12), transparent 34%),
+          linear-gradient(180deg, rgba(16, 25, 35, 0.88), rgba(10, 17, 24, 0.8));
+        box-shadow: 0 0 0 3px rgba(131, 230, 180, 0.12);
+      }
+      .upload-pick {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px dashed rgba(131, 230, 180, 0.24);
+        background: rgba(131, 230, 180, 0.06);
+        color: #d9f7e8;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+      }
+      .upload-pick:hover {
+        border-color: rgba(131, 230, 180, 0.4);
+        background: rgba(131, 230, 180, 0.1);
+        transform: translateY(-1px);
+      }
+      .upload-file-name {
+        color: var(--text);
+        font-size: 0.86rem;
+      }
+      .upload-preview {
+        width: 100%;
+        max-width: 100%;
+      }
+      .upload-clip-controls {
+        display: grid;
+        gap: 8px;
+      }
+      .upload-submit {
+        justify-content: center;
+        text-align: center;
+      }
+      .upload-status {
+        min-height: 20px;
+      }
+      .upload-query-note {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(131, 230, 180, 0.16);
+        background: rgba(131, 230, 180, 0.06);
+        color: #dcefe3;
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+      .upload-clip-preview {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(107, 182, 255, 0.16);
+        background: rgba(107, 182, 255, 0.06);
+        display: grid;
+        gap: 10px;
+      }
+      .upload-clip-preview-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .upload-clip-preview-title {
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .upload-clip-player {
+        display: grid;
+        gap: 10px;
+      }
+      .upload-clip-transport {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+      }
+      .upload-clip-play {
+        width: auto;
+        min-width: 48px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-align: center;
+      }
+      .upload-clip-bar {
+        position: relative;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.18);
+        overflow: hidden;
+      }
+      .upload-clip-bar-fill {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 0%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(131, 230, 180, 0.92), rgba(107, 182, 255, 0.92));
+        transition: width 120ms linear;
+      }
+      .upload-clip-time {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-variant-numeric: tabular-nums;
+      }
+      .upload-clip-range {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-variant-numeric: tabular-nums;
+      }
       button {
         width: 100%;
         text-align: left;
@@ -442,6 +591,87 @@
         border-color: rgba(107, 182, 255, 0.28);
         background: linear-gradient(180deg, rgba(18, 29, 42, 0.9), rgba(12, 19, 29, 0.82));
         box-shadow: 0 24px 40px rgba(0, 0, 0, 0.22);
+      }
+      .loading-card,
+      .loading-line {
+        position: relative;
+        overflow: hidden;
+      }
+      .loading-card::after,
+      .loading-line::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 42%, transparent 68%);
+        animation: shimmer 1.8s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .loading-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 18px;
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.72), rgba(11, 17, 24, 0.66));
+      }
+      .loading-card.recommendation-loading-card {
+        margin-top: 12px;
+      }
+      .loading-card.search-loading-card {
+        padding: 14px 16px;
+      }
+      .loading-card-compact {
+        padding: 12px;
+        border-radius: var(--radius-md);
+      }
+      .loading-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .loading-line {
+        display: block;
+        width: 100%;
+        border-radius: 999px;
+        background: rgba(153, 169, 188, 0.08);
+      }
+      .loading-line.kicker {
+        width: 96px;
+        height: 10px;
+      }
+      .loading-line.title {
+        margin-top: 14px;
+        width: 58%;
+        height: 18px;
+      }
+      .loading-line.subtitle {
+        margin-top: 8px;
+        width: 34%;
+        height: 12px;
+      }
+      .loading-line.meta {
+        width: 70px;
+        height: 28px;
+      }
+      .loading-line.pill {
+        width: 72px;
+        height: 22px;
+      }
+      .loading-line.action {
+        width: 104px;
+        height: 36px;
+      }
+      .loading-line.embed {
+        margin-top: 14px;
+        width: 100%;
+        height: 152px;
+        border-radius: 16px;
+      }
+      .loading-pills,
+      .loading-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
       }
       .card.recommendation-card {
         background: linear-gradient(180deg, rgba(14, 20, 29, 0.78), rgba(11, 17, 24, 0.72));
@@ -1427,6 +1657,24 @@
           display: none !important;
         }
       }
+      @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        .motion-enter,
+        .motion-enter-soft {
+          opacity: 1;
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1491,6 +1739,26 @@
               </div>
               <div id="tag-results" class="mini-stack"></div>
             </div>
+            <div id="upload-module" class="upload-module">
+              <div class="field-label">Try Your Own Audio</div>
+              <label id="upload-pick" class="upload-pick" for="upload-file">Choose an audio file</label>
+              <input id="upload-file" type="file" accept="audio/*" />
+              <div id="upload-file-name" class="upload-file-name">Drop or choose audio.</div>
+              <audio id="upload-preview" class="upload-preview" controls hidden></audio>
+              <div id="upload-clip-controls" class="upload-clip-controls" hidden>
+                <div id="upload-slider-block">
+                  <div class="field-label">Choose When The 10-Second Clip Starts</div>
+                  <input id="upload-clip-start" type="range" min="0" max="0" step="0.1" value="0" />
+                  <div class="range-labels">
+                    <span id="upload-start-label">0:00</span>
+                    <span id="upload-end-label">0:10</span>
+                  </div>
+                </div>
+                <div id="upload-clip-helper" class="helper">Pick where the 10-second clip starts.</div>
+                <button id="upload-submit" class="upload-submit" type="button">Recommend from clip</button>
+              </div>
+              <div id="upload-status" class="helper upload-status"></div>
+            </div>
           </div>
           <div id="results" class="stack"></div>
         </aside>
@@ -1517,6 +1785,19 @@
       const tagSearchInput = document.getElementById("tag-search");
       const randomTagButton = document.getElementById("random-tag");
       const randomSongButton = document.getElementById("random-song");
+      const uploadModule = document.getElementById("upload-module");
+      const uploadPick = document.getElementById("upload-pick");
+      const uploadInput = document.getElementById("upload-file");
+      const uploadFileName = document.getElementById("upload-file-name");
+      const uploadPreview = document.getElementById("upload-preview");
+      const uploadClipControls = document.getElementById("upload-clip-controls");
+      const uploadSliderBlock = document.getElementById("upload-slider-block");
+      const uploadClipStartInput = document.getElementById("upload-clip-start");
+      const uploadClipHelper = document.getElementById("upload-clip-helper");
+      const uploadStartLabel = document.getElementById("upload-start-label");
+      const uploadEndLabel = document.getElementById("upload-end-label");
+      const uploadSubmitButton = document.getElementById("upload-submit");
+      const uploadStatus = document.getElementById("upload-status");
       const tagResultsRoot = document.getElementById("tag-results");
       const resultsRoot = document.getElementById("results");
       const recommendationsRoot = document.getElementById("recommendations");
@@ -1537,9 +1818,16 @@
       let isNeighborhoodOpen = false;
       let isArtistProfileOpen = false;
       let isShiftZoomActive = false;
+      let currentUploadObjectUrl = "";
+      let currentUploadDuration = 0;
+      let uploadClipStopTimer = null;
 
       async function getJson(url) {
         const response = await fetch(url);
+        return parseJsonResponse(response);
+      }
+
+      async function parseJsonResponse(response) {
         if (!response.ok) {
           let detail = `Request failed: ${response.status}`;
           try {
@@ -1553,6 +1841,14 @@
           throw new Error(detail);
         }
         return response.json();
+      }
+
+      async function postFormJson(url, formData) {
+        const response = await fetch(url, {
+          method: "POST",
+          body: formData,
+        });
+        return parseJsonResponse(response);
       }
 
       function escapeHtml(value) {
@@ -1571,6 +1867,13 @@
 
       function safeArtist(value) {
         return safeText(value, "Metadata unavailable");
+      }
+
+      function formatClock(seconds) {
+        const safeSeconds = Math.max(0, Number(seconds) || 0);
+        const mins = Math.floor(safeSeconds / 60);
+        const secs = Math.floor(safeSeconds % 60).toString().padStart(2, "0");
+        return `${mins}:${secs}`;
       }
 
       function modelQuery() {
@@ -1656,6 +1959,223 @@
       function blendDescription(value) {
         const pct = Math.round(value * 100);
         return `Current blend: ${pct}% toward stem structure. This shows mix vs stem tradeoffs from the notebooks, but not isolated drum-only or harmonic-only matching.`;
+      }
+
+      function updateUploadClipLabels() {
+        const start = Number(uploadClipStartInput.value) || 0;
+        const end = Math.min(start + 10, currentUploadDuration || start + 10);
+        uploadStartLabel.textContent = formatClock(start);
+        uploadEndLabel.textContent = formatClock(end);
+        if (currentUploadDuration > 0 && currentUploadDuration < 10) {
+          uploadClipHelper.textContent = "This file is too short. Upload a track that is at least 10 seconds long.";
+          return;
+        }
+        if (currentUploadDuration <= 10.05) {
+          uploadClipHelper.textContent = "Using the opening 10 seconds.";
+          return;
+        }
+        uploadClipHelper.textContent = `Clip start: ${formatClock(start)}.`;
+      }
+
+      function stopUploadedClipPreview() {
+        if (uploadClipStopTimer) {
+          window.clearTimeout(uploadClipStopTimer);
+          uploadClipStopTimer = null;
+        }
+        const player = document.getElementById("uploaded-query-player");
+        const button = document.getElementById("uploaded-query-play");
+        const fill = document.getElementById("uploaded-query-fill");
+        const time = document.getElementById("uploaded-query-time");
+        const query = currentRecommendationsPayload && currentRecommendationsPayload.query ? currentRecommendationsPayload.query : null;
+        if (player) {
+          player.pause();
+        }
+        if (button) {
+          button.textContent = "Play";
+        }
+        if (fill) {
+          fill.style.width = "0%";
+        }
+        if (time && query) {
+          time.textContent = `${formatClock(query.clip_duration_sec || 10)} clip`;
+        }
+      }
+
+      function renderUploadedClipPreview(query) {
+        if (!currentUploadObjectUrl) {
+          return `
+            <div class="upload-query-note">
+              File: <strong>${escapeHtml(query.source_filename || query.artist || "Local audio file")}</strong><br />
+              Clip: ${escapeHtml(formatClock(query.clip_start_sec || 0))} to ${escapeHtml(formatClock((query.clip_start_sec || 0) + (query.clip_duration_sec || 10)))}
+            </div>
+          `;
+        }
+        return `
+          <div class="upload-query-note">
+            File: <strong>${escapeHtml(query.source_filename || query.artist || "Local audio file")}</strong><br />
+            Clip: ${escapeHtml(formatClock(query.clip_start_sec || 0))} to ${escapeHtml(formatClock((query.clip_start_sec || 0) + (query.clip_duration_sec || 10)))}
+          </div>
+          <div class="upload-clip-preview">
+            <div class="upload-clip-preview-row">
+              <div>
+                <div class="upload-clip-preview-title">Selected clip</div>
+                <div class="muted">${escapeHtml(formatClock(query.clip_start_sec || 0))} to ${escapeHtml(formatClock((query.clip_start_sec || 0) + (query.clip_duration_sec || 10)))}</div>
+              </div>
+            </div>
+            <div class="upload-clip-player">
+              <div class="upload-clip-transport">
+                <button id="uploaded-query-play" class="upload-clip-play" type="button">Play</button>
+                <div class="upload-clip-bar" aria-hidden="true">
+                  <div id="uploaded-query-fill" class="upload-clip-bar-fill"></div>
+                </div>
+                <div id="uploaded-query-time" class="upload-clip-time">${escapeHtml(formatClock(query.clip_duration_sec || 10))} clip</div>
+              </div>
+              <div class="upload-clip-range">
+                <span>${escapeHtml(formatClock(query.clip_start_sec || 0))}</span>
+                <span>${escapeHtml(formatClock((query.clip_start_sec || 0) + (query.clip_duration_sec || 10)))}</span>
+              </div>
+              <audio id="uploaded-query-player" preload="metadata">
+                <source src="${escapeHtml(currentUploadObjectUrl)}" />
+              </audio>
+            </div>
+          </div>
+        `;
+      }
+
+      function attachUploadedClipPreview() {
+        const player = document.getElementById("uploaded-query-player");
+        const button = document.getElementById("uploaded-query-play");
+        const fill = document.getElementById("uploaded-query-fill");
+        const time = document.getElementById("uploaded-query-time");
+        if (!player || !button || !fill || !time || !currentRecommendationsPayload || !currentRecommendationsPayload.query) return;
+        const clipStart = Number(currentRecommendationsPayload.query.clip_start_sec) || 0;
+        const clipDuration = Number(currentRecommendationsPayload.query.clip_duration_sec) || 10;
+        const clipEnd = clipStart + clipDuration;
+        time.textContent = `${formatClock(clipDuration)} clip`;
+
+        const syncState = () => {
+          const elapsed = Math.max(0, Math.min(clipDuration, player.currentTime - clipStart));
+          fill.style.width = `${(elapsed / Math.max(clipDuration, 0.001)) * 100}%`;
+          time.textContent = `${formatClock(elapsed)} / ${formatClock(clipDuration)}`;
+          if (!player.paused && player.currentTime >= clipEnd) {
+            stopUploadedClipPreview();
+            player.currentTime = clipStart;
+          }
+        };
+
+        player.addEventListener("timeupdate", syncState);
+        player.addEventListener("ended", () => {
+          stopUploadedClipPreview();
+          player.currentTime = clipStart;
+        });
+        button.addEventListener("click", async () => {
+          if (!player.paused) {
+            stopUploadedClipPreview();
+            player.currentTime = clipStart;
+            return;
+          }
+          stopUploadedClipPreview();
+          player.currentTime = clipStart;
+          await player.play();
+          button.textContent = "Pause";
+          syncState();
+          uploadClipStopTimer = window.setTimeout(() => {
+            stopUploadedClipPreview();
+            player.currentTime = clipStart;
+          }, Math.max(0, (clipEnd - clipStart) * 1000));
+        });
+      }
+
+      function resetUploadState() {
+        uploadModule.classList.remove("drag-over");
+        if (currentUploadObjectUrl) {
+          URL.revokeObjectURL(currentUploadObjectUrl);
+          currentUploadObjectUrl = "";
+        }
+        currentUploadDuration = 0;
+        uploadInput.value = "";
+        uploadPreview.pause();
+        uploadPreview.removeAttribute("src");
+        uploadPreview.hidden = true;
+        uploadClipControls.hidden = true;
+        uploadSliderBlock.hidden = true;
+        uploadSubmitButton.disabled = true;
+        uploadStatus.textContent = "";
+        uploadFileName.textContent = "Drop or choose audio.";
+        uploadClipStartInput.value = "0";
+        uploadClipStartInput.max = "0";
+        stopUploadedClipPreview();
+      }
+
+      function setUploadFile(file) {
+        uploadStatus.textContent = "";
+        if (!file) {
+          resetUploadState();
+          return;
+        }
+        if (!String(file.type || "").startsWith("audio/")) {
+          uploadStatus.textContent = "Drop an audio file to use this flow.";
+          return;
+        }
+        if (currentUploadObjectUrl) {
+          URL.revokeObjectURL(currentUploadObjectUrl);
+        }
+        stopUploadedClipPreview();
+        currentUploadObjectUrl = URL.createObjectURL(file);
+        uploadFileName.textContent = file.name;
+        uploadPreview.src = currentUploadObjectUrl;
+        uploadPreview.load();
+        uploadPreview.hidden = false;
+        uploadClipControls.hidden = true;
+        uploadSliderBlock.hidden = true;
+        uploadSubmitButton.disabled = true;
+      }
+
+      function hasActiveUploadedQuery() {
+        const file = uploadInput.files && uploadInput.files[0];
+        return Boolean(
+          file &&
+          currentRecommendationsPayload &&
+          currentRecommendationsPayload.query &&
+          currentRecommendationsPayload.query.uploaded
+        );
+      }
+
+      async function loadRecommendationsFromUpload(options = {}) {
+        const { scrollIntoView = true } = options;
+        const file = uploadInput.files && uploadInput.files[0];
+        if (!file) {
+          uploadStatus.textContent = "Choose an audio file first.";
+          return;
+        }
+        uploadStatus.textContent = "Uploading clip and building stem-aware recommendation query...";
+        uploadSubmitButton.disabled = true;
+        renderRecommendationsLoadingState();
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
+          if (currentModel) formData.append("model", currentModel);
+          if (currentSpace) formData.append("space", currentSpace);
+          formData.append("blend", currentBlend.toFixed(2));
+          formData.append("limit", String(currentRecommendationsLimit));
+          formData.append("clip_start_sec", String(Number(uploadClipStartInput.value) || 0));
+          const payload = await postFormJson("/api/recommend/upload", formData);
+          currentQueryId = null;
+          currentDistance = null;
+          currentNeighborhood = null;
+          currentMapPopupId = null;
+          currentRecommendationsPayload = payload;
+          await renderRecommendations(payload);
+          if (scrollIntoView) {
+            recommendationsRoot.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          uploadStatus.textContent = "Recommendations updated from the uploaded clip.";
+        } catch (error) {
+          recommendationsRoot.textContent = error.message;
+          uploadStatus.textContent = error.message;
+        } finally {
+          uploadSubmitButton.disabled = false;
+        }
       }
 
       function setSearchMode(mode) {
@@ -2046,6 +2566,69 @@
         }
       }
 
+      function renderResultsLoadingState() {
+        resultsRoot.innerHTML = Array.from({ length: 5 }, (_, index) => `
+          <div class="loading-card search-loading-card motion-enter-soft" style="--stagger:${index};">
+            <div class="loading-line title"></div>
+            <div class="loading-line subtitle"></div>
+            <div class="loading-pills">
+              <span class="loading-line pill"></span>
+              <span class="loading-line pill"></span>
+              <span class="loading-line pill"></span>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      function renderTagResultsLoadingState() {
+        tagResultsRoot.innerHTML = Array.from({ length: 4 }, (_, index) => `
+          <div class="loading-card loading-card-compact motion-enter-soft" style="--stagger:${index};">
+            <div class="loading-row">
+              <span class="loading-line title" style="margin-top:0; width:54%;"></span>
+              <span class="loading-line subtitle" style="margin-top:0; width:18%;"></span>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      function renderRecommendationsLoadingState() {
+        recommendationsRoot.innerHTML = `
+          <div class="toolbar motion-enter-soft" style="--stagger:0;">
+            <div class="muted">Loading neighborhood and recommendations...</div>
+            <div></div>
+          </div>
+          <div class="loading-card recommendation-loading-card motion-enter" style="--stagger:1;">
+            <div class="loading-row">
+              <span class="loading-line kicker"></span>
+              <span class="loading-line meta"></span>
+            </div>
+            <div class="loading-line title"></div>
+            <div class="loading-line subtitle"></div>
+            <div class="loading-line embed"></div>
+          </div>
+          ${Array.from({ length: 4 }, (_, index) => `
+            <div class="loading-card recommendation-loading-card motion-enter" style="--stagger:${index + 2};">
+              <div class="loading-row">
+                <span class="loading-line kicker"></span>
+                <span class="loading-line meta"></span>
+              </div>
+              <div class="loading-line title"></div>
+              <div class="loading-line subtitle"></div>
+              <div class="loading-pills">
+                <span class="loading-line pill"></span>
+                <span class="loading-line pill"></span>
+                <span class="loading-line pill"></span>
+              </div>
+              <div class="loading-actions">
+                <span class="loading-line action"></span>
+                <span class="loading-line action"></span>
+              </div>
+              <div class="loading-line embed"></div>
+            </div>
+          `).join("")}
+        `;
+      }
+
       function renderResults(results) {
         if (!results.length) {
           resultsRoot.innerHTML = `<div class="muted">No tracks found in this model.</div>`;
@@ -2062,8 +2645,8 @@
         const loadMore = results.length >= currentResultsLimit
           ? `<div class="load-more-wrap"><button id="load-more-results" class="load-more-button" type="button">+</button></div>`
           : "";
-        resultsRoot.innerHTML = `${activeTagBanner}${results.map((track) => `
-          <div class="search-result">
+        resultsRoot.innerHTML = `${activeTagBanner}${results.map((track, index) => `
+          <div class="search-result motion-enter-soft" style="--stagger:${Math.min(index, 7)};">
             <button class="search-result-button" data-id="${escapeHtml(track.spotify_id)}" title="${escapeHtml(track.spotify_id)}">
               <strong>${escapeHtml(track.name)}</strong><br />
               <span class="muted">${escapeHtml(safeArtist(track.artist))}</span>
@@ -2088,18 +2671,19 @@
 
       async function renderRecommendations(payload) {
         currentRecommendationsPayload = payload;
-        const artistProfile = await renderArtistProfile(payload.query);
-        const loadMore = payload.recommendations.length >= currentRecommendationsLimit
+        const isUploadedQuery = Boolean(payload.query && payload.query.uploaded);
+        const artistProfile = isUploadedQuery ? "" : await renderArtistProfile(payload.query);
+        const loadMore = !isUploadedQuery && payload.recommendations.length >= currentRecommendationsLimit
           ? `<div class="load-more-wrap"><button id="load-more-recommendations" class="load-more-button" type="button">+</button></div>`
           : "";
         recommendationsRoot.innerHTML = `
           <div class="toolbar">
-            <div class="muted">Pinned query stays selected while you switch model or style.</div>
+            <div class="muted">${isUploadedQuery ? "Recommendations are based on the uploaded 10-second clip in the current space." : "Pinned query stays selected while you switch model or style."}</div>
             <div>
               ${currentQueryId ? `<button id="clear-pin">Clear pinned query</button>` : ""}
             </div>
           </div>
-          <div class="card query-card">
+          <div class="card query-card motion-enter-soft" style="--stagger:0;">
             <div class="card-topline">
               <div class="card-kicker">Current query</div>
               <div class="recommendation-meta">
@@ -2114,14 +2698,18 @@
               </div>
             </div>
             ${renderTagRow(payload.query)}
-            <iframe
-              src="${escapeHtml(payload.query.spotify_embed_url)}"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
+            ${payload.query.spotify_embed_url ? `
+              <iframe
+                src="${escapeHtml(payload.query.spotify_embed_url)}"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+              </iframe>
+            ` : `
+              ${renderUploadedClipPreview(payload.query)}
+            `}
           </div>
           ${currentDistance ? `
-            <div class="compare-card">
+            <div class="compare-card motion-enter-soft" style="--stagger:1;">
               <div class="viz-title">Song Distance</div>
               <strong>${escapeHtml(currentDistance.track_a.name)}</strong> vs <strong>${escapeHtml(currentDistance.track_b.name)}</strong><br />
               <span class="muted">${escapeHtml(safeArtist(currentDistance.track_a.artist))} and ${escapeHtml(safeArtist(currentDistance.track_b.artist))}</span><br /><br />
@@ -2132,7 +2720,7 @@
           ${renderNeighborhoodMap(currentNeighborhood)}
           ${artistProfile}
           ${payload.recommendations.map((track, index) => `
-            <div class="card recommendation-card">
+            <div class="card recommendation-card motion-enter" style="--stagger:${Math.min(index + 2, 9)};">
               <div class="card-topline">
                 <div class="card-kicker">Recommendation</div>
                 <div class="recommendation-meta">
@@ -2150,7 +2738,7 @@
               ${renderWhyMatched(track)}
               <div class="card-actions">
                 <button class="action-button use-query-button" data-id="${escapeHtml(track.spotify_id)}">Use as query</button>
-                <button class="action-button secondary compare-button" data-id="${escapeHtml(track.spotify_id)}">Compare with query</button>
+                ${isUploadedQuery ? "" : `<button class="action-button secondary compare-button" data-id="${escapeHtml(track.spotify_id)}">Compare with query</button>`}
               </div>
               <iframe
                 src="${escapeHtml(track.spotify_embed_url)}"
@@ -2218,6 +2806,9 @@
               await loadRecommendations(currentQueryId);
             });
           });
+        }
+        if (isUploadedQuery) {
+          attachUploadedClipPreview();
         }
         initializeMapPan();
       }
@@ -2385,7 +2976,7 @@
       });
 
       async function loadRecommendations(spotifyId) {
-        recommendationsRoot.textContent = "Loading recommendations...";
+        renderRecommendationsLoadingState();
         try {
           if (spotifyId !== currentQueryId) {
             currentRecommendationsLimit = 7;
@@ -2454,6 +3045,70 @@
           await applyTagSearch(payload.results[0].tag);
         }
       });
+      uploadInput.addEventListener("change", () => {
+        const file = uploadInput.files && uploadInput.files[0];
+        setUploadFile(file);
+      });
+      ["dragenter", "dragover"].forEach((eventName) => {
+        uploadModule.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          uploadModule.classList.add("drag-over");
+          uploadPick.textContent = "Drop audio file here";
+        });
+      });
+      ["dragleave", "dragend"].forEach((eventName) => {
+        uploadModule.addEventListener(eventName, (event) => {
+          if (event.relatedTarget && uploadModule.contains(event.relatedTarget)) return;
+          uploadModule.classList.remove("drag-over");
+          uploadPick.textContent = "Choose an audio file";
+        });
+      });
+      uploadModule.addEventListener("drop", (event) => {
+        event.preventDefault();
+        uploadModule.classList.remove("drag-over");
+        uploadPick.textContent = "Choose an audio file";
+        const droppedFiles = event.dataTransfer && event.dataTransfer.files;
+        const file = droppedFiles && droppedFiles[0];
+        if (!file) return;
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        uploadInput.files = dataTransfer.files;
+        setUploadFile(file);
+      });
+      uploadPreview.addEventListener("loadedmetadata", () => {
+        currentUploadDuration = Number.isFinite(uploadPreview.duration) ? uploadPreview.duration : 0;
+        if (currentUploadDuration > 0 && currentUploadDuration < 10) {
+          uploadClipControls.hidden = false;
+          uploadSliderBlock.hidden = true;
+          uploadSubmitButton.disabled = true;
+          uploadStatus.textContent = "This clip is too short. Upload a track that is at least 10 seconds long.";
+          updateUploadClipLabels();
+          return;
+        }
+        const maxStart = Math.max(0, currentUploadDuration - 10);
+        uploadClipStartInput.max = maxStart.toFixed(1);
+        uploadClipStartInput.value = "0";
+        uploadClipControls.hidden = false;
+        uploadSliderBlock.hidden = maxStart <= 0.05;
+        uploadStatus.textContent = "";
+        uploadSubmitButton.disabled = false;
+        updateUploadClipLabels();
+      });
+      uploadPreview.addEventListener("error", () => {
+        uploadClipControls.hidden = true;
+        uploadSliderBlock.hidden = true;
+        uploadSubmitButton.disabled = true;
+        uploadStatus.textContent = "The browser could not preview this file. Try another audio format.";
+      });
+      uploadClipStartInput.addEventListener("input", () => {
+        updateUploadClipLabels();
+        if (!Number.isFinite(uploadPreview.duration)) return;
+        uploadPreview.currentTime = Number(uploadClipStartInput.value) || 0;
+      });
+      uploadSubmitButton.addEventListener("click", async () => {
+        if (uploadSubmitButton.disabled) return;
+        await loadRecommendationsFromUpload();
+      });
       songSearchModeButton.addEventListener("click", async () => {
         setSearchMode("song");
         tagSearchInput.value = "";
@@ -2476,6 +3131,8 @@
         renderModelLegend();
         if (currentQueryId) {
           loadRecommendations(currentQueryId);
+        } else if (hasActiveUploadedQuery()) {
+          loadRecommendationsFromUpload({ scrollIntoView: false });
         } else {
           currentDistance = null;
           currentNeighborhood = null;
@@ -2491,6 +3148,8 @@
         renderModelLegend();
         if (currentQueryId) {
           loadRecommendations(currentQueryId);
+        } else if (hasActiveUploadedQuery()) {
+          loadRecommendationsFromUpload({ scrollIntoView: false });
         } else {
           currentDistance = null;
           currentNeighborhood = null;
@@ -2505,10 +3164,13 @@
         currentBlend = Number(blendInput.value) / 100;
         if (currentQueryId && currentSpace === "blend") {
           loadRecommendations(currentQueryId);
+        } else if (hasActiveUploadedQuery() && currentSpace === "blend") {
+          loadRecommendationsFromUpload({ scrollIntoView: false });
         }
       });
 
       async function loadResults() {
+        renderResultsLoadingState();
         const query = modelQuery();
         let endpoint = `/api/random?limit=${currentResultsLimit}${query ? `&${query}` : ""}`;
         if (currentSearchMode === "tag") {
@@ -2527,6 +3189,7 @@
       }
 
       async function loadTagResults() {
+        renderTagResultsLoadingState();
         const q = tagSearchInput.value.trim();
         const query = modelQuery();
         const endpoint = `/api/tags/search?q=${encodeURIComponent(q)}&limit=8${query ? `&${query}` : ""}`;
@@ -2536,6 +3199,7 @@
       }
 
       async function loadTracksForActiveTag() {
+        renderResultsLoadingState();
         const query = modelQuery();
         const tag = currentActiveTag.trim();
         if (!tag) {
@@ -2610,6 +3274,7 @@
         const payload = await getJson("/api/models");
         updateModelSelector(payload.models);
         setSearchMode("song");
+        resetUploadState();
         renderRecommendationsEmptyState();
         loadTagResults();
         loadResults();

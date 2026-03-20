@@ -2,11 +2,13 @@ from __future__ import annotations
 
 from pathlib import Path
 import random
+import tempfile
 
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
+from song_recommender.web.audio_query import AUDIO_CLIP_SECONDS, embed_uploaded_clip
 from song_recommender.web.evaluation_store import create_session, ensure_schema, save_response
 from song_recommender.web.recommender import RecommenderIndex, available_models, metadata_lookup, resolve_model, split_lookup, tags_lookup
 
@@ -331,6 +333,57 @@ def recommend(
         if exc.args and exc.args[0] in {"demo", "evaluation"}:
             raise HTTPException(status_code=400, detail=f"Unknown mode: {exc.args[0]}") from exc
         raise HTTPException(status_code=400, detail=f"Unknown recommendation space: {exc.args[0]}") from exc
+
+
+@app.post("/api/recommend/upload")
+async def recommend_uploaded_clip(
+    file: UploadFile = File(...),
+    model: str | None = Form(default=None),
+    space: str | None = Form(default=None),
+    blend: float = Form(default=0.5),
+    limit: int = Form(default=10),
+    clip_start_sec: float = Form(default=0.0),
+):
+    if clip_start_sec < 0:
+        raise HTTPException(status_code=400, detail="clip_start_sec must be non-negative.")
+    if limit < 1 or limit > 25:
+        raise HTTPException(status_code=400, detail="limit must be between 1 and 25.")
+    if blend < 0.0 or blend > 1.0:
+        raise HTTPException(status_code=400, detail="blend must be between 0.0 and 1.0.")
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="Missing upload filename.")
+
+    try:
+        index = get_index(model)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=f"Unknown model: {model}") from exc
+
+    suffix = Path(file.filename).suffix or ".wav"
+    temp_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as handle:
+            temp_path = Path(handle.name)
+            handle.write(await file.read())
+        embedded = embed_uploaded_clip(index.spec, temp_path, clip_start_sec=clip_start_sec, filename=file.filename)
+        payload = index.recommend_from_query_embeddings(
+            embedded.query,
+            embedded.embeddings,
+            limit=limit,
+            space=space,
+            blend=blend,
+        )
+        payload["query"]["clip_duration_sec"] = AUDIO_CLIP_SECONDS
+        return payload
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=500, detail=f"Audio processing failed: {exc}") from exc
+    finally:
+        await file.close()
+        if temp_path is not None and temp_path.exists():
+            temp_path.unlink(missing_ok=True)
 
 
 @app.get("/api/artist-profile")

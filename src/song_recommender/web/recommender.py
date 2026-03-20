@@ -759,6 +759,63 @@ class RecommenderIndex:
             "recommendations": recommendations,
         }
 
+    def recommend_from_query_embeddings(
+        self,
+        query: dict[str, object],
+        query_embeddings: dict[str, np.ndarray],
+        limit: int,
+        space: str | None = None,
+        blend: float = 0.5,
+    ) -> dict[str, object]:
+        chosen_space = space or self.default_space
+        corpus_embeddings = self._embeddings_for_space(chosen_space, blend=blend)
+
+        if chosen_space == "blend":
+            mix_vector = query_embeddings.get("mix")
+            stem_vector = query_embeddings.get("stem")
+            if mix_vector is None or stem_vector is None:
+                raise ValueError(chosen_space)
+            alpha = float(min(max(blend, 0.0), 1.0))
+            query_vector = self._normalize_embeddings(
+                np.asarray([(1.0 - alpha) * mix_vector + alpha * stem_vector], dtype=np.float32)
+            )[0]
+        else:
+            query_vector = query_embeddings.get(chosen_space)
+            if query_vector is None:
+                raise ValueError(chosen_space)
+            query_vector = self._normalize_embeddings(np.asarray([query_vector], dtype=np.float32))[0]
+
+        scores = corpus_embeddings @ query_vector
+        limit = min(max(limit, 1), len(self.tracks))
+        top_idx = np.argpartition(-scores, kth=limit - 1)[:limit]
+        top_idx = top_idx[np.argsort(-scores[top_idx])]
+
+        query_track = Track(
+            spotify_id=str(query.get("spotify_id", "")),
+            name=str(query.get("name", "Uploaded clip")),
+            artist=str(query.get("artist", "Local audio file")),
+            tags=tuple(str(tag) for tag in query.get("tags", []) if str(tag).strip()),
+            split=str(query.get("split", "uploaded")),
+        )
+
+        recommendations = []
+        for rec_idx in top_idx:
+            row = self.tracks[int(rec_idx)].as_dict()
+            similarity = round(float(scores[int(rec_idx)]), 4)
+            row["similarity"] = similarity
+            row["why"] = self._recommendation_reasons(query_track, self.tracks[int(rec_idx)], similarity)
+            recommendations.append(row)
+
+        return {
+            "model": {**self.spec.as_dict(), "spaces": self.available_spaces()},
+            "mode": "uploaded",
+            "query_pool_size": len(self.tracks),
+            "space": chosen_space,
+            "blend": round(float(blend), 2) if chosen_space == "blend" else None,
+            "query": query,
+            "recommendations": recommendations,
+        }
+
 
 def _default_override_spec() -> ModelSpec | None:
     override = os.getenv("SONG_RECOMMENDER_EMBEDDINGS_PATH")
