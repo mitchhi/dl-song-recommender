@@ -66,6 +66,10 @@ Saved experiment manifests show strong semantic retrieval performance across the
 These results suggest...
 
 ## User Evaluation
-
+*(Talk about this for future improvements, not for model selection.)*
 <!-- Maybe some diagrams will help here. This (I believe) should be our main metric. -->
+
+
+## Conclusions & Future Works
+*(Add ideas as they come up. We'll synthesize everything and clean up towards the end.)*
  
