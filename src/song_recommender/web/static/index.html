@@ -28,6 +28,35 @@
         max-width: 100%;
         overflow-x: hidden;
       }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: -20% auto auto -8%;
+        width: 46vw;
+        height: 46vw;
+        min-width: 320px;
+        min-height: 320px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(107, 182, 255, 0.16), transparent 66%);
+        filter: blur(18px);
+        pointer-events: none;
+        z-index: -1;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        right: -8%;
+        bottom: -16%;
+        width: 42vw;
+        height: 42vw;
+        min-width: 280px;
+        min-height: 280px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(131, 230, 180, 0.11), transparent 70%);
+        filter: blur(22px);
+        pointer-events: none;
+        z-index: -1;
+      }
       body {
         margin: 0;
         overscroll-behavior-x: none;
@@ -40,17 +69,65 @@
           linear-gradient(180deg, #081018 0%, var(--bg) 100%);
       }
       main {
+        position: relative;
         width: min(1140px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 48px 0 calc(72px + env(safe-area-inset-bottom, 0px));
+        padding: 40px 0 calc(72px + env(safe-area-inset-bottom, 0px));
+      }
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes shimmer {
+        from {
+          transform: translateX(-12%);
+          opacity: 0.35;
+        }
+        to {
+          transform: translateX(12%);
+          opacity: 0.6;
+        }
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(131, 230, 180, 0.14);
+        background: rgba(131, 230, 180, 0.08);
+        color: #d9f7e8;
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .hero-badge::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent));
+        box-shadow: 0 0 0 6px rgba(131, 230, 180, 0.1);
       }
       h1 {
-        font-size: clamp(3rem, 6vw, 5.25rem);
-        line-height: 0.9;
+        font-size: clamp(2.6rem, 5.6vw, 4.7rem);
+        line-height: 0.92;
         max-width: 12ch;
-        margin: 0 0 14px;
+        margin: 0 0 12px;
         letter-spacing: -0.04em;
         font-weight: 780;
+        color: transparent;
+        background: linear-gradient(180deg, #f5f9ff 0%, #d6e3f5 92%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-shadow: 0 12px 36px rgba(15, 23, 33, 0.16);
         overflow-wrap: normal;
         word-break: normal;
         text-wrap: balance;
@@ -60,7 +137,7 @@
         color: var(--muted);
         font-size: 0.98rem;
         line-height: 1.7;
-        margin-bottom: 32px;
+        margin-bottom: 26px;
       }
       .hero-row {
         display: flex;
@@ -71,12 +148,20 @@
       }
       .hero-copy {
         min-width: 0;
+        animation: fade-up 420ms ease both;
       }
       .hero-actions {
-        display: flex;
+        display: inline-flex;
+        align-items: center;
         gap: 10px;
         flex-wrap: wrap;
         justify-content: flex-end;
+        padding: 10px;
+        border-radius: 28px;
+        border: 1px solid rgba(231, 238, 247, 0.08);
+        background: rgba(9, 15, 22, 0.44);
+        box-shadow: var(--shadow-soft);
+        animation: fade-up 520ms ease both;
       }
       .hero-link {
         display: inline-flex;
@@ -86,8 +171,7 @@
         text-decoration: none;
         color: var(--text);
         border: 1px solid var(--line);
-        background: rgba(15, 21, 31, 0.9);
-        box-shadow: var(--shadow-soft);
+        background: rgba(12, 18, 27, 0.82);
         transition: border-color 120ms ease, transform 120ms ease, background 120ms ease;
       }
       .hero-link:hover {
@@ -164,6 +248,8 @@
         gap: 24px;
       }
       .panel {
+        position: relative;
+        overflow: hidden;
         background: linear-gradient(180deg, var(--paper) 0%, var(--paper-strong) 100%);
         border: 1px solid var(--line-strong);
         border-radius: var(--radius-xl);
@@ -171,6 +257,27 @@
         box-shadow: var(--shadow);
         min-width: 0;
         backdrop-filter: blur(10px);
+        animation: fade-up 520ms ease both;
+      }
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(107, 182, 255, 0), rgba(107, 182, 255, 0.38), rgba(131, 230, 180, 0.22), rgba(107, 182, 255, 0));
+        opacity: 0.85;
+      }
+      .panel::after {
+        content: "";
+        position: absolute;
+        top: -30%;
+        right: -18%;
+        width: 46%;
+        height: 46%;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(107, 182, 255, 0.08), transparent 68%);
+        pointer-events: none;
       }
       .layout > *,
       .hero-row > *,
@@ -281,13 +388,25 @@
       }
       .legend {
         margin-top: 12px;
-        padding: 13px 14px;
+        padding: 12px 14px;
         border: 1px solid var(--line);
         border-radius: var(--radius-md);
         background: rgba(10, 16, 24, 0.54);
         color: var(--muted);
-        font-size: 0.86rem;
-        line-height: 1.6;
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+      .legend-model {
+        color: var(--text);
+        font-size: 0.94rem;
+        font-weight: 700;
+      }
+      .legend-meta {
+        margin-top: 6px;
+      }
+      .legend-missing {
+        margin-top: 8px;
+        font-size: 0.76rem;
       }
       button {
         width: 100%;
@@ -324,17 +443,24 @@
         padding: 18px;
         background: linear-gradient(180deg, rgba(15, 22, 32, 0.78), rgba(12, 18, 27, 0.72));
         margin-top: 12px;
+        transition: border-color 160ms ease, transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
       }
       .card.query-card {
         border-color: rgba(107, 182, 255, 0.28);
         background: linear-gradient(180deg, rgba(18, 29, 42, 0.9), rgba(12, 19, 29, 0.82));
         box-shadow: 0 24px 40px rgba(0, 0, 0, 0.22);
       }
+      .card.recommendation-card {
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.78), rgba(11, 17, 24, 0.72));
+      }
       .card-head {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         gap: 12px;
+      }
+      .card-head-main {
+        min-width: 0;
       }
       .card-kicker {
         display: inline-flex;
@@ -357,11 +483,37 @@
         color: var(--muted);
         font-size: 0.9rem;
       }
+      .card-topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .recommendation-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 28px;
+        height: 28px;
+        padding: 0 9px;
+        border-radius: 999px;
+        background: rgba(107, 182, 255, 0.1);
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
       .card-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         margin-top: 12px;
+      }
+      .recommendation-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
       }
       .action-button {
         width: auto;
@@ -383,6 +535,17 @@
         padding: 14px 16px;
         background: linear-gradient(180deg, rgba(15, 22, 32, 0.76), rgba(12, 18, 27, 0.68));
         margin-top: 12px;
+        transition: border-color 160ms ease, transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+      .search-result:hover,
+      .card.recommendation-card:hover,
+      .compare-card:hover,
+      .map-card:hover,
+      .viz-card:hover {
+        border-color: rgba(107, 182, 255, 0.22);
+        background: linear-gradient(180deg, rgba(18, 25, 36, 0.82), rgba(12, 18, 27, 0.76));
+        transform: translateY(-2px);
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.2);
       }
       .tag-focus-banner {
         margin-top: 12px;
@@ -442,6 +605,89 @@
         padding: 16px;
         background: linear-gradient(180deg, rgba(107, 182, 255, 0.08), rgba(107, 182, 255, 0.04));
         margin-top: 12px;
+      }
+      .empty-state {
+        min-height: 100%;
+        display: grid;
+        align-content: start;
+        gap: 18px;
+      }
+      .empty-hero {
+        padding: 26px;
+        border-radius: 22px;
+        border: 1px solid rgba(107, 182, 255, 0.18);
+        background:
+          radial-gradient(circle at top right, rgba(107, 182, 255, 0.12), transparent 34%),
+          linear-gradient(180deg, rgba(18, 29, 42, 0.84), rgba(12, 19, 29, 0.76));
+        position: relative;
+        overflow: hidden;
+      }
+      .empty-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.04) 36%, transparent 58%);
+        animation: shimmer 5.2s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+      .empty-kicker {
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .empty-title {
+        margin-top: 10px;
+        font-size: 1.7rem;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        font-weight: 760;
+      }
+      .empty-copy {
+        margin-top: 12px;
+        max-width: 54ch;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .empty-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .empty-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .empty-tip {
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.7), rgba(12, 18, 27, 0.64));
+        transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+      }
+      .empty-tip:hover {
+        border-color: rgba(107, 182, 255, 0.18);
+        background: linear-gradient(180deg, rgba(18, 25, 36, 0.82), rgba(12, 18, 27, 0.7));
+        transform: translateY(-2px);
+      }
+      .empty-tip-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .empty-tip strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.98rem;
+      }
+      .empty-tip p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
       }
       .map-card {
         border: 1px solid var(--line);
@@ -679,6 +925,11 @@
         background: rgba(153, 169, 188, 0.08);
         color: var(--muted);
       }
+      .similarity-chip {
+        background: rgba(131, 230, 180, 0.12);
+        color: #d9f7e8;
+        border: 1px solid rgba(131, 230, 180, 0.14);
+      }
       .spotify-id {
         display: inline-block;
         margin-top: 6px;
@@ -700,6 +951,7 @@
         text-align: center;
         font-size: 1.1rem;
         line-height: 1;
+        background: linear-gradient(180deg, rgba(17, 25, 35, 0.98), rgba(13, 18, 28, 0.94));
       }
       .tag-row {
         margin-top: 3px;
@@ -741,6 +993,7 @@
         border-radius: var(--radius-md);
         border: 1px solid rgba(126, 231, 135, 0.18);
         background: rgba(126, 231, 135, 0.06);
+        transition: border-color 160ms ease, background 160ms ease;
       }
       .insight-box summary {
         display: flex;
@@ -865,6 +1118,9 @@
           width: 100%;
           justify-content: flex-start;
         }
+        .empty-grid {
+          grid-template-columns: 1fr;
+        }
         .layout {
           grid-template-columns: 1fr;
           gap: 18px;
@@ -909,6 +1165,10 @@
         .hero-actions {
           display: grid;
           grid-template-columns: 1fr;
+          padding: 0;
+          border: 0;
+          background: transparent;
+          box-shadow: none;
         }
         .mode-nav,
         .hero-link,
@@ -940,12 +1200,17 @@
         .search-result,
         .compare-card,
         .map-card,
-        .viz-card {
+        .viz-card,
+        .empty-hero {
           padding: 14px;
         }
         .card-actions {
           display: grid;
           grid-template-columns: 1fr;
+        }
+        .card-topline {
+          align-items: flex-start;
+          flex-direction: column;
         }
         .action-button {
           width: 100%;
@@ -960,6 +1225,13 @@
         .tag-search-result {
           align-items: flex-start;
           flex-direction: column;
+        }
+        .empty-title {
+          font-size: 1.42rem;
+        }
+        .hero-badge {
+          margin-bottom: 12px;
+          font-size: 0.7rem;
         }
         .tag-search-count {
           white-space: normal;
@@ -1012,6 +1284,14 @@
         .map-svg {
           cursor: default;
         }
+        .search-result:hover,
+        .card.recommendation-card:hover,
+        .compare-card:hover,
+        .map-card:hover,
+        .viz-card:hover,
+        .empty-tip:hover {
+          transform: none;
+        }
         .map-hover-label {
           display: none !important;
         }
@@ -1020,6 +1300,7 @@
   </head>
   <body>
     <main>
+      <div class="hero-badge">Stem-aware music discovery</div>
       <h1>Stem Song Recommender</h1>
       <div class="hero-row">
         <div class="hero-copy">
@@ -1571,10 +1852,50 @@
         }
         const missing = Array.from(modelsById.values()).filter((item) => !item.available);
         modelLegend.innerHTML = `
-          <strong>${escapeHtml(model.label)}</strong><br /><br />Current mode: Demo
-          <br />Current recommendation style: ${escapeHtml(spaceLabel(currentSpace || "song"))}
-          ${missing.length ? `<br /><br />Missing locally: ${missing.map((item) => escapeHtml(item.label)).join(", ")}` : ""}
+          <div class="legend-model">${escapeHtml(model.label)}</div>
+          <div class="legend-meta">Demo mode · ${escapeHtml(spaceLabel(currentSpace || "song"))}</div>
+          ${missing.length ? `<div class="legend-missing">Missing locally: ${missing.map((item) => escapeHtml(item.label)).join(", ")}</div>` : ""}
         `;
+      }
+
+      function renderRecommendationsEmptyState() {
+        recommendationsRoot.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-hero">
+              <div class="empty-kicker">Ready to Explore</div>
+              <div class="empty-title">Pick a song and the app builds its local neighborhood.</div>
+              <div class="empty-copy">
+                Start from a search result, switch models to compare behavior, or let the app choose something random to get moving quickly.
+              </div>
+              <div class="empty-actions">
+                <button id="empty-random-song" class="action-button" type="button">Start with a random song</button>
+              </div>
+            </div>
+            <div class="empty-grid">
+              <div class="empty-tip">
+                <div class="empty-tip-label">Search</div>
+                <strong>Find an anchor track</strong>
+                <p>Search by artist or title, then pin a song to build the recommendation stack on the right.</p>
+              </div>
+              <div class="empty-tip">
+                <div class="empty-tip-label">Compare</div>
+                <strong>Switch spaces and models</strong>
+                <p>Use the left rail to compare whole-song recommendations against different embedding setups.</p>
+              </div>
+              <div class="empty-tip">
+                <div class="empty-tip-label">Explore</div>
+                <strong>Inspect the local song space</strong>
+                <p>Once a query is loaded, open the neighborhood map and artist profile to keep branching outward.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        const randomButton = document.getElementById("empty-random-song");
+        if (randomButton) {
+          randomButton.addEventListener("click", () => {
+            chooseRandomSong();
+          });
+        }
       }
 
       function renderResults(results) {
@@ -1631,11 +1952,15 @@
             </div>
           </div>
           <div class="card query-card">
-            <div class="card-kicker">Current query</div>
-            <div class="card-head">
-              <div>
+            <div class="card-topline">
+              <div class="card-kicker">Current query</div>
+              <div class="recommendation-meta">
                 <div class="meta-chip">${escapeHtml(payload.model.label)}</div>
                 <div class="meta-chip meta-chip-soft">Demo mode</div>
+              </div>
+            </div>
+            <div class="card-head">
+              <div class="card-head-main">
                 <h3 class="card-title">${escapeHtml(payload.query.name)}</h3>
                 <div class="card-subtitle">${escapeHtml(safeArtist(payload.query.artist))}</div>
               </div>
@@ -1659,14 +1984,19 @@
           ${renderNeighborhoodMap(currentNeighborhood)}
           ${artistProfile}
           ${payload.recommendations.map((track, index) => `
-            <div class="card">
-              <div class="card-kicker">Recommendation ${index + 1}</div>
+            <div class="card recommendation-card">
+              <div class="card-topline">
+                <div class="card-kicker">Recommendation</div>
+                <div class="recommendation-meta">
+                  <div class="recommendation-index">${index + 1}</div>
+                  <div class="meta-chip meta-chip-soft similarity-chip">${Math.round(track.similarity * 100)}% match</div>
+                </div>
+              </div>
               <div class="card-head">
-                <div>
+                <div class="card-head-main">
                   <h3 class="card-title">${escapeHtml(track.name)}</h3>
                   <div class="card-subtitle">${escapeHtml(safeArtist(track.artist))}</div>
                 </div>
-                <div class="meta-chip meta-chip-soft">${track.similarity.toFixed(4)}</div>
               </div>
               ${renderTagRow(track)}
               ${renderWhyMatched(track)}
@@ -1691,7 +2021,7 @@
             currentNeighborhood = null;
             currentMapPopupId = null;
             currentRecommendationsPayload = null;
-            recommendationsRoot.textContent = "Choose a track to load recommendations.";
+            renderRecommendationsEmptyState();
           });
         }
         const neighborhoodDetails = document.getElementById("neighborhood-details");
@@ -2001,7 +2331,7 @@
         } else {
           currentDistance = null;
           currentNeighborhood = null;
-          recommendationsRoot.textContent = "Choose a track to load recommendations.";
+          renderRecommendationsEmptyState();
         }
         loadTagResults();
         loadResults();
@@ -2016,7 +2346,7 @@
         } else {
           currentDistance = null;
           currentNeighborhood = null;
-          recommendationsRoot.textContent = "Choose a track to load recommendations.";
+          renderRecommendationsEmptyState();
         }
       });
       blendInput.addEventListener("input", () => {
@@ -2132,6 +2462,7 @@
         const payload = await getJson("/api/models");
         updateModelSelector(payload.models);
         setSearchMode("song");
+        renderRecommendationsEmptyState();
         loadTagResults();
         loadResults();
       }
