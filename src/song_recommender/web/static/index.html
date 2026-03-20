@@ -6,16 +6,22 @@
     <title>Stem Song Recommender</title>
     <style>
       :root {
-        --bg: #0d1117;
-        --bg-alt: #11161f;
-        --paper: rgba(22, 27, 34, 0.92);
-        --paper-strong: rgba(30, 36, 46, 0.98);
-        --text: #e6edf3;
-        --muted: #94a3b8;
-        --accent: #58a6ff;
-        --accent-2: #7ee787;
-        --line: rgba(230, 237, 243, 0.1);
-        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        --bg: #091019;
+        --bg-alt: #101923;
+        --paper: rgba(17, 24, 34, 0.9);
+        --paper-strong: rgba(22, 31, 43, 0.96);
+        --paper-soft: rgba(14, 20, 29, 0.76);
+        --text: #e7eef7;
+        --muted: #99a9bc;
+        --accent: #6bb6ff;
+        --accent-2: #83e6b4;
+        --line: rgba(231, 238, 247, 0.1);
+        --line-strong: rgba(231, 238, 247, 0.16);
+        --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+        --shadow-soft: 0 16px 34px rgba(0, 0, 0, 0.18);
+        --radius-xl: 24px;
+        --radius-lg: 18px;
+        --radius-md: 14px;
       }
       * { box-sizing: border-box; }
       html, body {
@@ -27,26 +33,33 @@
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(88, 166, 255, 0.16), transparent 28%),
-          radial-gradient(circle at top right, rgba(126, 231, 135, 0.08), transparent 22%),
-          linear-gradient(180deg, #0b0f14 0%, var(--bg) 100%);
+          radial-gradient(circle at 0% 0%, rgba(107, 182, 255, 0.18), transparent 24%),
+          radial-gradient(circle at 100% 0%, rgba(131, 230, 180, 0.08), transparent 20%),
+          radial-gradient(circle at 50% 100%, rgba(107, 182, 255, 0.05), transparent 28%),
+          linear-gradient(180deg, #081018 0%, var(--bg) 100%);
       }
       main {
-        width: min(1100px, calc(100% - 32px));
+        width: min(1140px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 40px 0 64px;
+        padding: 48px 0 72px;
       }
       h1 {
-        font-size: clamp(2.8rem, 6vw, 5rem);
-        line-height: 0.92;
-        max-width: 8ch;
-        margin: 0 0 12px;
+        font-size: clamp(3rem, 6vw, 5.25rem);
+        line-height: 0.9;
+        max-width: 12ch;
+        margin: 0 0 14px;
+        letter-spacing: -0.04em;
+        font-weight: 780;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
       }
       .subtitle {
         max-width: 62ch;
         color: var(--muted);
-        line-height: 1.6;
-        margin-bottom: 28px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        margin-bottom: 32px;
       }
       .hero-row {
         display: flex;
@@ -61,16 +74,19 @@
       .hero-link {
         display: inline-flex;
         align-items: center;
-        padding: 12px 14px;
-        border-radius: 14px;
+        padding: 11px 15px;
+        border-radius: 999px;
         text-decoration: none;
         color: var(--text);
         border: 1px solid var(--line);
-        background: rgba(13, 17, 23, 0.88);
+        background: rgba(15, 21, 31, 0.9);
+        box-shadow: var(--shadow-soft);
+        transition: border-color 120ms ease, transform 120ms ease, background 120ms ease;
       }
       .hero-link:hover {
-        border-color: rgba(88, 166, 255, 0.45);
-        background: rgba(22, 27, 34, 1);
+        border-color: rgba(107, 182, 255, 0.4);
+        background: rgba(20, 28, 39, 1);
+        transform: translateY(-1px);
       }
       .mode-nav {
         display: inline-flex;
@@ -79,7 +95,7 @@
         padding: 6px;
         border-radius: 999px;
         border: 1px solid var(--line);
-        background: rgba(13, 17, 23, 0.88);
+        background: rgba(15, 21, 31, 0.88);
       }
       .mode-nav a {
         color: var(--muted);
@@ -88,20 +104,66 @@
       }
       .mode-nav a.active {
         color: var(--text);
-        background: rgba(88, 166, 255, 0.18);
+        background: rgba(107, 182, 255, 0.16);
+      }
+      .search-mode-nav {
+        position: relative;
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 0;
+        padding: 4px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(15, 21, 31, 0.88);
+        overflow: hidden;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+      .search-mode-thumb {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        width: calc(50% - 4px);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(131, 230, 180, 0.24), rgba(107, 182, 255, 0.2));
+        border: 1px solid rgba(126, 231, 135, 0.16);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 10px 22px rgba(0, 0, 0, 0.18);
+        transition: transform 160ms ease;
+        pointer-events: none;
+      }
+      .search-mode-button {
+        position: relative;
+        z-index: 1;
+        width: auto;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+      .search-mode-button:hover {
+        transform: none;
+        background: transparent;
+      }
+      .search-mode-button.active {
+        color: var(--text);
       }
       .layout {
         display: grid;
         grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
-        gap: 20px;
+        gap: 24px;
       }
       .panel {
         background: linear-gradient(180deg, var(--paper) 0%, var(--paper-strong) 100%);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 22px;
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-xl);
+        padding: 24px;
         box-shadow: var(--shadow);
         min-width: 0;
+        backdrop-filter: blur(10px);
       }
       .layout > *,
       .hero-row > *,
@@ -144,16 +206,26 @@
       select,
       input {
         width: 100%;
-        padding: 14px 16px;
-        border-radius: 14px;
+        padding: 13px 15px;
+        border-radius: var(--radius-md);
         border: 1px solid var(--line);
         font: inherit;
         color: var(--text);
-        background: rgba(13, 17, 23, 0.9);
+        background: rgba(10, 16, 24, 0.88);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+      select:focus,
+      input:focus,
+      button:focus-visible,
+      a:focus-visible,
+      summary:focus-visible {
+        outline: none;
+        border-color: rgba(107, 182, 255, 0.44);
+        box-shadow: 0 0 0 3px rgba(107, 182, 255, 0.16);
       }
       .controls {
         display: grid;
-        gap: 12px;
+        gap: 14px;
       }
       .search-row {
         display: grid;
@@ -162,8 +234,8 @@
         align-items: center;
       }
       .field-label {
-        font-size: 0.78rem;
-        letter-spacing: 0.04em;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
       }
@@ -192,34 +264,41 @@
       }
       .stack {
         display: grid;
-        gap: 10px;
-        margin-top: 16px;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .mini-stack {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
       }
       .legend {
         margin-top: 12px;
-        padding: 12px 14px;
+        padding: 13px 14px;
         border: 1px solid var(--line);
-        border-radius: 14px;
-        background: rgba(13, 17, 23, 0.4);
+        border-radius: var(--radius-md);
+        background: rgba(10, 16, 24, 0.54);
         color: var(--muted);
         font-size: 0.86rem;
-        line-height: 1.5;
+        line-height: 1.6;
       }
       button {
         width: 100%;
         text-align: left;
         color: var(--text);
-        background: rgba(13, 17, 23, 0.88);
+        background: rgba(12, 18, 27, 0.92);
         border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 14px 16px;
+        border-radius: var(--radius-lg);
+        padding: 13px 15px;
         cursor: pointer;
-        transition: border-color 120ms ease, transform 120ms ease, background 120ms ease;
+        box-shadow: var(--shadow-soft);
+        transition: border-color 120ms ease, transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
       }
       button:hover {
-        border-color: rgba(88, 166, 255, 0.45);
-        background: rgba(22, 27, 34, 1);
+        border-color: rgba(107, 182, 255, 0.4);
+        background: rgba(18, 25, 35, 1);
         transform: translateY(-1px);
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
       }
       .search-row button,
       .toolbar button,
@@ -234,23 +313,134 @@
       }
       .card {
         border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 16px;
-        background: rgba(13, 17, 23, 0.62);
+        border-radius: var(--radius-lg);
+        padding: 18px;
+        background: linear-gradient(180deg, rgba(15, 22, 32, 0.78), rgba(12, 18, 27, 0.72));
         margin-top: 12px;
+      }
+      .card.query-card {
+        border-color: rgba(107, 182, 255, 0.28);
+        background: linear-gradient(180deg, rgba(18, 29, 42, 0.9), rgba(12, 19, 29, 0.82));
+        box-shadow: 0 24px 40px rgba(0, 0, 0, 0.22);
+      }
+      .card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .card-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .card-title {
+        margin: 0;
+        font-size: 1.12rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+      .card-subtitle {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .card-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .action-button {
+        width: auto;
+        padding: 8px 11px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        box-shadow: none;
+      }
+      .action-button.secondary {
+        background: rgba(12, 18, 27, 0.66);
+        color: var(--muted);
+      }
+      .action-button.secondary:hover {
+        color: var(--text);
+      }
+      .search-result {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 14px 16px;
+        background: linear-gradient(180deg, rgba(15, 22, 32, 0.76), rgba(12, 18, 27, 0.68));
+        margin-top: 12px;
+      }
+      .tag-focus-banner {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(126, 231, 135, 0.18);
+        background: rgba(126, 231, 135, 0.08);
+      }
+      .tag-focus-label {
+        font-size: 0.74rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+      .tag-focus-name {
+        margin-top: 4px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .search-result-button {
+        width: 100%;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        text-align: left;
+        background: transparent;
+        box-shadow: none;
+      }
+      .search-result-button:hover {
+        background: transparent;
+        transform: none;
+      }
+      .tag-search-result {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        background: rgba(11, 17, 25, 0.6);
+        cursor: pointer;
+      }
+      .tag-search-result:hover {
+        border-color: rgba(126, 231, 135, 0.28);
+        background: rgba(22, 27, 34, 0.82);
+      }
+      .tag-search-count {
+        color: var(--muted);
+        font-size: 0.76rem;
+        white-space: nowrap;
       }
       .compare-card {
         border: 1px solid rgba(88, 166, 255, 0.18);
-        border-radius: 16px;
+        border-radius: var(--radius-lg);
         padding: 16px;
-        background: rgba(88, 166, 255, 0.08);
+        background: linear-gradient(180deg, rgba(107, 182, 255, 0.08), rgba(107, 182, 255, 0.04));
         margin-top: 12px;
       }
       .map-card {
         border: 1px solid var(--line);
-        border-radius: 16px;
+        border-radius: var(--radius-lg);
         padding: 16px;
-        background: rgba(13, 17, 23, 0.52);
+        background: linear-gradient(180deg, rgba(13, 20, 29, 0.74), rgba(11, 17, 25, 0.68));
         margin-top: 12px;
       }
       .map-card details[open] summary,
@@ -309,6 +499,34 @@
         color: var(--muted);
         font-size: 0.82rem;
       }
+      .map-legend {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+      .map-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .map-legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+      .map-legend-dot.query {
+        background: #7ee787;
+      }
+      .map-legend-dot.neighbor {
+        background: #58a6ff;
+      }
+      .map-legend-dot.selected {
+        background: #1f6feb;
+      }
       summary {
         cursor: pointer;
         color: var(--text);
@@ -324,8 +542,8 @@
         gap: 16px;
         padding: 10px 12px;
         border: 1px dashed rgba(88, 166, 255, 0.24);
-        border-radius: 12px;
-        background: rgba(88, 166, 255, 0.06);
+        border-radius: var(--radius-md);
+        background: rgba(107, 182, 255, 0.06);
       }
       .collapse-title {
         font-size: 0.92rem;
@@ -354,6 +572,30 @@
         padding: 8px 10px;
         border-radius: 10px;
         font-size: 0.78rem;
+      }
+      .map-popup-meta {
+        margin-top: 8px;
+        display: grid;
+        gap: 6px;
+      }
+      .map-popup-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 0.8rem;
+      }
+      .map-popup-row strong {
+        color: var(--muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .map-popup-tags {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
       }
       .map-popup iframe {
         height: 152px;
@@ -417,11 +659,17 @@
       .meta-chip {
         display: inline-block;
         margin-bottom: 8px;
-        padding: 4px 10px;
+        padding: 4px 9px;
         border-radius: 999px;
-        font-size: 0.8rem;
-        background: rgba(88, 166, 255, 0.12);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        background: rgba(107, 182, 255, 0.12);
         color: var(--accent);
+      }
+      .meta-chip.meta-chip-soft {
+        background: rgba(153, 169, 188, 0.08);
+        color: var(--muted);
       }
       .spotify-id {
         display: inline-block;
@@ -430,20 +678,149 @@
         color: var(--muted);
         word-break: break-all;
       }
+      .load-more-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+      }
+      .load-more-button {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border-radius: 999px;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1;
+      }
       .tag-row {
-        margin-top: 4px;
+        margin-top: 3px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 999px;
+        font-size: 0.6rem;
+        line-height: 1.15;
+        background: rgba(153, 169, 188, 0.08);
+        color: #b5c3d4;
+        border: 1px solid rgba(153, 169, 188, 0.1);
+      }
+      .tag.tag-active {
+        background: rgba(126, 231, 135, 0.16);
+        color: #dffbe5;
+        border-color: rgba(126, 231, 135, 0.26);
+      }
+      button.tag {
+        width: auto;
+        text-align: center;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.6rem;
+        line-height: 1.15;
+      }
+      button.tag:hover {
+        border-color: rgba(126, 231, 135, 0.28);
+        background: rgba(126, 231, 135, 0.08);
+        transform: none;
+      }
+      .insight-box {
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(126, 231, 135, 0.18);
+        background: rgba(126, 231, 135, 0.06);
+      }
+      .insight-box summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .insight-box summary::after {
+        content: "+";
+        color: var(--accent-2);
+        font-size: 0.92rem;
+        line-height: 1;
+      }
+      .insight-box[open] summary::after {
+        content: "-";
+      }
+      .insight-title {
+        font-size: 0.76rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+      .insight-summary-line {
+        display: block;
+        margin-top: 6px;
+        color: var(--text);
+        font-size: 0.84rem;
+        line-height: 1.35;
+      }
+      .insight-summary {
+        margin-top: 8px;
+        color: var(--text);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+      .insight-rows {
+        margin-top: 10px;
+        display: grid;
+        gap: 8px;
+      }
+      .insight-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(230, 237, 243, 0.08);
+      }
+      .insight-row-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+      .insight-row-value {
+        font-size: 0.86rem;
+        color: var(--text);
+        text-align: right;
+      }
+      .insight-pills {
+        margin-top: 8px;
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
       }
-      .tag {
-        display: inline-block;
-        padding: 2px 7px;
-        border-radius: 999px;
-        font-size: 0.68rem;
-        background: rgba(148, 163, 184, 0.08);
+      .insight-group {
+        margin-top: 10px;
+      }
+      .insight-group-label {
+        margin-bottom: 6px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
         color: var(--muted);
-        border: 1px solid rgba(148, 163, 184, 0.08);
+      }
+      .insight-pill {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        background: rgba(88, 166, 255, 0.1);
+        color: #cfe7ff;
+        border: 1px solid rgba(88, 166, 255, 0.12);
+      }
+      .insight-pill.active {
+        background: rgba(126, 231, 135, 0.16);
+        color: #dffbe5;
+        border-color: rgba(126, 231, 135, 0.22);
       }
       iframe {
         width: 100%;
@@ -506,10 +883,26 @@
               <div class="helper" id="blend-helper"></div>
             </div>
             <div id="model-legend" class="legend"></div>
-            <div class="field-label">Find a Song</div>
-            <div class="search-row">
-              <input id="search" type="search" placeholder="Search artist, track, or Spotify ID" />
-              <button id="random-song" type="button">Random song</button>
+            <div class="field-label">Search Mode</div>
+            <div class="search-mode-nav" aria-label="Search mode">
+              <div id="search-mode-thumb" class="search-mode-thumb"></div>
+              <button id="song-search-mode" class="search-mode-button active" type="button">Song</button>
+              <button id="tag-search-mode" class="search-mode-button" type="button">Tag</button>
+            </div>
+            <div id="song-search-panel">
+              <div class="field-label">Find a Song</div>
+              <div class="search-row">
+                <input id="search" type="search" placeholder="Search artist, track, or Spotify ID" />
+                <button id="random-song" type="button">Random song</button>
+              </div>
+            </div>
+            <div id="tag-search-panel" style="display:none;">
+              <div class="field-label">Find a Tag</div>
+              <div class="search-row">
+                <input id="tag-search" type="search" placeholder="Search tags like psychedelic or hip_hop" />
+                <button id="random-tag" type="button">Random tag</button>
+              </div>
+              <div id="tag-results" class="mini-stack"></div>
             </div>
           </div>
           <div id="results" class="stack"></div>
@@ -528,8 +921,16 @@
       const blendInput = document.getElementById("blend");
       const blendHelper = document.getElementById("blend-helper");
       const modelLegend = document.getElementById("model-legend");
+      const songSearchModeButton = document.getElementById("song-search-mode");
+      const tagSearchModeButton = document.getElementById("tag-search-mode");
+      const searchModeThumb = document.getElementById("search-mode-thumb");
+      const songSearchPanel = document.getElementById("song-search-panel");
+      const tagSearchPanel = document.getElementById("tag-search-panel");
       const searchInput = document.getElementById("search");
+      const tagSearchInput = document.getElementById("tag-search");
+      const randomTagButton = document.getElementById("random-tag");
       const randomSongButton = document.getElementById("random-song");
+      const tagResultsRoot = document.getElementById("tag-results");
       const resultsRoot = document.getElementById("results");
       const recommendationsRoot = document.getElementById("recommendations");
       let modelsById = new Map();
@@ -541,6 +942,10 @@
       let currentNeighborhood = null;
       let currentMapPopupId = null;
       let currentRecommendationsPayload = null;
+      let currentSearchMode = "song";
+      let currentActiveTag = "";
+      let currentResultsLimit = 7;
+      let currentRecommendationsLimit = 7;
       let isNeighborhoodOpen = false;
       let isArtistProfileOpen = false;
       let isShiftZoomActive = false;
@@ -560,6 +965,24 @@
           throw new Error(detail);
         }
         return response.json();
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function safeText(value, fallback = "") {
+        const text = String(value ?? "").trim();
+        return text || fallback;
+      }
+
+      function safeArtist(value) {
+        return safeText(value, "Metadata unavailable");
       }
 
       function modelQuery() {
@@ -595,8 +1018,8 @@
       function updateModelSelector(models) {
         modelsById = new Map(models.map((model) => [model.model_id, model]));
         modelSelect.innerHTML = models.map((model) => `
-          <option value="${model.model_id}" ${model.available ? "" : "disabled"}>
-            ${model.label}${model.available ? "" : " (missing)"}
+          <option value="${escapeHtml(model.model_id)}" ${model.available ? "" : "disabled"}>
+            ${escapeHtml(model.label)}${model.available ? "" : " (missing)"}
           </option>
         `).join("");
         if (!currentModel && models.length) {
@@ -647,11 +1070,135 @@
         return `Current blend: ${pct}% toward stem structure. This shows mix vs stem tradeoffs from the notebooks, but not isolated drum-only or harmonic-only matching.`;
       }
 
+      function setSearchMode(mode) {
+        currentSearchMode = mode === "tag" ? "tag" : "song";
+        const isTag = currentSearchMode === "tag";
+        songSearchModeButton.classList.toggle("active", !isTag);
+        tagSearchModeButton.classList.toggle("active", isTag);
+        searchModeThumb.style.transform = isTag ? "translateX(100%)" : "translateX(0)";
+        songSearchPanel.style.display = isTag ? "none" : "block";
+        tagSearchPanel.style.display = isTag ? "block" : "none";
+      }
+
       function renderTagRow(track) {
         if (track.tags && track.tags.length) {
-          return `<div class="tag-row">${track.tags.slice(0, 4).map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>`;
+          const activeTag = normalizeClientSearch(currentActiveTag);
+          const orderedTags = [...track.tags].sort((left, right) => {
+            const leftActive = normalizeClientSearch(left) === activeTag ? 1 : 0;
+            const rightActive = normalizeClientSearch(right) === activeTag ? 1 : 0;
+            return rightActive - leftActive;
+          });
+          return `<div class="tag-row">${orderedTags.slice(0, 4).map((tag) => {
+            const isActive = activeTag && normalizeClientSearch(tag) === activeTag;
+            return `<button type="button" class="tag ${isActive ? "tag-active" : ""}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`;
+          }).join("")}</div>`;
         }
         return `<div class="tag-row"><span class="tag">Tags unavailable</span></div>`;
+      }
+
+      async function applyTagSearch(tag) {
+        if (!tag.trim()) {
+          return;
+        }
+        setSearchMode("tag");
+        currentActiveTag = tag.trim();
+        tagSearchInput.value = currentActiveTag;
+        searchInput.value = "";
+        currentDistance = null;
+        currentResultsLimit = 7;
+        await loadTagResults();
+        await loadTracksForActiveTag();
+        resultsRoot.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function attachTagClickHandlers(root) {
+        if (!root) return;
+        for (const button of root.querySelectorAll("button.tag[data-tag]")) {
+          button.addEventListener("click", async (event) => {
+            event.stopPropagation();
+            const tag = button.dataset.tag || "";
+            if (!tag) return;
+            await applyTagSearch(tag);
+          });
+        }
+      }
+
+      function renderTagSearchResults(results) {
+        if (!results.length) {
+          tagResultsRoot.innerHTML = `<div class="muted">No matching tags.</div>`;
+          return;
+        }
+        tagResultsRoot.innerHTML = results.map((row) => `
+          <button type="button" class="tag-search-result" data-tag="${escapeHtml(row.tag)}">
+            <span>${escapeHtml(row.tag)}</span>
+            <span class="tag-search-count">${row.count} song${row.count === 1 ? "" : "s"}</span>
+          </button>
+        `).join("");
+        for (const button of tagResultsRoot.querySelectorAll(".tag-search-result")) {
+          button.addEventListener("click", async () => {
+            await applyTagSearch(button.dataset.tag || "");
+          });
+        }
+      }
+
+      function renderWhyMatched(track) {
+        if (!track.why) return "";
+        const activeTag = normalizeClientSearch(currentActiveTag);
+        return `
+          <details class="insight-box">
+            <summary>
+              <div>
+                <div class="insight-title">Why this matched</div>
+                <div class="insight-summary-line">
+                  ${escapeHtml(track.why.primary_reason)}
+                </div>
+              </div>
+            </summary>
+            <div class="insight-rows">
+              <div class="insight-row">
+                <div class="insight-row-label">Audio Match</div>
+                <div class="insight-row-value">${escapeHtml(track.why.strength_label)} (${track.why.similarity_percent}%)</div>
+              </div>
+              <div class="insight-row">
+                <div class="insight-row-label">Shared Tags</div>
+                <div class="insight-row-value">${escapeHtml(track.why.overlap_label)}</div>
+              </div>
+              ${track.why.same_artist ? `
+                <div class="insight-row">
+                  <div class="insight-row-label">Artist Relation</div>
+                  <div class="insight-row-value">${escapeHtml(track.why.artist_label)}</div>
+                </div>
+              ` : ""}
+            </div>
+            ${track.why.shared_tags && track.why.shared_tags.length ? `
+              <div class="insight-group">
+                <div class="insight-group-label">Shared with query</div>
+                <div class="insight-pills">
+                  ${track.why.shared_tags.map((tag) => {
+                    const isActive = activeTag && normalizeClientSearch(tag) === activeTag;
+                    return `<span class="insight-pill ${isActive ? "active" : ""}">${escapeHtml(tag)}</span>`;
+                  }).join("")}
+                </div>
+              </div>
+            ` : ""}
+            ${track.why.query_only_tags && track.why.query_only_tags.length ? `
+              <div class="insight-group">
+                <div class="insight-group-label">Only on query song</div>
+                <div class="insight-pills">
+                  ${track.why.query_only_tags.map((tag) => `<span class="insight-pill">${escapeHtml(tag)}</span>`).join("")}
+                </div>
+              </div>
+            ` : ""}
+            ${track.why.candidate_only_tags && track.why.candidate_only_tags.length ? `
+              <div class="insight-group">
+                <div class="insight-group-label">Only on this match</div>
+                <div class="insight-pills">
+                  ${track.why.candidate_only_tags.map((tag) => `<span class="insight-pill">${escapeHtml(tag)}</span>`).join("")}
+                </div>
+              </div>
+            ` : ""}
+          </details>
+        `;
       }
 
       async function renderArtistProfile(queryTrack) {
@@ -679,12 +1226,12 @@
                   <span class="collapse-hint">Click to open</span>
                 </div>
               </summary>
-              <div class="artist-summary">${payload.artist} has ${payload.count} other song${payload.count === 1 ? "" : "s"} in this database.</div>
+              <div class="artist-summary">${escapeHtml(payload.artist)} has ${payload.count} other song${payload.count === 1 ? "" : "s"} in this database.</div>
               <div class="artist-list">
                 ${payload.tracks.map((track) => `
-                  <div class="artist-song artist-profile-song" data-id="${track.spotify_id}">
-                    <strong>${track.name}</strong><br />
-                    <span class="muted">${track.artist || "Metadata unavailable"}</span>
+                  <div class="artist-song artist-profile-song" data-id="${escapeHtml(track.spotify_id)}">
+                    <strong>${escapeHtml(track.name)}</strong><br />
+                    <span class="muted">${escapeHtml(safeArtist(track.artist))}</span>
                   </div>
                 `).join("")}
               </div>
@@ -700,6 +1247,12 @@
         return currentNeighborhood.points.find((point) => point.spotify_id === currentMapPopupId) || null;
       }
 
+      function sharedTagsBetween(queryTrack, candidateTrack) {
+        const queryTags = Array.isArray(queryTrack?.tags) ? queryTrack.tags : [];
+        const candidateSet = new Set(Array.isArray(candidateTrack?.tags) ? candidateTrack.tags : []);
+        return queryTags.filter((tag) => candidateSet.has(tag)).slice(0, 4);
+      }
+
       function renderNeighborhoodPopup(point) {
         if (!point) return "";
         const width = 700;
@@ -709,13 +1262,37 @@
         const sy = pad + (1 - point.y) * (height - pad * 2);
         const popupLeft = Math.min(Math.max(sx + 12, 12), width - 372);
         const popupTop = Math.min(Math.max(sy + 12, 12), height - 176);
+        const queryPoint = currentNeighborhood && currentNeighborhood.points
+          ? currentNeighborhood.points.find((item) => item.is_query)
+          : null;
+        const sharedTags = queryPoint ? sharedTagsBetween(queryPoint, point) : [];
         return `
           <div class="map-popup" style="left:${popupLeft}px; top:${popupTop}px;">
-            <strong>${point.name}</strong><br />
-            <span class="muted">${point.artist || "Metadata unavailable"}</span><br />
-            <button id="popup-use-query" data-id="${point.spotify_id}">Use as query</button>
+            <strong>${escapeHtml(point.name)}</strong><br />
+            <span class="muted">${escapeHtml(safeArtist(point.artist))}</span><br />
+            <div class="map-popup-meta">
+              ${point.similarity !== null && point.similarity !== undefined ? `
+                <div class="map-popup-row">
+                  <strong>Similarity</strong>
+                  <span>${Number(point.similarity).toFixed(4)}</span>
+                </div>
+              ` : ""}
+              <div class="map-popup-row">
+                <strong>Relation</strong>
+                <span>${sharedTags.length ? `${sharedTags.length} shared tag${sharedTags.length === 1 ? "" : "s"}` : "Audio-neighbor match"}</span>
+              </div>
+            </div>
+            ${sharedTags.length ? `
+              <div class="map-popup-tags">
+                ${sharedTags.map((tag) => {
+                  const isActive = currentActiveTag && normalizeClientSearch(tag) === normalizeClientSearch(currentActiveTag);
+                  return `<span class="insight-pill ${isActive ? "active" : ""}">${escapeHtml(tag)}</span>`;
+                }).join("")}
+              </div>
+            ` : ""}
+            <button id="popup-use-query" data-id="${escapeHtml(point.spotify_id)}">Use as query</button>
             <iframe
-              src="${point.spotify_embed_url}"
+              src="${escapeHtml(point.spotify_embed_url)}"
               loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
             </iframe>
@@ -773,7 +1350,7 @@
                 <svg id="neighborhood-map" class="map-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Local song neighborhood map">
                   <g id="map-pan-layer">
                     ${points.map((point) => `
-                      <g class="map-point" data-id="${point.spotify_id}" data-name="${point.name.replace(/"/g, "&quot;")}" data-artist="${(point.artist || "Metadata unavailable").replace(/"/g, "&quot;")}">
+                      <g class="map-point" data-id="${escapeHtml(point.spotify_id)}" data-name="${escapeHtml(point.name)}" data-artist="${escapeHtml(safeArtist(point.artist))}">
                         <circle cx="${point.sx}" cy="${point.sy}" r="${point.is_query ? 8 : 5}"
                           fill="${point.is_query ? '#7ee787' : currentMapPopupId === point.spotify_id ? '#1f6feb' : '#58a6ff'}"
                           opacity="${point.is_query ? 1 : 0.82}" />
@@ -783,12 +1360,12 @@
                             stroke="rgba(230, 237, 243, 0.95)"
                             stroke-width="1.5" />
                         ` : ""}
-                        <title>${point.name} - ${point.artist}${point.similarity !== null ? ` | similarity ${point.similarity}` : ''}</title>
+                        <title>${escapeHtml(point.name)} - ${escapeHtml(safeArtist(point.artist))}${point.similarity !== null ? ` | similarity ${point.similarity}` : ''}</title>
                       </g>
                     `).join("")}
                     ${visibleLabels.map((point) => `
                       <text x="${point.sx + 10}" y="${point.sy - 10}" fill="#c2d4e8" font-size="11">
-                        ${point.name}
+                        ${escapeHtml(point.name)}
                       </text>
                     `).join("")}
                   </g>
@@ -798,8 +1375,13 @@
                   ${renderNeighborhoodPopup(popupPoint)}
                 ` : ""}
               </div>
+              <div class="map-legend">
+                <span class="map-legend-item"><span class="map-legend-dot query"></span>Query song</span>
+                <span class="map-legend-item"><span class="map-legend-dot neighbor"></span>Nearest neighbors</span>
+                <span class="map-legend-item"><span class="map-legend-dot selected"></span>Selected point</span>
+              </div>
               <div class="map-caption">
-                Query track is green. Some song names are shown by default. Hover a point to see song and artist. Hold Shift while scrolling to zoom, drag to pan, and single-click a point for a preview popup.
+                Query track is green. The map shows the local neighborhood structure around it, but the layout is an approximation rather than a strict ranked list. Hover for names, click for a richer comparison, drag to pan, and hold Shift while scrolling to zoom.
               </div>
             </details>
           </div>
@@ -814,10 +1396,9 @@
         }
         const missing = Array.from(modelsById.values()).filter((item) => !item.available);
         modelLegend.innerHTML = `
-          <strong>${model.label}</strong><br />
-          ${model.description}<br /><br />Current mode: Demo
-          <br />Current recommendation style: ${spaceLabel(currentSpace || "song")}
-          ${missing.length ? `<br /><br />Missing locally: ${missing.map((item) => `${item.label}`).join(", ")}` : ""}
+          <strong>${escapeHtml(model.label)}</strong><br /><br />Current mode: Demo
+          <br />Current recommendation style: ${escapeHtml(spaceLabel(currentSpace || "song"))}
+          ${missing.length ? `<br /><br />Missing locally: ${missing.map((item) => escapeHtml(item.label)).join(", ")}` : ""}
         `;
       }
 
@@ -826,22 +1407,45 @@
           resultsRoot.innerHTML = `<div class="muted">No tracks found in this model.</div>`;
           return;
         }
-        resultsRoot.innerHTML = results.map((track) => `
-          <button data-id="${track.spotify_id}" title="${track.spotify_id}">
-            <strong>${track.name}</strong><br />
-            <span class="muted">${track.artist || "Metadata unavailable"}</span>
+        const activeTagBanner = currentSearchMode === "tag" && currentActiveTag
+          ? `
+            <div class="tag-focus-banner">
+              <div class="tag-focus-label">Active Tag</div>
+              <div class="tag-focus-name">${escapeHtml(currentActiveTag)}</div>
+            </div>
+          `
+          : "";
+        const loadMore = results.length >= currentResultsLimit
+          ? `<div class="load-more-wrap"><button id="load-more-results" class="load-more-button" type="button">+</button></div>`
+          : "";
+        resultsRoot.innerHTML = `${activeTagBanner}${results.map((track) => `
+          <div class="search-result">
+            <button class="search-result-button" data-id="${escapeHtml(track.spotify_id)}" title="${escapeHtml(track.spotify_id)}">
+              <strong>${escapeHtml(track.name)}</strong><br />
+              <span class="muted">${escapeHtml(safeArtist(track.artist))}</span>
+            </button>
             ${renderTagRow(track)}
-          </button>
-        `).join("");
-        for (const button of resultsRoot.querySelectorAll("button")) {
+          </div>
+        `).join("")}${loadMore}`;
+        for (const button of resultsRoot.querySelectorAll(".search-result-button")) {
           button.addEventListener("click", () => loadRecommendations(button.dataset.id));
+        }
+        attachTagClickHandlers(resultsRoot);
+        const loadMoreButton = document.getElementById("load-more-results");
+        if (loadMoreButton) {
+          loadMoreButton.addEventListener("click", async () => {
+            currentResultsLimit += 5;
+            await loadResults();
+          });
         }
       }
 
       async function renderRecommendations(payload) {
         currentRecommendationsPayload = payload;
-        const topEmbedCount = payload.recommendations.length;
         const artistProfile = await renderArtistProfile(payload.query);
+        const loadMore = payload.recommendations.length >= currentRecommendationsLimit
+          ? `<div class="load-more-wrap"><button id="load-more-recommendations" class="load-more-button" type="button">+</button></div>`
+          : "";
         recommendationsRoot.innerHTML = `
           <div class="toolbar">
             <div class="muted">Pinned query stays selected while you switch model or style.</div>
@@ -849,16 +1453,19 @@
               ${currentQueryId ? `<button id="clear-pin">Clear pinned query</button>` : ""}
             </div>
           </div>
-          <div class="card">
-            <div class="meta-chip">${payload.model.label}</div>
-            <div class="meta-chip">Demo mode</div>
-            <strong>${payload.query.name}</strong><br />
-            <span class="muted">${payload.query.artist || "Metadata unavailable"}</span><br />
+          <div class="card query-card">
+            <div class="card-kicker">Current query</div>
+            <div class="card-head">
+              <div>
+                <div class="meta-chip">${escapeHtml(payload.model.label)}</div>
+                <div class="meta-chip meta-chip-soft">Demo mode</div>
+                <h3 class="card-title">${escapeHtml(payload.query.name)}</h3>
+                <div class="card-subtitle">${escapeHtml(safeArtist(payload.query.artist))}</div>
+              </div>
+            </div>
             ${renderTagRow(payload.query)}
-            <a href="${payload.query.spotify_url}" target="_blank" rel="noreferrer">Open in Spotify</a>
-            <div class="spotify-id">${payload.query.spotify_id}</div>
             <iframe
-              src="${payload.query.spotify_embed_url}"
+              src="${escapeHtml(payload.query.spotify_embed_url)}"
               loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
             </iframe>
@@ -866,8 +1473,8 @@
           ${currentDistance ? `
             <div class="compare-card">
               <div class="viz-title">Song Distance</div>
-              <strong>${currentDistance.track_a.name}</strong> vs <strong>${currentDistance.track_b.name}</strong><br />
-              <span class="muted">${currentDistance.track_a.artist || "Metadata unavailable"} and ${currentDistance.track_b.artist || "Metadata unavailable"}</span><br /><br />
+              <strong>${escapeHtml(currentDistance.track_a.name)}</strong> vs <strong>${escapeHtml(currentDistance.track_b.name)}</strong><br />
+              <span class="muted">${escapeHtml(safeArtist(currentDistance.track_a.artist))} and ${escapeHtml(safeArtist(currentDistance.track_b.artist))}</span><br /><br />
               <span class="muted">Cosine similarity: ${currentDistance.cosine_similarity.toFixed(4)}</span><br />
               <span class="muted">Cosine distance: ${currentDistance.cosine_distance.toFixed(4)}</span>
             </div>
@@ -876,23 +1483,28 @@
           ${artistProfile}
           ${payload.recommendations.map((track, index) => `
             <div class="card">
-              <strong>${track.name}</strong><br />
-              <span class="muted">${track.artist || "Metadata unavailable"}</span><br />
+              <div class="card-kicker">Recommendation ${index + 1}</div>
+              <div class="card-head">
+                <div>
+                  <h3 class="card-title">${escapeHtml(track.name)}</h3>
+                  <div class="card-subtitle">${escapeHtml(safeArtist(track.artist))}</div>
+                </div>
+                <div class="meta-chip meta-chip-soft">${track.similarity.toFixed(4)}</div>
+              </div>
               ${renderTagRow(track)}
-              <span class="muted">Cosine similarity: ${track.similarity.toFixed(4)}</span><br />
-              <a href="${track.spotify_url}" target="_blank" rel="noreferrer">Open in Spotify</a>
-              <div class="spotify-id">${track.spotify_id}</div>
-              <button class="mini-button use-query-button" data-id="${track.spotify_id}">Use as query</button>
-              <button class="mini-button compare-button" data-id="${track.spotify_id}">Compare with query</button>
-              ${index < topEmbedCount ? `
-                <iframe
-                  src="${track.spotify_embed_url}"
-                  loading="lazy"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                </iframe>
-              ` : ""}
+              ${renderWhyMatched(track)}
+              <div class="card-actions">
+                <button class="action-button use-query-button" data-id="${escapeHtml(track.spotify_id)}">Use as query</button>
+                <button class="action-button secondary compare-button" data-id="${escapeHtml(track.spotify_id)}">Compare with query</button>
+              </div>
+              <iframe
+                src="${escapeHtml(track.spotify_embed_url)}"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+              </iframe>
             </div>
           `).join("")}
+          ${loadMore}
         `;
         const clearPin = document.getElementById("clear-pin");
         if (clearPin) {
@@ -917,6 +1529,7 @@
             isArtistProfileOpen = artistProfileDetails.open;
           });
         }
+        attachTagClickHandlers(recommendationsRoot);
         for (const card of recommendationsRoot.querySelectorAll(".artist-profile-song")) {
           card.addEventListener("click", async () => {
             currentMapPopupId = null;
@@ -940,6 +1553,13 @@
           popupUseQuery.addEventListener("click", async () => {
             currentMapPopupId = null;
             await loadRecommendations(popupUseQuery.dataset.id);
+          });
+        }
+        const loadMoreRecommendations = document.getElementById("load-more-recommendations");
+        if (loadMoreRecommendations) {
+          loadMoreRecommendations.addEventListener("click", async () => {
+            currentRecommendationsLimit += 5;
+            await loadRecommendations(currentQueryId);
           });
         }
         initializeMapPan();
@@ -985,7 +1605,7 @@
           if (!hoverLabel || !mapWrap) return;
           const rect = mapWrap.getBoundingClientRect();
           hoverLabel.hidden = false;
-          hoverLabel.innerHTML = `<strong>${point.dataset.name || ""}</strong><span>${point.dataset.artist || ""}</span>`;
+          hoverLabel.innerHTML = `<strong>${escapeHtml(point.dataset.name || "")}</strong><span>${escapeHtml(point.dataset.artist || "")}</span>`;
           hoverLabel.style.left = `${event.clientX - rect.left}px`;
           hoverLabel.style.top = `${event.clientY - rect.top}px`;
         };
@@ -1090,9 +1710,12 @@
       async function loadRecommendations(spotifyId) {
         recommendationsRoot.textContent = "Loading recommendations...";
         try {
+          if (spotifyId !== currentQueryId) {
+            currentRecommendationsLimit = 7;
+          }
           const query = modelQuery();
           const space = spaceQuery();
-          const parts = [`limit=10`, blendQuery()];
+          const parts = [`limit=${currentRecommendationsLimit}`, blendQuery()];
           if (query) parts.push(query);
           if (space) parts.push(space);
           const payload = await getJson(`/api/recommend/${spotifyId}?${parts.join("&")}`);
@@ -1118,10 +1741,60 @@
       let timer = null;
       searchInput.addEventListener("input", () => {
         clearTimeout(timer);
+        setSearchMode("song");
+        currentActiveTag = "";
+        currentResultsLimit = 7;
         timer = setTimeout(loadResults, 150);
+      });
+      searchInput.addEventListener("keydown", async (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        clearTimeout(timer);
+        setSearchMode("song");
+        await loadResults();
+      });
+      let tagTimer = null;
+      tagSearchInput.addEventListener("input", () => {
+        clearTimeout(tagTimer);
+        setSearchMode("tag");
+        currentActiveTag = "";
+        currentResultsLimit = 7;
+        tagTimer = setTimeout(async () => {
+          await syncTagModeFromInput();
+        }, 150);
+      });
+      tagSearchInput.addEventListener("keydown", async (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        clearTimeout(tagTimer);
+        await syncTagModeFromInput();
+      });
+      randomTagButton.addEventListener("click", async () => {
+        const query = modelQuery();
+        const endpoint = `/api/tags/random?limit=1${query ? `&${query}` : ""}`;
+        const payload = await getJson(endpoint);
+        if (payload.results && payload.results.length) {
+          await applyTagSearch(payload.results[0].tag);
+        }
+      });
+      songSearchModeButton.addEventListener("click", async () => {
+        setSearchMode("song");
+        tagSearchInput.value = "";
+        currentActiveTag = "";
+        currentResultsLimit = 7;
+        await loadResults();
+      });
+      tagSearchModeButton.addEventListener("click", async () => {
+        setSearchMode("tag");
+        searchInput.value = "";
+        currentActiveTag = "";
+        currentResultsLimit = 7;
+        await loadTagResults();
+        await loadTracksForActiveTag();
       });
       modelSelect.addEventListener("change", () => {
         currentModel = modelSelect.value;
+        currentResultsLimit = 7;
         updateSpaceSelector();
         renderModelLegend();
         if (currentQueryId) {
@@ -1131,6 +1804,7 @@
           currentNeighborhood = null;
           recommendationsRoot.textContent = "Choose a track to load recommendations.";
         }
+        loadTagResults();
         loadResults();
       });
       spaceSelect.addEventListener("change", () => {
@@ -1158,13 +1832,65 @@
       });
 
       async function loadResults() {
-        const q = searchInput.value.trim();
         const query = modelQuery();
-        const endpoint = q
-          ? `/api/search?q=${encodeURIComponent(q)}&limit=12${query ? `&${query}` : ""}`
-          : `/api/random?limit=12${query ? `&${query}` : ""}`;
+        let endpoint = `/api/random?limit=${currentResultsLimit}${query ? `&${query}` : ""}`;
+        if (currentSearchMode === "tag") {
+          const tag = currentActiveTag.trim();
+          endpoint = tag
+            ? `/api/tags/tracks?tag=${encodeURIComponent(tag)}&limit=${currentResultsLimit}${query ? `&${query}` : ""}`
+            : `/api/random?limit=${currentResultsLimit}${query ? `&${query}` : ""}`;
+        } else {
+          const songQuery = searchInput.value.trim();
+          endpoint = songQuery
+            ? `/api/search?q=${encodeURIComponent(songQuery)}&limit=${currentResultsLimit}${query ? `&${query}` : ""}`
+            : `/api/random?limit=${currentResultsLimit}${query ? `&${query}` : ""}`;
+        }
         const payload = await getJson(endpoint);
         renderResults(payload.results);
+      }
+
+      async function loadTagResults() {
+        const q = tagSearchInput.value.trim();
+        const query = modelQuery();
+        const endpoint = `/api/tags/search?q=${encodeURIComponent(q)}&limit=8${query ? `&${query}` : ""}`;
+        const payload = await getJson(endpoint);
+        renderTagSearchResults(payload.results);
+        return payload.results;
+      }
+
+      async function loadTracksForActiveTag() {
+        const query = modelQuery();
+        const tag = currentActiveTag.trim();
+        if (!tag) {
+          await loadResults();
+          return;
+        }
+        const endpoint = `/api/tags/tracks?tag=${encodeURIComponent(tag)}&limit=${currentResultsLimit}${query ? `&${query}` : ""}`;
+        const payload = await getJson(endpoint);
+        renderResults(payload.results);
+      }
+
+      function normalizeClientSearch(value) {
+        return String(value ?? "").trim().toLowerCase();
+      }
+
+      async function syncTagModeFromInput() {
+        const raw = tagSearchInput.value.trim();
+        if (!raw) {
+          currentActiveTag = "";
+          await loadResults();
+          return;
+        }
+        const results = await loadTagResults();
+        const normalizedRaw = normalizeClientSearch(raw);
+        const match = results.find((row) => row.normalized_tag === normalizedRaw) || results[0];
+        if (!match) {
+          currentActiveTag = "";
+          resultsRoot.innerHTML = `<div class="muted">No tracks found for that tag.</div>`;
+          return;
+        }
+        currentActiveTag = match.tag;
+        await loadTracksForActiveTag();
       }
 
       async function chooseRandomSong() {
@@ -1172,8 +1898,14 @@
         const endpoint = `/api/random?limit=1${query ? `&${query}` : ""}`;
         const payload = await getJson(endpoint);
         if (payload.results && payload.results.length) {
+          currentResultsLimit = 7;
+          currentRecommendationsLimit = 7;
           searchInput.value = "";
+          tagSearchInput.value = "";
+          setSearchMode("song");
+          currentActiveTag = "";
           await loadRecommendations(payload.results[0].spotify_id);
+          await loadTagResults();
           await loadResults();
         }
       }
@@ -1181,6 +1913,8 @@
       async function bootstrap() {
         const payload = await getJson("/api/models");
         updateModelSelector(payload.models);
+        setSearchMode("song");
+        loadTagResults();
         loadResults();
       }
 

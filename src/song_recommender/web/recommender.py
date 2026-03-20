@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from collections import Counter
 import json
 import os
 from pathlib import Path
@@ -122,7 +123,7 @@ def _discover_local_models() -> list[ModelSpec]:
                 label=relative_label.replace("_", " ").replace("/", " / "),
                 path=path,
                 embedding_key=embedding_key,
-                description=f"Auto-discovered from {path.relative_to(ROOT)}.",
+                description="Local embedding model ready for comparison.",
             )
         )
     return discovered
@@ -179,9 +180,66 @@ class RecommenderIndex:
                 continue
             self.artist_lookup.setdefault(artist_key, []).append(track)
         self.search_text = np.asarray(
-            [normalize_search_text(f"{track.name} {track.artist} {track.spotify_id}") for track in self.tracks],
+            [
+                normalize_search_text(
+                    f"{track.name} {track.artist} {track.spotify_id} {' '.join(track.tags)}"
+                )
+                for track in self.tracks
+            ],
             dtype=object,
         )
+        self.normalized_tags = np.asarray(
+            [tuple(normalize_search_text(tag) for tag in track.tags) for track in self.tracks],
+            dtype=object,
+        )
+        self.tag_catalog = self._build_tag_catalog()
+
+    def _shared_tags(self, left: Track, right: Track, limit: int = 4) -> list[str]:
+        right_tags = set(right.tags)
+        if not right_tags:
+            return []
+        return [tag for tag in left.tags if tag in right_tags][:limit]
+
+    def _unique_tags(self, source: Track, other: Track, limit: int = 3) -> list[str]:
+        other_tags = set(other.tags)
+        return [tag for tag in source.tags if tag not in other_tags][:limit]
+
+    def _recommendation_reasons(self, query_track: Track, candidate_track: Track, similarity: float) -> dict[str, object]:
+        shared_tags = self._shared_tags(query_track, candidate_track)
+        query_only_tags = self._unique_tags(query_track, candidate_track)
+        candidate_only_tags = self._unique_tags(candidate_track, query_track)
+        same_artist = (
+            bool(query_track.artist.strip())
+            and query_track.artist.strip().casefold() == candidate_track.artist.strip().casefold()
+        )
+        strength_label = "High"
+        strength_short = "Strong audio match"
+        if similarity < 0.88:
+            strength_label = "Medium"
+            strength_short = "Solid audio match"
+        if similarity < 0.72:
+            strength_label = "Light"
+            strength_short = "Looser audio match"
+        overlap_label = f"{len(shared_tags)} shared tag{'s' if len(shared_tags) != 1 else ''}" if shared_tags else "No shared tags"
+
+        primary_reason = f"{strength_short}, {overlap_label.lower()}"
+        if same_artist:
+            primary_reason = f"{primary_reason}, same artist"
+
+        return {
+            "shared_tags": shared_tags,
+            "query_only_tags": query_only_tags,
+            "candidate_only_tags": candidate_only_tags,
+            "shared_tag_count": len(shared_tags),
+            "same_artist": same_artist,
+            "similarity": round(float(similarity), 4),
+            "similarity_percent": int(max(0, min(100, round(float(similarity) * 100)))),
+            "strength_label": strength_label,
+            "strength_short": strength_short,
+            "overlap_label": overlap_label,
+            "artist_label": "Same artist" if same_artist else "Different artist",
+            "primary_reason": primary_reason,
+        }
 
     def _normalize_mode(self, mode: str | None) -> str:
         if not mode:
@@ -304,9 +362,87 @@ class RecommenderIndex:
         if not query:
             return self.random(limit, mode=mode)
 
-        matches = np.char.find(self.search_text[eligible_idx].astype(str), query) >= 0
-        idx = eligible_idx[np.flatnonzero(matches)[:limit]]
+        exact_tag_idx: list[int] = []
+        partial_tag_idx: list[int] = []
+        text_idx: list[int] = []
+
+        for idx in eligible_idx:
+            track_idx = int(idx)
+            tags = self.normalized_tags[track_idx]
+            if any(tag == query for tag in tags):
+                exact_tag_idx.append(track_idx)
+                continue
+            if any(query in tag for tag in tags):
+                partial_tag_idx.append(track_idx)
+                continue
+            if query in str(self.search_text[track_idx]):
+                text_idx.append(track_idx)
+
+        ordered_idx = np.asarray(exact_tag_idx + partial_tag_idx + text_idx, dtype=np.int32)[:limit]
+        idx = ordered_idx
         return [self.tracks[int(i)].as_dict() for i in idx]
+
+    def _build_tag_catalog(self) -> dict[str, list[dict[str, object]]]:
+        catalogs: dict[str, list[dict[str, object]]] = {}
+        for mode_name in QUERY_MODES:
+            counts: Counter[str] = Counter()
+            display_lookup: dict[str, str] = {}
+            for idx in self.query_indices[mode_name]:
+                track = self.tracks[int(idx)]
+                for raw_tag, normalized_tag in zip(track.tags, self.normalized_tags[int(idx)], strict=False):
+                    if not normalized_tag:
+                        continue
+                    counts[normalized_tag] += 1
+                    display_lookup.setdefault(normalized_tag, raw_tag)
+            catalogs[mode_name] = [
+                {
+                    "tag": display_lookup[tag],
+                    "normalized_tag": tag,
+                    "count": int(count),
+                }
+                for tag, count in sorted(counts.items(), key=lambda item: (-item[1], display_lookup[item[0]]))
+            ]
+        return catalogs
+
+    def search_tags(self, query: str, limit: int = 12, mode: str | None = None) -> list[dict[str, object]]:
+        normalized_mode = self._normalize_mode(mode)
+        normalized_query = normalize_search_text(query)
+        tags = self.tag_catalog[normalized_mode]
+        if not normalized_query:
+            return tags[:limit]
+
+        exact = [row for row in tags if row["normalized_tag"] == normalized_query]
+        partial = [row for row in tags if normalized_query in str(row["normalized_tag"]) and row not in exact]
+        return (exact + partial)[:limit]
+
+    def random_tags(self, limit: int = 1, mode: str | None = None) -> list[dict[str, object]]:
+        normalized_mode = self._normalize_mode(mode)
+        tags = self.tag_catalog[normalized_mode]
+        if not tags:
+            return []
+
+        preferred = [row for row in tags if int(row.get("count", 0)) >= 25]
+        pool = preferred or tags
+        count = min(max(limit, 1), len(tags))
+        idx = np.random.default_rng().choice(len(pool), size=min(count, len(pool)), replace=False)
+        return [pool[int(i)] for i in np.atleast_1d(idx)]
+
+    def tracks_for_tag(self, tag: str, limit: int = 12, mode: str | None = None) -> list[dict[str, str]]:
+        normalized_mode = self._normalize_mode(mode)
+        normalized_tag = normalize_search_text(tag)
+        if not normalized_tag:
+            return self.random(limit, mode=normalized_mode)
+
+        eligible_idx = self._query_indices_for_mode(normalized_mode)
+        matched_idx = [
+            int(idx)
+            for idx in eligible_idx
+            if any(track_tag == normalized_tag for track_tag in self.normalized_tags[int(idx)])
+        ]
+        if not matched_idx:
+            return []
+        selected_idx = np.asarray(matched_idx[:limit], dtype=np.int32)
+        return [self.tracks[int(i)].as_dict() for i in selected_idx]
 
     def random(self, limit: int, mode: str | None = None) -> list[dict[str, str]]:
         eligible_idx = self._query_indices_for_mode(mode)
@@ -608,7 +744,9 @@ class RecommenderIndex:
         recommendations = []
         for rec_idx in top_idx:
             row = self.tracks[int(rec_idx)].as_dict()
-            row["similarity"] = round(float(scores[int(rec_idx)]), 4)
+            similarity = round(float(scores[int(rec_idx)]), 4)
+            row["similarity"] = similarity
+            row["why"] = self._recommendation_reasons(self.tracks[idx], self.tracks[int(rec_idx)], similarity)
             recommendations.append(row)
 
         return {

@@ -237,6 +237,59 @@ def search(
     return {"model": index.spec.as_dict(), "mode": mode or "demo", "results": results}
 
 
+@app.get("/api/tags/search")
+def search_tags(
+    q: str = Query(default=""),
+    model: str | None = Query(default=None),
+    mode: str | None = Query(default="demo"),
+    limit: int = Query(default=12, ge=1, le=30),
+):
+    try:
+        index = get_index(model)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=f"Unknown model: {model}") from exc
+    try:
+        results = index.search_tags(q, limit, mode=mode)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=f"Unknown mode: {exc.args[0]}") from exc
+    return {"model": index.spec.as_dict(), "mode": mode or "demo", "results": results}
+
+
+@app.get("/api/tags/random")
+def random_tags(
+    model: str | None = Query(default=None),
+    mode: str | None = Query(default="demo"),
+    limit: int = Query(default=1, ge=1, le=30),
+):
+    try:
+        index = get_index(model)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=f"Unknown model: {model}") from exc
+    try:
+        results = index.random_tags(limit, mode=mode)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=f"Unknown mode: {exc.args[0]}") from exc
+    return {"model": index.spec.as_dict(), "mode": mode or "demo", "results": results}
+
+
+@app.get("/api/tags/tracks")
+def tracks_for_tag(
+    tag: str = Query(...),
+    model: str | None = Query(default=None),
+    mode: str | None = Query(default="demo"),
+    limit: int = Query(default=12, ge=1, le=30),
+):
+    try:
+        index = get_index(model)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=f"Unknown model: {model}") from exc
+    try:
+        results = index.tracks_for_tag(tag, limit, mode=mode)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=f"Unknown mode: {exc.args[0]}") from exc
+    return {"model": index.spec.as_dict(), "mode": mode or "demo", "tag": tag, "results": results}
+
+
 @app.get("/api/random")
 def random_tracks(
     model: str | None = Query(default=None),
