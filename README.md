@@ -1,11 +1,9 @@
 *(Keep clean and short, with separate pages for deep mathematical descriptions)*
 
-To install repo src: inside the repo root on terminal,
-1. Activate conda environment
-2. Run `pip install --upgrade pip`
-3. Run `pip install -e .`
-
 # Deep Learning Song Recommender
+
+**Authors:** [Nicholas Geis](https://github.com/nicholassgeis), [Mitch Hamidi-Ismert](https://github.com/mitchhi), [Juan Salinas](https://github.com/juansalinas2)
+
 This project builds a content-based music recommender that learns song similarity directly from audio. Using full-mix and stem spectrograms, we trained a late-fusion `ResNet18` to generate song embeddings shaped by genre-tag supervision and contrastive learning. The final model powers a web app where users can explore songs and receive recommendations based on learned audio similarity.
 
 **App Website:** https://dl-song-recommender.onrender.com
@@ -160,4 +158,29 @@ These results suggest...
 
 ## Conclusions & Future Works
 *(Add ideas as they come up. We'll synthesize everything and clean up towards the end.)*
+
+## Repository Structure
+```
+.
+├── configs/                 # YAML configuration files
+├── data/                    # metadata, processed splits, and run data
+├── docs/                    # project documentation
+├── notebooks/               # preprocessing, EDA, modeling, and evaluation notebooks
+├── src/song_recommender/    # package code
+├── README.md
+├── pyproject.toml
+├── requirements.txt
+└── environment.yml
+```
+
+## Installation
+
+From the repository root:
+
+``` console
+conda env create -f environment.yml
+conda activate dl-song-recommender
+pip install --upgrade pip
+pip install -e .
+```
  
