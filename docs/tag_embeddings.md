@@ -96,7 +96,7 @@ We cluster the learned tag embeddings using Ward linkage. Ward clustering:
 - produces compact, spherical clusters, and
 - works well with dense embedding spaces.
 
-## Step 9: Clustering 
+### Step 9: Clustering 
 
 We cluster tags into `n_clusters = 20` clusters using `fcluster` to reduce dimensionality and group synonymous tags. Each cluster represents a semantic theme, such as:
 
@@ -106,7 +106,7 @@ We cluster tags into `n_clusters = 20` clusters using `fcluster` to reduce dimen
 
 ![Top 5 UMAP Clusters](diagrams/tag_clusters_top5.png)
 
-## Step 10: Cluster Feature Generation
+### Step 10: Cluster Feature Generation
 
 After each tag is assigned to a cluster, each song is then mapped into cluster space producing the cluster-based features `tag_clusters` and `dominant_cluster`. In particular, `dominant_cluster` is defined to be the mode of the clusters in the list `tag_clusters` and the first appearing mode if the list is multimodal.
 
