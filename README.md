@@ -30,6 +30,66 @@ The project follows a simple idea:
 
 Genre tags provides the semantic signal during training, but the long-term aim is audio-based recommendation at inference time.
 
+## Data and Preprocessing
+
+Our dataset contains **11,239 songs** with associated metadata and derived audio representations. The project draws from two Kaggle sources:
+
+1. [Augmented-Audio-10k](https://www.kaggle.com/datasets/reggiebain/augmented-audio-10k)
+2. [Million Song Dataset + Spotify + Last.fm Music Tracks](https://www.kaggle.com/datasets/undefinenull/million-song-dataset-spotify-lastfm)
+
+The metadata used throughout the project includes track identifiers, artist and title information, Spotify preview links, year, and [Last.fm](https://www.last.fm) user-generated listener tags, which were distributed within the [Million Song Dataset](http://millionsongdataset.com).
+
+### Why Tags?
+
+The recommender is ultimately intended to operate from audio alone at inference time, but the project needs a meaningful training signal for “musical similarity.” Listener tags provide that supervision. Tags such as `rock`, `indie`, and `chillout` give a weak but useful semantic description of how songs relate, and the later audio models are trained to reproduce that tag-informed structure from spectrogram inputs.
+
+### Data split
+
+The dataset is split into train, validation, and test sets (**73**/**12**/**15**) in the [preprocessing notebooks](https://github.com/mitchhi/dl-song-recommender/tree/main/notebooks/00_preprocessing). Before splitting, the project removes very rare tags (frequency less than 5) so that multilabel stratification on tags is more stable. Tag-derived structures used later in the pipeline are built **only from the training set**.  
+
+### Audio preprocessing
+
+```mermaid
+flowchart LR
+    A["full mix" audio clip] --> B[Stem separation]
+ 
+    B --> B1[Bass]
+    B --> B2[Drums]
+    B --> B3[Other]
+    B --> B4[Vocals]
+
+    A --> C[Mel spectrogram]
+    B1 --> D[Mel spectrogram]
+    B2 --> E[Mel spectrogram]
+    B3 --> F[Mel spectrogram]
+    B4 --> G[Mel spectrogram]
+
+    C --> J1[PNG]
+    D --> J2[PNG]
+    E --> J3[PNG]
+    F --> J4[PNG]
+    G --> J5[PNG]
+
+    J1 --> K[Model]
+    J2 --> K
+    J3 --> K
+    J4 --> K
+    J5 --> K
+
+```
+
+Each song is represented by a **10**-second audio clip sampled at **22,050 Hz**. From that clip, the preprocessing pipeline creates four source-separated stem audio clips. Each audio clip is then represented as a mel spectrogram PNG. 
+
+#### Step 1: Stem Separation
+
+The full audio clip is split into four stems (bass/drums/other/vocals) using [Demucs](https://github.com/adefossez/demucs). This gives the model access not only to the full mix, but also to more musically targeted views of rhythm and harmony.
+
+#### Step 2: Mel Spectrogram Generation
+
+For the full mix and each stem, the project uses `librosa` to compute a [mel spectrogram](https://medium.com/analytics-vidhya/understanding-the-mel-spectrogram-fca2afa2ce53), which is a visual representation of an audio signal on a frequency scale that mimics human hearing perception.
+
+Spectrogram magnitudes are converted to decibels normalized relative to the full mix’s maximum power and saved as an 8-bit color-mapped PNG with dimensions **862 × 256**.  
+
 ## Feature Engineering
 
 We derive semantic supervision from listener-generated tags in the metadata for our training set. First, we compute tag co-occurrence statistics and filter noisy tag relationships using Positive PMI and minimum co-occurrence thresholds. The resulting clean tag vocabulary is used to train a skip-gram Word2Vec model, producing a 64-dimensional embedding for each valid tag. These tag embeddings are then grouped with hierarchical ward clustering into 20 semantic tag clusters, giving each tag both a dense vector representation and a cluster assignment. For each song, we map its cleaned tags into cluster IDs and compute song-level semantic features such as `tag_clusters` and `dominant_cluster`, which are used in model evaluation. 
@@ -38,7 +98,33 @@ We derive semantic supervision from listener-generated tags in the metadata for 
 
 The core model is a late-fusion `ResNet18` trained on spectrograms. Each song is represented by a full-mix spectrogram together with stem spectrograms, and the same encoder is applied across these views to learn a compact audio representation.
 
-![Model architecture](docs/diagrams/model_1.png)
+```mermaid
+flowchart LR
+    A[Song Audio] --> B[Mix plus 4 Stem Spectrograms]
+ 
+    B --> C[Shared ResNet18 Encoder]
+
+ 
+    C --> D[Harmonic Branch]
+
+
+    C --> E1[Mix Embedding]
+    D --> E2[Harmonic Pooling]
+    C --> E3[Drum Branch]
+
+    E1 --> F[Late Fusion]
+    E2 --> F
+    E3 --> F
+
+    F --> G[Song Embedding]
+
+    G --> I1[Cosine Retrieval]
+    G --> I2[Relational Semantic Loss]
+    G --> I3[View Alignment Loss]
+
+    H[Frozen Tag Teacher] --> I2
+
+```
 
 These views are combined into a single retrieval embedding,
 
