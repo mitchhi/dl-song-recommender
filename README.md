@@ -1,5 +1,3 @@
-*(Keep clean and short, with separate pages for deep mathematical descriptions)*
-
 # Deep Learning Song Recommender
 
 **Authors:** [Nicholas Geis](https://github.com/nicholassgeis), [Mitch Hamidi-Ismert](https://github.com/mitchhi), [Juan Salinas](https://github.com/juansalinas2)
@@ -9,9 +7,9 @@ This project builds a content-based music recommender that learns song similarit
 **App Website:** https://dl-song-recommender.onrender.com
 
 
-## Background (Too wordy. Needed?)
+## Background (*WORK ON THIS - needs to tell the situation and create the need for our model*)
 
-Modern music platforms are extremely good at learning from user behavior, but behavior-only recommendation has limits. It struggles with cold-start profiles, sparse interaction data, and explaining similarity based on what songs actually sound like. (I'm lying here, I don't know what modern music platforms do.)
+Modern music platforms excel with user behavior, but behavior-only recommendation has limits. A content-agnostic approach struggles with cold-start profiles, sparse interaction data, and explaining similarity based on what songs actually sound like. 
 
 Content-based recommendation is a necessary evolution for these systems. If a model can learn similarity directly from audio, it can improve discovery, support new or less popular tracks, and complement collaborative methods with a richer understanding of the music itself.
 
