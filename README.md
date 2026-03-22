@@ -164,12 +164,111 @@ Saved experiment manifests show strong semantic retrieval performance across the
 These results suggest...
 
 ## User Evaluation
-*(Talk about this for future improvements, not for model selection.)*
-<!-- Maybe some diagrams will help here. This (I believe) should be our main metric. -->
 
+We evaluate ResNet04 (our final contrastive model) against a tag-embedding baseline model by generating the top-k recommendations for various k and then computing several quality metrics. The baseline embeds each song as a weighted average of its raw tag vectors, resulting in a 5,120-dimensional representation. ResNet04 produces a compact 512-dimensional audio embedding.
 
-## Conclusions & Future Works
-*(Add ideas as they come up. We'll synthesize everything and clean up towards the end.)*
+For each track in the testing dataset, we create a list of the top-k recommendations from the training dataset and compute several metrics. The averages of those metrics across several values of k are presented below.
+
+### Metrics
+
+To define several of the metrics, a notion of track **relevance** is necessary. Two tracks are considered *relevant* if
+
+1. both tracks have the same dominant cluster or
+2. they have *significant* cluster overlap.
+
+From here, we used the following metrics to evaluate the performance of ResNet04 and the baseline model. Each of these measures whether the retrieved songs share semantic structure with the query.
+
+| Metric | What it measures |
+|---|---|
+| **Precision@k** | Fraction of the top-k recommendations that are relevant |
+| **Recall@k** | Fraction of all relevant songs in the catalog that appear in top-k |
+| **MAP@k** | Mean Average Precision — rewards relevant songs appearing earlier in the list |
+| **NDCG@k** | Normalized Discounted Cumulative Gain — rank-weighted relevance score |
+| **Tag Jaccard@k** | Overlap between query and recommended songs' tag sets |
+| **Cluster Jaccard@k** | Overlap between query and recommended songs' tag cluster sets |
+| **Dominant Cluster Accuracy@k** | Fraction of recommended songs sharing the query's dominant semantic cluster |
+
+Since music recommendations vary between individuals, we wanted to include some metrics that were not tag based. The following metrics are used to measure **diversity and novelty** across the track recommendations.
+
+| Metric | What it measures |
+|---|---|
+| **Artist Diversity@k** | Fraction of unique artists in top-k (higher = more variety) |
+| **Intra-List Diversity@k** | 1 − mean pairwise cosine similarity of recommended embeddings (higher = more spread in embedding space) |
+| **Novelty@k** | Mean self-information of recommended artists relative to catalog frequency (higher = rarer artists surfaced) |
+| **Discounted Novelty@k** | Rank-weighted novelty, so rare artists appearing earlier contribute more |
+
+See Notebook 09 for more precise definitions on each of the metrics.
+
+### Results (test set)
+
+#### k = 5
+
+| Metric | Baseline | ResNet04 | Δ |
+|---|---:|---:|---:|
+| Precision@5 | 0.383 | **0.702** | +83% |
+| Recall@5 | 0.0014 | **0.0025** | +79% |
+| MAP@5 | 0.527 | **0.762** | +45% |
+| NDCG@5 | 0.611 | **0.804** | +32% |
+| Tag Jaccard@5 | 0.110 | **0.217** | +97% |
+| Cluster Jaccard@5 | 0.197 | **0.356** | +81% |
+| Dominant Cluster Acc@5 | 0.196 | **0.385** | +96% |
+| Artist Diversity@5 | **0.976** | 0.908 | −7% |
+| Intra-List Diversity@5 | 0.029 | **0.037** | +26% |
+| Novelty@5 | 10.340 | **10.478** | +1% |
+| Discounted Novelty@5 | 10.340 | **10.473** | +1% |
+
+#### k = 10
+
+| Metric | Baseline | ResNet04 | Δ |
+|---|---:|---:|---:|
+| Precision@10 | 0.368 | **0.701** | +90% |
+| Recall@10 | 0.0026 | **0.0050** | +92% |
+| MAP@10 | 0.500 | **0.752** | +50% |
+| NDCG@10 | 0.638 | **0.817** | +28% |
+| Tag Jaccard@10 | 0.105 | **0.217** | +107% |
+| Cluster Jaccard@10 | 0.190 | **0.356** | +87% |
+| Dominant Cluster Acc@10 | 0.186 | **0.384** | +106% |
+| Artist Diversity@10 | **0.957** | 0.853 | −11% |
+| Intra-List Diversity@10 | 0.031 | **0.041** | +32% |
+| Novelty@10 | 10.342 | **10.480** | +1% |
+| Discounted Novelty@10 | 10.341 | **10.477** | +1% |
+
+#### k = 20
+
+| Metric | Baseline | ResNet04 | Δ |
+|---|---:|---:|---:|
+| Precision@20 | 0.360 | **0.699** | +94% |
+| Recall@20 | 0.005 | **0.010** | +100% |
+| MAP@20 | 0.458 | **0.736** | +61% |
+| NDCG@20 | 0.654 | **0.826** | +26% |
+| Tag Jaccard@20 | 0.101 | **0.216** | +114% |
+| Cluster Jaccard@20 | 0.185 | **0.357** | +93% |
+| Dominant Cluster Acc@20 | 0.180 | **0.386** | +114% |
+| Artist Diversity@20 | **0.930** | 0.785 | −18% |
+| Intra-List Diversity@20 | 0.032 | **0.047** | +47% |
+| Novelty@20 | 10.356 | **10.480** | +1% |
+| Discounted Novelty@20 | 10.351 | **10.478** | +1% |
+
+### Subjective Metrics
+
+Due to the subjective nature of musical taste, we were worried that our metrics would be lacking in some human element. To complement the quantitative metrics, we ran a blind listening survey to compare ResNet04, the baseline and two other models. The survey presented participants with 12 query songs spanning a range of genres. For each query, four playlists of 5 recommendations (one per model) were displayed side by side in randomized order. There was no indication of which model generated each playlist. Participants then listened to preview clips and rated each recommended track as **Good**, **Neutral**, or **Bad**.
+
+Across all 12 query songs (60 rated tracks per model per respondent), the rating distributions were:
+
+| Model | Good | Neutral | Bad |
+|---|---:|---:|---:|
+| Baseline | 15.8% | 30.8% | 53.4% |
+| ResNet04 | **48.4%** | 30.8% | **20.8%** |
+| ResNet06 | 45.4% | 29.1% | 25.5% |
+| ResNet07 | 40% | 31.7% | 28.3% |
+
+Although this survey was only administered to 4 participants, we observed that ResNet04 received both the highest share of Good ratings and the lowest share of Bad ratings while the baseline received the lowest and highest of those respective ratings. Additionally, the ratings of the other models seemed consistent with our findings using the validation dataset. As a result, these subjective results combined with the promising quantitative metrics on the validation dataset solidified our decision to select ResNet04 as our final model.
+
+## Conclusion 
+
+Across all list sizes, ResNet04 nearly doubles semantic relevance under Precision and Dominant Cluster Accuracy when compared to the baseline. The gains in MAP and NDCG confirm that relevant songs are not just present but also frequently rank near the top of a recommendation list. Artist diversity dips slightly as k grows (0.976 → 0.930 for the baseline, 0.908 → 0.785 for ResNet04), which aligns with expectations as longer lists are more likely to repeat artists. However, intra-list diversity is consistently higher for ResNet04 at every k. This suggests that the recommended embeddings are more spread out in audio space despite the tendency to recommend repeated artists.
+
+## Future Directions
 
 ## Repository Structure
 ```
