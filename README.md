@@ -76,7 +76,7 @@ flowchart LR
 
 ```
 
-Each song is represented by a **10**-second audio clip sampled at **22,050 Hz**. From that clip, the preprocessing pipeline creates four source-separated stem audio clips. Each audio clip is then represented as a mel spectrogram PNG. 
+Each song is represented by a **10-second** audio clip sampled at **22,050 Hz**. From that clip, the preprocessing pipeline creates four source-separated stem audio clips. Each audio clip is then represented as a mel spectrogram PNG. 
 
 #### Step 1: Stem Separation
 
@@ -85,6 +85,8 @@ The full audio clip is split into four stems (bass/drums/other/vocals) using [De
 #### Step 2: Mel Spectrogram Generation
 
 For the full mix and each stem, the project uses `librosa` to compute a [mel spectrogram](https://medium.com/analytics-vidhya/understanding-the-mel-spectrogram-fca2afa2ce53), which is a visual representation of an audio signal on a frequency scale that mimics human hearing perception.
+
+![Sample Mel Spectrogram](docs/diagrams/spectrogram_example.png)
 
 Spectrogram magnitudes are converted to decibels normalized relative to the full mix’s maximum power and saved as an 8-bit color-mapped PNG with dimensions **862 × 256**.  
 
