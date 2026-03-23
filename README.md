@@ -7,7 +7,7 @@ This project builds a content-based music recommender that learns song similarit
 **App Website:** https://dl-song-recommender.onrender.com
 
 
-## Background (*WORK ON THIS - needs to tell the situation and create the need for our model*)
+## Background
 
 Modern music platforms excel with user behavior, but behavior-only recommendation has limits. A content-agnostic approach struggles with cold-start profiles, sparse interaction data, and explaining similarity based on what songs actually sound like. 
 
