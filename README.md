@@ -148,22 +148,8 @@ What changes across notebooks 4-7 is not the backbone so much as the learning ob
 
 At a high level, the project studies one stable `ResNet18` architecture under three related training ideas: **tag-based learning**, **contrastive learning**, and **blended audio-tag supervision**. For the full architecture, loss function, and notebook-by-notebook progression, see [Model Architecture](docs/model_architecture.md).
 
- 
-
+  
 ## Evaluation
-
-Saved experiment manifests show strong semantic retrieval performance across the later models.
-
-| Model | Artist Hit@10 | Tag Overlap Hit@10 | Semantic Teacher Coverage |
-| --- | ---: | ---: | ---: |
-| Tag-aligned audio encoder | 0.118 | 0.944 | 0.994 |
-| Contrastive semantic audio encoder | 0.141 | 0.949 | 0.993 |
-| Audio-grounded contrastive encoder | 0.114 | 0.949 | 0.994 |
-| Blended-teacher late-fusion encoder | 0.123 | 0.937 | 0.994 |
-
-These results suggest...
-
-## User Evaluation
 
 We evaluate ResNet04 (our final contrastive model) against a tag-embedding baseline model by generating the top-k recommendations for various k and then computing several quality metrics. The baseline embeds each song as a weighted average of its raw tag vectors, resulting in a 5,120-dimensional representation. ResNet04 produces a compact 512-dimensional audio embedding.
 
