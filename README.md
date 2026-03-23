@@ -256,6 +256,10 @@ Across all list sizes, ResNet04 nearly doubles semantic relevance under Precisio
 
 ## Future Directions
 
+This project suggests several strong directions for future work. Expanding the recommendation catalog would improve coverage, increase diversity in retrieved songs, and make evaluation more representative of real music discovery settings. The web app could also be extended through Deezer API integration, enabling broader track access and more flexible querying, while a built-in survey feature would make it possible to collect user feedback and compare retrieval metrics against human judgments.
+
+Another important direction is to reduce reliance on tag-based supervision and continue improving how similarity is learned from audio itself. A particularly promising applied extension would be to develop a local version of the recommender for personal music libraries and independent radio stations, where interaction data is limited and content-based recommendation can provide immediate value. Together, these directions would strengthen the project both as a research system and as a practical music discovery tool.
+
 ## Repository Structure
 ```
 .
