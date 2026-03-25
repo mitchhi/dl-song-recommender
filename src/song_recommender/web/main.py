@@ -74,7 +74,7 @@ def _load_embed_uploaded_clip():
     return embed_uploaded_clip
 
 
-app = FastAPI(title="DL Song Recommender Deployment")
+app = FastAPI(title="Echoform")
 ensure_schema()
 
 
