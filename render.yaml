@@ -4,6 +4,8 @@ services:
     runtime: python
     plan: starter
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
       - key: XDG_CACHE_HOME
         value: /tmp/.cache
       - key: TORCH_HOME
