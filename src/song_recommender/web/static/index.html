@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Songhalo</title>
+    <title>SongHalo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -237,7 +237,16 @@
         box-shadow: 0 0 22px rgba(107, 182, 255, 0.2);
       }
       .hero-title span {
-        color: rgba(214, 229, 244, 0.9);
+        display: inline-block;
+        padding: 0.02em 0.06em 0.04em 0.01em;
+        margin-right: -0.02em;
+        background: linear-gradient(135deg, rgba(149, 239, 195, 0.98) 0%, rgba(121, 214, 255, 0.98) 42%, rgba(172, 194, 255, 0.96) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-shadow: none;
+        filter: drop-shadow(0 6px 18px rgba(109, 194, 255, 0.18));
       }
       .subtitle {
         max-width: 54ch;
@@ -881,6 +890,7 @@
       }
       .recommendation-loading-wave {
         position: absolute;
+        z-index: 0;
         left: 50%;
         top: 50%;
         width: 28px;
@@ -891,6 +901,9 @@
         transform: translate(-50%, -50%) scale(0.22);
         opacity: 0;
         pointer-events: none;
+      }
+      .recommendation-loading-wave.dynamic-wave {
+        animation: loading-wave-free 9.2s linear forwards;
       }
       .recommendation-loading-wave.wave-b {
         border-color: rgba(131, 230, 180, 0.52);
@@ -1025,7 +1038,7 @@
         content: "";
         position: absolute;
         opacity: 0;
-        transition: opacity 140ms ease;
+        transition: opacity 140ms ease, transform 180ms ease;
         pointer-events: none;
       }
       .recommendation-loading-node::before {
@@ -1044,6 +1057,7 @@
         height: 12%;
         border-bottom: 2px solid rgba(8, 18, 28, 0.76);
         border-radius: 0 0 999px 999px;
+        transform: scale(0.92);
       }
       .recommendation-loading-node:active {
         cursor: grabbing;
@@ -1054,8 +1068,16 @@
         box-shadow: 0 0 0 14px rgba(107, 182, 255, 0.08), 0 0 34px rgba(107, 182, 255, 0.24);
       }
       .recommendation-loading-node.dragging::before,
-      .recommendation-loading-node.dragging::after {
+      .recommendation-loading-node.dragging::after,
+      .recommendation-loading-node.happy::before,
+      .recommendation-loading-node.happy::after {
         opacity: 1;
+      }
+      .recommendation-loading-node.happy::before {
+        transform: translateY(-1px) scale(1.04);
+      }
+      .recommendation-loading-node.happy::after {
+        transform: scale(1.08);
       }
       .recommendation-loading-node.source {
         width: 58px;
@@ -1151,8 +1173,8 @@
       .recommendation-loading-node.neighbor-c,
       .recommendation-loading-node.neighbor-d,
       .recommendation-loading-node.breakaway {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         opacity: 1;
       }
       .recommendation-loading-node.neighbor-a,
@@ -1204,14 +1226,14 @@
           node-float 6.2s ease-in-out infinite;
       }
       .recommendation-loading-node.song {
-        width: 15px;
-        height: 15px;
+        width: 17px;
+        height: 17px;
         background:
           radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.96) 0%, rgba(214, 239, 255, 0.56) 18%, rgba(255, 255, 255, 0) 36%),
           radial-gradient(circle at 66% 74%, rgba(5, 18, 40, 0.16) 0%, rgba(5, 18, 40, 0) 44%),
           radial-gradient(circle at 34% 34%, rgba(228, 245, 255, 1), rgba(120, 203, 255, 0.98) 42%, rgba(57, 135, 255, 0.98) 76%);
         border: 1px solid rgba(225, 244, 255, 0.68);
-        box-shadow: 0 0 0 8px rgba(107, 182, 255, 0.07), 0 0 20px rgba(107, 182, 255, 0.2);
+        box-shadow: 0 0 0 9px rgba(107, 182, 255, 0.08), 0 0 24px rgba(107, 182, 255, 0.24);
         animation:
           song-glimmer 4.4s ease-in-out infinite,
           node-float 7.4s ease-in-out infinite;
@@ -1242,6 +1264,22 @@
         }
         100% {
           transform: translate(-50%, -50%) scale(14.5);
+          opacity: 0;
+        }
+      }
+      @keyframes loading-wave-free {
+        0% {
+          transform: translate(-50%, -50%) scale(0.18);
+          opacity: 0.94;
+        }
+        14% {
+          opacity: 0.72;
+        }
+        48% {
+          opacity: 0.34;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(24);
           opacity: 0;
         }
       }
@@ -1369,11 +1407,14 @@
         0%, 100% {
           transform: translate(0, 0) scale(1);
         }
-        33% {
-          transform: translate(4px, -5px) scale(1.04);
+        22% {
+          transform: translate(6px, -8px) scale(1.08);
         }
-        66% {
-          transform: translate(-3px, 3px) scale(0.98);
+        48% {
+          transform: translate(-5px, 4px) scale(0.95);
+        }
+        74% {
+          transform: translate(3px, 7px) scale(1.04);
         }
       }
       @keyframes neighbor-glimmer {
@@ -1501,8 +1542,14 @@
         0%, 100% {
           transform: translate(calc(-50% + var(--x2)), calc(-50% + var(--y2))) scale(calc(var(--s2, 1) * 0.95));
         }
-        50% {
+        24% {
           transform: translate(calc(-50% + var(--x2) + var(--idle-x, 8px)), calc(-50% + var(--y2) + var(--idle-y, -6px))) scale(calc(var(--s2, 1) * 1.01));
+        }
+        56% {
+          transform: translate(calc(-50% + var(--x2) + var(--idle-x-2, -6px)), calc(-50% + var(--y2) + var(--idle-y-2, 7px))) scale(calc(var(--s2, 1) * 0.93));
+        }
+        78% {
+          transform: translate(calc(-50% + var(--x2) + var(--idle-x, 8px)), calc(-50% + var(--y2) - var(--idle-y, -6px))) scale(calc(var(--s2, 1) * 1.05));
         }
       }
       .recommendation-loading-kicker {
@@ -2672,8 +2719,8 @@
         <div class="hero-badge">Discover by sound</div>
         <a class="hero-toplink" href="https://github.com/mitchhi/dl-song-recommender" target="_blank" rel="noreferrer">GitHub</a>
       </div>
-      <a class="hero-brand" href="/" aria-label="Songhalo home">
-        <h1 class="hero-title">Song<span>halo</span></h1>
+      <a class="hero-brand" href="/" aria-label="SongHalo home">
+        <h1 class="hero-title">Song<span>Halo</span></h1>
         <div class="hero-mark" aria-hidden="true">
           <span class="hero-node hero-node-source"></span>
           <span class="hero-node hero-node-a"></span>
@@ -2689,7 +2736,7 @@
           <p class="hero-detail">
             Built from spectrograms, stem separation, and learned sonic similarity.
           </p>
-          <ul class="hero-notes" aria-label="How Songhalo works">
+          <ul class="hero-notes" aria-label="How SongHalo works">
             <li class="hero-note">Start with a song</li>
             <li class="hero-note">Upload a clip</li>
             <li class="hero-note">Explore the sonic map</li>
@@ -2920,7 +2967,6 @@
 
         for (const node of visual.querySelectorAll(".recommendation-loading-node")) {
           if (node.classList.contains("source")) continue;
-          interactiveNodes.push(node);
           let activePointerId = null;
           let dragStartX = 0;
           let dragStartY = 0;
@@ -2932,6 +2978,8 @@
           let lastClientY = 0;
           let lastTime = 0;
           let throwFrame = 0;
+          let happyTimer = 0;
+          let reactionToken = 0;
 
           const shell = node.parentElement;
           if (!shell) continue;
@@ -2940,8 +2988,37 @@
             const radius = 5 + (idleIndex % 5) * 1.8;
             shell.style.setProperty("--idle-x", `${Math.round(Math.cos(angle) * radius)}px`);
             shell.style.setProperty("--idle-y", `${Math.round(Math.sin(angle) * radius)}px`);
+            shell.style.setProperty("--idle-x-2", `${Math.round(Math.cos(angle + 1.15) * (radius * 0.86))}px`);
+            shell.style.setProperty("--idle-y-2", `${Math.round(Math.sin(angle + 1.15) * (radius * 0.92))}px`);
             idleIndex += 1;
           }
+
+          const state = {
+            node,
+            shell,
+            getOffset() {
+              return { x: offsetX, y: offsetY };
+            },
+            isDragging() {
+              return activePointerId !== null;
+            },
+            bumpReaction() {
+              reactionToken += 1;
+              return reactionToken;
+            },
+            currentReactionToken() {
+              return reactionToken;
+            },
+            showHappyFace(duration = 1600) {
+              window.clearTimeout(happyTimer);
+              node.classList.add("happy");
+              happyTimer = window.setTimeout(() => {
+                if (!node.isConnected || activePointerId !== null) return;
+                node.classList.remove("happy");
+              }, duration);
+            },
+          };
+          interactiveNodes.push(state);
 
           const cancelThrow = () => {
             if (throwFrame) {
@@ -2994,6 +3071,8 @@
 
           node.addEventListener("pointerdown", (event) => {
             cancelThrow();
+            state.bumpReaction();
+            state.showHappyFace(2000);
             activePointerId = event.pointerId;
             dragStartX = event.clientX - offsetX;
             dragStartY = event.clientY - offsetY;
@@ -3030,53 +3109,85 @@
             if (node.hasPointerCapture(event.pointerId)) {
               node.releasePointerCapture(event.pointerId);
             }
+            state.showHappyFace(1800);
             throwNode();
           };
 
+          node.addEventListener("click", () => {
+            state.showHappyFace(1800);
+          });
           node.addEventListener("pointerup", release);
           node.addEventListener("pointercancel", release);
         }
 
         if (!orbit || !sourceShell) return;
-        let pulseResetTimer = 0;
-        let waveResetTimer = 0;
+
+        const spawnWave = (delayMs = 0) => {
+          const wave = document.createElement("span");
+          wave.className = "recommendation-loading-wave dynamic-wave";
+          wave.style.animationDelay = `${delayMs}ms`;
+          orbit.appendChild(wave);
+          const cleanupTimer = window.setTimeout(() => {
+            if (wave.isConnected) wave.remove();
+          }, 9800 + delayMs);
+          wave.addEventListener("animationend", () => {
+            window.clearTimeout(cleanupTimer);
+            if (wave.isConnected) wave.remove();
+          }, { once: true });
+        };
+
+        const pulseNodes = () => {
+          const sourceRect = sourceShell.getBoundingClientRect();
+          const centerX = sourceRect.left + sourceRect.width / 2;
+          const centerY = sourceRect.top + sourceRect.height / 2;
+
+          for (const state of interactiveNodes) {
+            const shellRect = state.shell.getBoundingClientRect();
+            const dx = (shellRect.left + shellRect.width / 2) - centerX;
+            const dy = (shellRect.top + shellRect.height / 2) - centerY;
+            const distance = Math.max(Math.hypot(dx, dy), 1);
+            const unitX = dx / distance;
+            const unitY = dy / distance;
+            const outward = Math.max(30, 118 - distance * 0.18);
+            const rebound = outward * 0.34;
+            const delay = Math.min(2400, distance * 3.6);
+
+            window.setTimeout(() => {
+              if (!state.node.isConnected || state.isDragging()) return;
+              const base = state.getOffset();
+              const token = state.bumpReaction();
+              state.showHappyFace(1800);
+              state.node.classList.add("reacting");
+              const animation = state.node.animate(
+                [
+                  { transform: `translate(${base.x}px, ${base.y}px) scale(1)` },
+                  { offset: 0.4, transform: `translate(${base.x + unitX * outward}px, ${base.y + unitY * outward}px) scale(1.24)` },
+                  { offset: 0.72, transform: `translate(${base.x - unitX * rebound}px, ${base.y - unitY * rebound}px) scale(0.97)` },
+                  { transform: `translate(${base.x}px, ${base.y}px) scale(1)` },
+                ],
+                {
+                  duration: 1480,
+                  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                },
+              );
+              const finishReaction = () => {
+                if (!state.node.isConnected || state.isDragging()) return;
+                if (state.currentReactionToken() !== token) return;
+                const latest = state.getOffset();
+                state.node.style.transform = `translate(${latest.x}px, ${latest.y}px)`;
+                state.node.classList.remove("reacting");
+              };
+              animation.onfinish = finishReaction;
+              animation.oncancel = finishReaction;
+            }, delay);
+          }
+        };
 
         sourceShell.addEventListener("click", () => {
-          orbit.classList.remove("pulsing");
-          void orbit.offsetWidth;
-          orbit.classList.add("pulsing");
-          window.clearTimeout(waveResetTimer);
-          waveResetTimer = window.setTimeout(() => {
-            orbit.classList.remove("pulsing");
-          }, 2200);
-
-          window.clearTimeout(pulseResetTimer);
-          for (const node of interactiveNodes) {
-            if (node.classList.contains("dragging")) continue;
-            const shell = node.parentElement;
-            if (!shell) continue;
-            const shellRect = shell.getBoundingClientRect();
-            const orbitRect = orbit.getBoundingClientRect();
-            const dx = (shellRect.left + shellRect.width / 2) - (orbitRect.left + orbitRect.width / 2);
-            const dy = (shellRect.top + shellRect.height / 2) - (orbitRect.top + orbitRect.height / 2);
-            const distance = Math.max(Math.hypot(dx, dy), 1);
-            const outward = distance < 110 ? -22 : distance < 185 ? 18 : -10;
-            const xKick = (dx / distance) * outward;
-            const yKick = (dy / distance) * outward;
-            node.classList.add("reacting");
-            node.style.transform = `translate(${xKick}px, ${yKick}px) scale(${distance < 110 ? 1.08 : 1.03})`;
-          }
-
-          pulseResetTimer = window.setTimeout(() => {
-            for (const node of interactiveNodes) {
-              if (!node.isConnected || node.classList.contains("dragging")) continue;
-              node.style.transform = "";
-              window.setTimeout(() => {
-                if (!node.isConnected) return;
-                node.classList.remove("reacting");
-              }, 720);
-            }
-          }, 760);
+          spawnWave(0);
+          spawnWave(180);
+          spawnWave(360);
+          pulseNodes();
         });
       }
 
